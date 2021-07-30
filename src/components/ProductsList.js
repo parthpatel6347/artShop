@@ -1,17 +1,29 @@
 import React from "react";
+import { withRouter } from "react-router";
 
 import ProductCard from "./ProductCard";
 import products from "../seedTest";
 
-const ProductsList = () => {
+const ProductsList = ({ match }) => {
+  let page = match.params.id;
+  let foundProducts = products.filter((product) => product.category === page);
+
   return (
     <div>
-      <h4>product list</h4>
-      {products.map(({ id, ...productData }) => (
+      <h4>
+        {page === "paintings"
+          ? "Paintings"
+          : page === "digital"
+          ? "Digital Art"
+          : page === "photos"
+          ? "Photographs"
+          : "Sculptures"}
+      </h4>
+      {foundProducts.map(({ id, ...productData }) => (
         <ProductCard key={id} id={id} {...productData} />
       ))}
     </div>
   );
 };
 
-export default ProductsList;
+export default withRouter(ProductsList);

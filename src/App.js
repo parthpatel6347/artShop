@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import ProductView from "./pages/ProductView";
+import Categories from "./pages/Categories";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/explore" exact component={Explore} />
+        <Route path="/explore" exact component={Categories} />
+        <Route path="/explore/:id" exact component={Explore} />
         <Route path="/product/:id" exact component={ProductView} />
       </Switch>
     </div>
