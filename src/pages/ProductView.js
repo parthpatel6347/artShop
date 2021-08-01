@@ -1,7 +1,9 @@
 import React from "react";
 import products from "../seedTest";
+import { connect } from "react-redux";
+import { addItem } from "../redux/cart/cartActions";
 
-const ProductView = ({ match }) => {
+const ProductView = ({ match, addItemToCart }) => {
   let foundProduct = products.find((product) => product.id === match.params.id);
   const { image, title, artist, description, category } = foundProduct;
   return (
@@ -13,9 +15,14 @@ const ProductView = ({ match }) => {
         <p>{artist}</p>
         <p>{description}</p>
         <p>{category}</p>
+        <button onClick={() => addItemToCart(foundProduct)}>Add to cart</button>
       </div>
     </div>
   );
 };
 
-export default ProductView;
+const mapDispatchtoProps = (dispatch) => ({
+  addItemToCart: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchtoProps)(ProductView);

@@ -56,7 +56,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
   );
 };
 
-const mapStateToPropes = (state) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
 });
 
@@ -64,4 +64,4 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(mapStateToPropes, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

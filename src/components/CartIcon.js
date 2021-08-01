@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { toggleVisibility } from "../redux/cart/cartActions";
 
-const CartIcon = ({ toggleCartVisibility }) => {
+const CartIcon = ({ toggleCartVisibility, cartItems }) => {
   return (
     <div onClick={toggleCartVisibility}>
       <p>
-        Cart <span>0</span>
+        Cart <span>{cartItems.length}</span>
       </p>
     </div>
   );
@@ -16,4 +16,8 @@ const mapDispatchToProps = (dispatch) => ({
   toggleCartVisibility: () => dispatch(toggleVisibility()),
 });
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+const mapStateToProps = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);

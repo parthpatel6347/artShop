@@ -26,9 +26,9 @@ const Navbar = ({ currentUser, hidden }) => {
   );
 };
 
-const mapStateToPropes = (state) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
   hidden: state.cart.hidden,
 });
 
-export default connect(mapStateToPropes)(Navbar);
+export default connect(mapStateToProps)(Navbar);
