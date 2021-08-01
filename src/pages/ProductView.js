@@ -3,9 +3,20 @@ import products from "../seedTest";
 import { connect } from "react-redux";
 import { addItem } from "../redux/cart/cartActions";
 
-const ProductView = ({ match, addItemToCart }) => {
+const ProductView = ({ match, addItemToCart, cartItems }) => {
   let foundProduct = products.find((product) => product.id === match.params.id);
   const { image, title, artist, description, category } = foundProduct;
+
+  let isInCart = cartItems.find((product) => product.id === foundProduct.id);
+
+  const handleAdd = () => {
+    if (isInCart) {
+      alert("Item already added");
+      return;
+    }
+    addItemToCart(foundProduct);
+  };
+
   return (
     <div>
       product page
@@ -15,7 +26,7 @@ const ProductView = ({ match, addItemToCart }) => {
         <p>{artist}</p>
         <p>{description}</p>
         <p>{category}</p>
-        <button onClick={() => addItemToCart(foundProduct)}>Add to cart</button>
+        <button onClick={handleAdd}>Add to cart</button>
       </div>
     </div>
   );
@@ -25,4 +36,8 @@ const mapDispatchtoProps = (dispatch) => ({
   addItemToCart: (item) => dispatch(addItem(item)),
 });
 
-export default connect(null, mapDispatchtoProps)(ProductView);
+const mapStateToProps = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+export default connect(mapStateToProps, mapDispatchtoProps)(ProductView);
