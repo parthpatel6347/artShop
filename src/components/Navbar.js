@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { auth } from "../firebase/utils";
+import CartIcon from "./CartIcon";
+import Cart from "./Cart";
 
-const Navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, hidden }) => {
   return (
     <div>
       <Link to="/">
@@ -17,13 +19,16 @@ const Navbar = ({ currentUser }) => {
         ) : (
           <Link to="/signin">Sign In</Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <Cart />}
     </div>
   );
 };
 
 const mapStateToPropes = (state) => ({
   currentUser: state.user.currentUser,
+  hidden: state.cart.hidden,
 });
 
 export default connect(mapStateToPropes)(Navbar);
