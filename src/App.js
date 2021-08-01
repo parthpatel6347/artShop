@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { auth, createUserProfileDocument } from "./firebase/utils";
 import { setCurrentUser } from "./redux/user/userActions";
+import { selectCurrentUser } from "./redux/user/userSelectors";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -57,7 +58,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
 };
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

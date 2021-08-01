@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleVisibility } from "../redux/cart/cartActions";
+import { selectCartItems } from "../redux/cart/cartSelectors";
 
 const CartIcon = ({ toggleCartVisibility, cartItems }) => {
   return (
@@ -17,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
+  cartItems: selectCartItems(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);

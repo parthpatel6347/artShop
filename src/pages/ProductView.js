@@ -2,6 +2,7 @@ import React from "react";
 import products from "../seedTest";
 import { connect } from "react-redux";
 import { addItem } from "../redux/cart/cartActions";
+import { selectCartItems } from "../redux/cart/cartSelectors";
 
 const ProductView = ({ match, addItemToCart, cartItems }) => {
   let foundProduct = products.find((product) => product.id === match.params.id);
@@ -37,7 +38,7 @@ const mapDispatchtoProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
+  cartItems: selectCartItems(state),
 });
 
 export default connect(mapStateToProps, mapDispatchtoProps)(ProductView);
