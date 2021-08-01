@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
 import { auth } from "../firebase/utils";
 
 const Navbar = ({ currentUser }) => {
@@ -20,4 +22,8 @@ const Navbar = ({ currentUser }) => {
   );
 };
 
-export default Navbar;
+const mapStateToPropes = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToPropes)(Navbar);

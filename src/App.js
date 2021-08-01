@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+
 import { auth, createUserProfileDocument } from "./firebase/utils";
+import { setCurrentUser } from "./redux/user/userActions";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -10,15 +13,13 @@ import Categories from "./pages/Categories";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
-const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-
+const App = ({ dispatchCurrentUser }) => {
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
+          dispatchCurrentUser({
             id: snapShot.id,
             ...snapShot.data(),
           });
@@ -26,7 +27,7 @@ const App = () => {
       }
       console.log("useEffect triggered");
 
-      setCurrentUser(userAuth);
+      dispatchCurrentUser(userAuth);
     });
     return () => {
       unsubscribeFromAuth();
@@ -35,7 +36,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar currentUser={currentUser} />
+      <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/explore" exact component={Categories} />
@@ -48,4 +49,8 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  dispatchCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(App);
