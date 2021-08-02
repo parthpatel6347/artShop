@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { selectCartItems, selectCartTotal } from "../redux/cart/cartSelectors";
 import { removeItem } from "../redux/cart/cartActions";
 
+import StripeButton from "../components/StripeButton";
+
 const Checkout = ({ cartItems, total, removeItem }) => {
   return (
     <div>
@@ -16,6 +18,7 @@ const Checkout = ({ cartItems, total, removeItem }) => {
         </div>
       ))}
       <h3>Total : {total}</h3>
+      <StripeButton price={total} />
     </div>
   );
 };
