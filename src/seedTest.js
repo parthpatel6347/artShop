@@ -8,6 +8,7 @@ let products = [
     category: "paintings",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ let products = [
     category: "paintings",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
   {
     id: "3",
@@ -28,6 +30,7 @@ let products = [
     category: "photos",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
   {
     id: "4",
@@ -38,6 +41,7 @@ let products = [
     category: "sculptures",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
   {
     id: "5",
@@ -48,6 +52,7 @@ let products = [
     category: "digital",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
   {
     id: "6",
@@ -58,6 +63,7 @@ let products = [
     category: "digital",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+    price: 50,
   },
 ];
 

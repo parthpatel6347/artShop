@@ -13,6 +13,7 @@ import ProductView from "./pages/ProductView";
 import Categories from "./pages/Categories";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Checkout from "./pages/Checkout";
 
 const App = ({ dispatchCurrentUser, currentUser }) => {
   useEffect(() => {
@@ -43,6 +44,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
         <Route path="/explore" exact component={Categories} />
         <Route path="/explore/:id" exact component={Explore} />
         <Route path="/product/:id" exact component={ProductView} />
+        <Route path="/checkout" exact component={Checkout} />
         <Route
           path="/signin"
           exact
