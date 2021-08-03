@@ -5,7 +5,9 @@ import { addItem } from "../redux/cart/cartActions";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 
 const ProductView = ({ match, addItemToCart, cartItems }) => {
-  let foundProduct = products.find((product) => product.id === match.params.id);
+  let foundProduct = products[match.params.page].find(
+    (product) => product.id === match.params.id
+  );
   const { image, title, artist, description, category } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);

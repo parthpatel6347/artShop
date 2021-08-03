@@ -43,8 +43,8 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/explore" exact component={Categories} />
-        <Route path="/explore/:id" exact component={Explore} />
-        <Route path="/product/:id" exact component={ProductView} />
+        <Route path="/explore/:page" exact component={Explore} />
+        <Route path="/explore/:page/:id" exact component={ProductView} />
         <Route path="/checkout" exact component={Checkout} />
         <Route path="/success" exact component={PaymentSuccess} />
         <Route

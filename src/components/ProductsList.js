@@ -5,8 +5,8 @@ import ProductCard from "./ProductCard";
 import products from "../seedTest";
 
 const ProductsList = ({ match }) => {
-  let page = match.params.id;
-  let foundProducts = products.filter((product) => product.category === page);
+  let page = match.params.page;
+  let foundProducts = products[page];
 
   return (
     <div>
