@@ -24,6 +24,16 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           (item) => item.id !== action.payload.id
         ),
       };
+    case CartActionTypes.EMPTY_CART:
+      return {
+        ...state,
+        cartItems: [],
+      };
+    case CartActionTypes.CLONE_CART:
+      return {
+        ...state,
+        cartItems: [...action.payload],
+      };
     default:
       return state;
   }

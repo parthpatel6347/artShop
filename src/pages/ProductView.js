@@ -4,7 +4,15 @@ import { addItem } from "../redux/cart/cartActions";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { selectProduct } from "../redux/products/productsSelectors";
 
-const ProductView = ({ addItemToCart, cartItems, foundProduct }) => {
+import { selectCurrentUser } from "../redux/user/userSelectors";
+import { addItemToUserCart } from "../firebase/utils";
+
+const ProductView = ({
+  addItemToCart,
+  cartItems,
+  foundProduct,
+  currentUser,
+}) => {
   const { image, title, artist, description, category } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
@@ -15,6 +23,8 @@ const ProductView = ({ addItemToCart, cartItems, foundProduct }) => {
       return;
     }
     addItemToCart(foundProduct);
+    if (currentUser)
+      addItemToUserCart(currentUser, [...cartItems, foundProduct]);
   };
 
   return (
@@ -42,6 +52,7 @@ const mapStateToProps = (state, ownProps) => ({
     ownProps.match.params.id,
     ownProps.match.params.page
   )(state),
+  currentUser: selectCurrentUser(state),
 });
 
 export default connect(mapStateToProps, mapDispatchtoProps)(ProductView);

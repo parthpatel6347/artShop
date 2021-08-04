@@ -28,7 +28,6 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
           });
         });
       }
-      console.log("useEffect triggered");
 
       dispatchCurrentUser(userAuth);
     });

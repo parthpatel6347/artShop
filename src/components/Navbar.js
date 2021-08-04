@@ -5,10 +5,17 @@ import { connect } from "react-redux";
 import { auth } from "../firebase/utils";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { selectCartHidden } from "../redux/cart/cartSelectors";
+import { emptyCart } from "../redux/cart/cartActions";
+
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
 
-const Navbar = ({ currentUser, hidden }) => {
+const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
+  const onSignOut = () => {
+    emptyLocalCart();
+    auth.signOut();
+  };
+
   return (
     <div>
       <Link to="/">
@@ -17,7 +24,7 @@ const Navbar = ({ currentUser, hidden }) => {
       <div>
         <Link to="/explore">Explore</Link>
         {currentUser ? (
-          <div onClick={() => auth.signOut()}>Sign Out</div>
+          <div onClick={onSignOut}>Sign Out</div>
         ) : (
           <Link to="/signin">Sign In</Link>
         )}
@@ -33,4 +40,8 @@ const mapStateToProps = (state) => ({
   hidden: selectCartHidden(state),
 });
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => ({
+  emptyLocalCart: () => dispatch(emptyCart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

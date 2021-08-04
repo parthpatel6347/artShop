@@ -27,6 +27,7 @@ export const createUserProfileDocument = async (userAuth, data) => {
         displayName,
         email,
         createdAt,
+        cart: [],
         ...data,
       });
     } catch (error) {
@@ -34,6 +35,47 @@ export const createUserProfileDocument = async (userAuth, data) => {
     }
   }
   return userRef;
+};
+
+export const addItemToUserCart = async (user, cartItems) => {
+  if (!user) return;
+  const userRef = firestore.doc(`users/${user.id}`);
+  const snapShot = await userRef.get();
+
+  try {
+    await userRef.set(
+      {
+        cart: cartItems,
+      },
+      { merge: true }
+    );
+    console.log("cart updated");
+  } catch (error) {
+    console.log("error setting cart", error.message);
+  }
+};
+
+export const syncCartWithUser = async (uid, cart) => {
+  if (!uid) return;
+  const userRef = firestore.doc(`users/${uid}`);
+  try {
+    await userRef.set(
+      {
+        cart: cart,
+      },
+      { merge: true }
+    );
+    console.log("cart updated");
+  } catch (error) {
+    console.log("error setting cart", error.message);
+  }
+};
+
+export const getUserCart = async (uid) => {
+  if (!uid) return;
+  const userRef = firestore.doc(`users/${uid}`);
+  let doc = await userRef.get();
+  return doc.data().cart;
 };
 
 firebase.initializeApp(firebaseConfig);

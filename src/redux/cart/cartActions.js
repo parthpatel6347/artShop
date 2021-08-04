@@ -13,3 +13,12 @@ export const removeItem = (item) => ({
   type: CartActionTypes.REMOVE_ITEM,
   payload: item,
 });
+
+export const emptyCart = () => ({
+  type: CartActionTypes.EMPTY_CART,
+});
+
+export const cloneCart = (cart) => ({
+  type: CartActionTypes.CLONE_CART,
+  payload: cart,
+});

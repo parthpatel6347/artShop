@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { auth, createUserProfileDocument } from "../firebase/utils";
 
-const SignUp = () => {
+import { syncCartWithUser } from "../firebase/utils";
+import { selectCartItems } from "../redux/cart/cartSelectors";
+import { connect } from "react-redux";
+
+const SignUp = ({ cartItems }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +31,13 @@ const SignUp = () => {
         email,
         password
       );
-      await createUserProfileDocument(user, { displayName: name });
+      await createUserProfileDocument(user, { displayName: name }).then(
+        (userCred) => {
+          if (cartItems.length) {
+            syncCartWithUser(userCred.id, cartItems);
+          }
+        }
+      );
       setFormData({
         name: "",
         email: "",
@@ -70,5 +80,8 @@ const SignUp = () => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  cartItems: selectCartItems(state),
+});
 
-export default SignUp;
+export default connect(mapStateToProps)(SignUp);
