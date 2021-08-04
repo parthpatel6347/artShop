@@ -6,10 +6,12 @@ import { selectCartItems, selectCartTotal } from "../redux/cart/cartSelectors";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 
 import { removeItem } from "../redux/cart/cartActions";
+import { emptyCart } from "../redux/cart/cartActions";
 
 // import StripeButton from "../components/StripeButton";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { addItemToUserCart, syncCartWithUser } from "../firebase/utils";
 
 const cardElementOptions = {
   style: {
@@ -19,7 +21,14 @@ const cardElementOptions = {
   hidePostalCode: true,
 };
 
-const Checkout = ({ cartItems, total, removeItem, history, currentUser }) => {
+const Checkout = ({
+  cartItems,
+  total,
+  removeItem,
+  history,
+  currentUser,
+  emptyLocalCart,
+}) => {
   useEffect(() => {
     if (!currentUser) history.push("/signin");
   });
@@ -45,8 +54,18 @@ const Checkout = ({ cartItems, total, removeItem, history, currentUser }) => {
       console.log("[error]", error);
     } else {
       history.push("/success");
+      emptyLocalCart();
+      await addItemToUserCart(currentUser, []);
       console.log("[PaymentMethod]", paymentMethod);
     }
+  };
+
+  const handleRemoveItem = async (item) => {
+    removeItem(item);
+    await addItemToUserCart(
+      currentUser,
+      cartItems.filter((cartItem) => cartItem.id !== item.id)
+    );
   };
 
   return (
@@ -56,7 +75,13 @@ const Checkout = ({ cartItems, total, removeItem, history, currentUser }) => {
         <div>
           <p>{item.title}</p>
           <p>{item.price}</p>
-          <button onClick={() => removeItem(item)}>X</button>
+          <button
+            onClick={() => {
+              handleRemoveItem(item);
+            }}
+          >
+            X
+          </button>
         </div>
       ))}
       <h3>Total : {total}</h3>
@@ -75,6 +100,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (item) => dispatch(removeItem(item)),
+  emptyLocalCart: () => dispatch(emptyCart()),
 });
 
 export default withRouter(

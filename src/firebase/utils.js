@@ -40,7 +40,6 @@ export const createUserProfileDocument = async (userAuth, data) => {
 export const addItemToUserCart = async (user, cartItems) => {
   if (!user) return;
   const userRef = firestore.doc(`users/${user.id}`);
-  const snapShot = await userRef.get();
 
   try {
     await userRef.set(
