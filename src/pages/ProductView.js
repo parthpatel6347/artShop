@@ -1,13 +1,10 @@
 import React from "react";
-import products from "../seedTest";
 import { connect } from "react-redux";
 import { addItem } from "../redux/cart/cartActions";
 import { selectCartItems } from "../redux/cart/cartSelectors";
+import { selectProduct } from "../redux/products/productsSelectors";
 
-const ProductView = ({ match, addItemToCart, cartItems }) => {
-  let foundProduct = products[match.params.page].find(
-    (product) => product.id === match.params.id
-  );
+const ProductView = ({ addItemToCart, cartItems, foundProduct }) => {
   const { image, title, artist, description, category } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
@@ -39,8 +36,12 @@ const mapDispatchtoProps = (dispatch) => ({
   addItemToCart: (item) => dispatch(addItem(item)),
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   cartItems: selectCartItems(state),
+  foundProduct: selectProduct(
+    ownProps.match.params.id,
+    ownProps.match.params.page
+  )(state),
 });
 
 export default connect(mapStateToProps, mapDispatchtoProps)(ProductView);

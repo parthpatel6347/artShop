@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 import { selectCartItems, selectCartTotal } from "../redux/cart/cartSelectors";
+import { selectCurrentUser } from "../redux/user/userSelectors";
+
 import { removeItem } from "../redux/cart/cartActions";
 
 // import StripeButton from "../components/StripeButton";
@@ -17,7 +19,11 @@ const cardElementOptions = {
   hidePostalCode: true,
 };
 
-const Checkout = ({ cartItems, total, removeItem, history }) => {
+const Checkout = ({ cartItems, total, removeItem, history, currentUser }) => {
+  useEffect(() => {
+    if (!currentUser) history.push("/signin");
+  });
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -64,6 +70,7 @@ const Checkout = ({ cartItems, total, removeItem, history }) => {
 const mapStateToProps = (state) => ({
   cartItems: selectCartItems(state),
   total: selectCartTotal(state),
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

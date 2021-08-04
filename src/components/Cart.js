@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 import { selectCartItems } from "../redux/cart/cartSelectors";
+import { selectCurrentUser } from "../redux/user/userSelectors";
 import { toggleVisibility } from "../redux/cart/cartActions";
 
-const Cart = ({ cartItems, history, toggleCartVisibility }) => {
+const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
   const handleCheckoutClick = () => {
-    history.push("/checkout");
+    if (!currentUser) {
+      history.push("/signin");
+    } else {
+      history.push("/checkout");
+    }
     toggleCartVisibility();
   };
 
@@ -25,6 +30,7 @@ const Cart = ({ cartItems, history, toggleCartVisibility }) => {
 
 const mapStateToProps = (state) => ({
   cartItems: selectCartItems(state),
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
