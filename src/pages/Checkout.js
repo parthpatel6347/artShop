@@ -11,7 +11,11 @@ import { emptyCart } from "../redux/cart/cartActions";
 // import StripeButton from "../components/StripeButton";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { addItemToUserCart, syncCartWithUser } from "../firebase/utils";
+import {
+  addItemToUserCart,
+  addOrdertoUser,
+  syncCartWithUser,
+} from "../firebase/utils";
 
 const cardElementOptions = {
   style: {
@@ -54,6 +58,7 @@ const Checkout = ({
       console.log("[error]", error);
     } else {
       history.push("/success");
+      await addOrdertoUser(currentUser.id, cartItems);
       emptyLocalCart();
       await addItemToUserCart(currentUser, []);
       console.log("[PaymentMethod]", paymentMethod);

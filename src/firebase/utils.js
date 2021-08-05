@@ -28,6 +28,7 @@ export const createUserProfileDocument = async (userAuth, data) => {
         email,
         createdAt,
         cart: [],
+        orders: [],
         ...data,
       });
     } catch (error) {
@@ -75,6 +76,23 @@ export const getUserCart = async (uid) => {
   const userRef = firestore.doc(`users/${uid}`);
   let doc = await userRef.get();
   return doc.data().cart;
+};
+
+export const addOrdertoUser = async (uid, cart) => {
+  if (!uid) return;
+  const userRef = firestore.doc(`users/${uid}`);
+  let newOrder = {
+    date: new Date(),
+    items: cart,
+  };
+  try {
+    await userRef.update({
+      orders: firebase.firestore.FieldValue.arrayUnion(newOrder),
+    });
+    console.log("order added to user");
+  } catch (error) {
+    console.log("error setting order to user DB.", error.message);
+  }
 };
 
 firebase.initializeApp(firebaseConfig);
