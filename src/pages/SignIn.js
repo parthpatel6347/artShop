@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { signInWithGoogle, auth } from "../firebase/utils";
+import { signInWithGoogle, auth, getUserOrders } from "../firebase/utils";
 import { Link } from "react-router-dom";
 import { syncCartWithUser } from "../firebase/utils";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { connect } from "react-redux";
 import { getUserCart } from "../firebase/utils";
 import { cloneCart } from "../redux/cart/cartActions";
+import { syncOrders } from "../redux/orders/ordersActions";
 
-const SignIn = ({ cartItems, cloneCart }) => {
+const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { email, password } = formData;
 
@@ -27,6 +28,7 @@ const SignIn = ({ cartItems, cloneCart }) => {
           } else {
             getUserCart(userCred.user.uid).then((cart) => cloneCart(cart));
           }
+          getUserOrders(userCred.user.uid).then((orders) => syncOrders(orders));
         });
       setFormData({ email: "", password: "" });
     } catch (error) {
@@ -42,6 +44,7 @@ const SignIn = ({ cartItems, cloneCart }) => {
       } else {
         getUserCart(userCred.user.uid).then((cart) => cloneCart(cart));
       }
+      getUserOrders(userCred.user.uid).then((orders) => syncOrders(orders));
     });
   };
 
@@ -77,6 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   cloneCart: (cart) => dispatch(cloneCart(cart)),
+  syncOrders: (orders) => dispatch(syncOrders(orders)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

@@ -24,7 +24,10 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
       <div>
         <Link to="/explore">Explore</Link>
         {currentUser ? (
-          <div onClick={onSignOut}>Sign Out</div>
+          <div>
+            <div onClick={onSignOut}>Sign Out</div>
+            <Link to="/orders">Orders</Link>
+          </div>
         ) : (
           <Link to="/signin">Sign In</Link>
         )}

@@ -82,7 +82,7 @@ export const addOrdertoUser = async (uid, cart) => {
   if (!uid) return;
   const userRef = firestore.doc(`users/${uid}`);
   let newOrder = {
-    date: new Date(),
+    date: new Date().toString(),
     items: cart,
   };
   try {
@@ -93,6 +93,13 @@ export const addOrdertoUser = async (uid, cart) => {
   } catch (error) {
     console.log("error setting order to user DB.", error.message);
   }
+};
+
+export const getUserOrders = async (uid) => {
+  if (!uid) return;
+  const userRef = firestore.doc(`users/${uid}`);
+  let doc = await userRef.get();
+  return doc.data().orders;
 };
 
 firebase.initializeApp(firebaseConfig);

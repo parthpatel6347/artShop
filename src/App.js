@@ -15,6 +15,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import Orders from "./pages/Orders";
 
 const App = ({ dispatchCurrentUser, currentUser }) => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
         <Route path="/explore/:page/:id" exact component={ProductView} />
         <Route path="/checkout" exact component={Checkout} />
         <Route path="/success" exact component={PaymentSuccess} />
+        <Route path="/orders" exact component={Orders} />
         <Route
           path="/signin"
           exact

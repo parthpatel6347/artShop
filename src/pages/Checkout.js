@@ -7,6 +7,9 @@ import { selectCurrentUser } from "../redux/user/userSelectors";
 
 import { removeItem } from "../redux/cart/cartActions";
 import { emptyCart } from "../redux/cart/cartActions";
+import { syncOrders } from "../redux/orders/ordersActions";
+
+import { getUserOrders } from "../firebase/utils";
 
 // import StripeButton from "../components/StripeButton";
 
@@ -32,6 +35,7 @@ const Checkout = ({
   history,
   currentUser,
   emptyLocalCart,
+  syncOrders,
 }) => {
   useEffect(() => {
     if (!currentUser) history.push("/signin");
@@ -58,9 +62,19 @@ const Checkout = ({
       console.log("[error]", error);
     } else {
       history.push("/success");
+
+      //update user orders on firebase Database
       await addOrdertoUser(currentUser.id, cartItems);
+
+      //empty cart in redux state
       emptyLocalCart();
+
+      //empty cart on user firebase database
       await addItemToUserCart(currentUser, []);
+
+      //get orders from user firebase database and update orders in redux state
+      await getUserOrders(currentUser.id).then((orders) => syncOrders(orders));
+
       console.log("[PaymentMethod]", paymentMethod);
     }
   };
@@ -106,6 +120,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (item) => dispatch(removeItem(item)),
   emptyLocalCart: () => dispatch(emptyCart()),
+  syncOrders: (orders) => dispatch(syncOrders(orders)),
 });
 
 export default withRouter(
