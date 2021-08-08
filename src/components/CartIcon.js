@@ -5,11 +5,9 @@ import { selectCartItems } from "../redux/cart/cartSelectors";
 
 const CartIcon = ({ toggleCartVisibility, cartItems }) => {
   return (
-    <div onClick={toggleCartVisibility}>
-      <p>
-        Cart <span>{cartItems.length}</span>
-      </p>
-    </div>
+    <span onClick={toggleCartVisibility}>
+      Cart <span>{cartItems.length}</span>
+    </span>
   );
 };
 

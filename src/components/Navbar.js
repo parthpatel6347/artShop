@@ -10,6 +10,12 @@ import { emptyCart } from "../redux/cart/cartActions";
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
 
+import {
+  NavbarContainer,
+  NavbarInner,
+  NavLinksContainer,
+} from "../styles/NavbarStyles";
+
 const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
   const onSignOut = () => {
     emptyLocalCart();
@@ -17,24 +23,26 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
   };
 
   return (
-    <div>
-      <Link to="/">
-        <h3>artShop</h3>
-      </Link>
-      <div>
-        <Link to="/explore">Explore</Link>
-        {currentUser ? (
-          <div>
-            <div onClick={onSignOut}>Sign Out</div>
-            <Link to="/orders">Orders</Link>
-          </div>
-        ) : (
-          <Link to="/signin">Sign In</Link>
-        )}
-        <CartIcon />
-      </div>
-      {hidden ? null : <Cart />}
-    </div>
+    <NavbarContainer>
+      <NavbarInner>
+        <Link to="/">
+          <h3>artShop</h3>
+        </Link>
+        <NavLinksContainer>
+          <Link to="/explore">Explore</Link>
+          {currentUser ? (
+            <>
+              <div onClick={onSignOut}>Sign Out</div>
+              <Link to="/orders">Orders</Link>
+            </>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
+          <CartIcon />
+        </NavLinksContainer>
+        {hidden ? null : <Cart />}
+      </NavbarInner>
+    </NavbarContainer>
   );
 };
 
