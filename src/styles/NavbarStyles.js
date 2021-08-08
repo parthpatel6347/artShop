@@ -7,12 +7,12 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavbarInner = styled.div`
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: 70%;
+  width: 85%;
   box-sizing: border-box;
 `;
 
