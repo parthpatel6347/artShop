@@ -2,9 +2,13 @@ import React from "react";
 
 import {
   ButtonStyled,
-  Container,
+  ContainerRight,
   ContainerLeft,
+  FrameBottom,
+  FrameTop,
   HomeContainer,
+  ImageContainer,
+  ImageStyled,
   SubText,
   TextContainer,
 } from "../styles/HomeStyles";
@@ -20,11 +24,17 @@ const Home = () => {
         </SubText>
         <ButtonStyled to="/explore">Explore</ButtonStyled>
       </ContainerLeft>
-      <Container>
-        <h2>Right</h2>
-      </Container>
+      <ContainerRight>
+        <ImageContainer>
+          <FrameTop />
+          <ImageStyled />
+          <FrameBottom />
+        </ImageContainer>
+      </ContainerRight>
     </HomeContainer>
   );
 };
 
 export default Home;
+
+// https://images.unsplash.com/photo-1617503752587-97d2103a96ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1919&q=80
