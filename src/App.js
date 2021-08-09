@@ -17,6 +17,9 @@ import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
 
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+
 const App = ({ dispatchCurrentUser, currentUser }) => {
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -39,25 +42,31 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
 
   return (
     <div>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/explore" exact component={Categories} />
-        <Route path="/explore/:page" exact component={Explore} />
-        <Route path="/explore/:page/:id" exact component={ProductView} />
-        <Route path="/checkout" exact component={Checkout} />
-        <Route path="/success" exact component={PaymentSuccess} />
-        <Route path="/orders" exact component={Orders} />
-        <Route
-          path="/signin"
-          exact
-          render={() => (currentUser ? <Redirect to="/explore" /> : <SignIn />)}
-        />
-        <Route
-          path="/signup"
-          render={() => (currentUser ? <Redirect to="/explore" /> : <SignUp />)}
-        />
-      </Switch>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/explore" exact component={Categories} />
+          <Route path="/explore/:page" exact component={Explore} />
+          <Route path="/explore/:page/:id" exact component={ProductView} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/success" exact component={PaymentSuccess} />
+          <Route path="/orders" exact component={Orders} />
+          <Route
+            path="/signin"
+            exact
+            render={() =>
+              currentUser ? <Redirect to="/explore" /> : <SignIn />
+            }
+          />
+          <Route
+            path="/signup"
+            render={() =>
+              currentUser ? <Redirect to="/explore" /> : <SignUp />
+            }
+          />
+        </Switch>
+      </ThemeProvider>
     </div>
   );
 };
