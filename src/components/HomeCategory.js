@@ -3,20 +3,30 @@ import {
   ButtonStyled,
   CategoryContainer,
   CategoryDescription,
+  CategoryFrame,
+  CategoryImageContainer,
   CategoryInfo,
   CategoryTitle,
+  CategoryImage,
 } from "../styles/HomeStyles";
 
-const HomeCategory = () => {
+const HomeCategory = ({ title, description, image }) => {
   return (
     <CategoryContainer>
+      <div>
+        <CategoryImageContainer>
+          <CategoryImage
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          ></CategoryImage>
+          <CategoryFrame></CategoryFrame>
+        </CategoryImageContainer>
+      </div>
       <CategoryInfo>
-        <CategoryTitle>Paintings</CategoryTitle>
-        <CategoryDescription>
-          The most exquisite collection paintings from top artists around the
-          world
-        </CategoryDescription>
-        <ButtonStyled>Explore paintings</ButtonStyled>
+        <CategoryTitle>{title}</CategoryTitle>
+        <CategoryDescription>{description}</CategoryDescription>
+        <ButtonStyled>Explore {title.toLowerCase()}</ButtonStyled>
       </CategoryInfo>
     </CategoryContainer>
   );
