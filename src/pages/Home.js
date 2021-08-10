@@ -2,6 +2,7 @@ import React from "react";
 import HomeCategory from "../components/HomeCategory";
 import HomeCategoryAlt from "../components/HomeCategoryAlt";
 import HomeSeparatorText from "../components/HomeSeparatorText";
+import Services from "../components/Services";
 
 import {
   ButtonStyled,
@@ -58,6 +59,8 @@ const Home = () => {
         description={photos.description}
         image={photos.image}
       />
+      <HomeSeparatorText text="We promise the best services" />
+      <Services />
     </>
   );
 };

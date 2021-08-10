@@ -167,3 +167,37 @@ export const CategoryFrame = styled.div`
   border: 4px solid ${(props) => props.theme.colors.gold};
   box-sizing: border-box;
 `;
+
+//services styles
+
+export const ServicesContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 65%;
+`;
+
+export const ServiceCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+`;
+
+export const ServiceIcon = styled.img`
+  height: 48px;
+`;
+
+export const ServiceTitle = styled.span`
+  font-family: ${(props) => props.theme.fonts.sans};
+  color: ${(props) => props.theme.colors.primary};
+  font-size: 24px;
+  margin-top: 20px;
+`;
+
+export const ServiceDescription = styled.span`
+  font-size: 20px;
+  font-family: ${(props) => props.theme.fonts.sans};
+  color: ${(props) => props.theme.colors.gold};
+  margin-top: 10px;
+`;
