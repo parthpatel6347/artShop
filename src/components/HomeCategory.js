@@ -10,7 +10,7 @@ import {
   CategoryImage,
 } from "../styles/HomeStyles";
 
-const HomeCategory = ({ title, description, image }) => {
+const HomeCategory = ({ title, description, image, link }) => {
   return (
     <CategoryContainer>
       <div>
@@ -26,7 +26,9 @@ const HomeCategory = ({ title, description, image }) => {
       <CategoryInfo>
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>
-        <ButtonStyled>Explore {title.toLowerCase()}</ButtonStyled>
+        <ButtonStyled to={`/explore/${link}`}>
+          Explore {title.toLowerCase()}
+        </ButtonStyled>
       </CategoryInfo>
     </CategoryContainer>
   );

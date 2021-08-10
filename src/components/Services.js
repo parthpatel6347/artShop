@@ -7,24 +7,15 @@ import returns from "../svg/return.svg";
 import ServicesCard from "./ServicesCard";
 
 const Services = () => {
-  const { art, shipping, returns } = services;
   return (
     <ServicesContainer>
-      <ServicesCard
-        title={art.title}
-        description={art.description}
-        logo={art.logo}
-      />
-      <ServicesCard
-        title={shipping.title}
-        description={shipping.description}
-        logo={shipping.logo}
-      />
-      <ServicesCard
-        title={returns.title}
-        description={returns.description}
-        logo={returns.logo}
-      />
+      {Object.keys(services).map((key) => (
+        <ServicesCard
+          title={services[key].title}
+          description={services[key].description}
+          logo={services[key].logo}
+        />
+      ))}
     </ServicesContainer>
   );
 };
