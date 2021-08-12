@@ -25,7 +25,7 @@ const Home = () => {
       <HomeContainer>
         <ContainerLeft>
           <TextContainer>Extraordinary art,</TextContainer>
-          <TextContainer>Curated by experts.</TextContainer>
+          <TextContainer>Curated by masters.</TextContainer>
           <SubText>
             Discover and collect the best art from around the globe.
           </SubText>

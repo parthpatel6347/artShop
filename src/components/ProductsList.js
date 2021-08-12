@@ -6,11 +6,13 @@ import { selectCategory } from "../redux/products/productsSelectors";
 
 import ProductCard from "./ProductCard";
 
+import { ProductsContainer, ProductsMain } from "../styles/ProductListStyles";
+
 const ProductsList = ({ match, category }) => {
   let page = match.params.page;
 
   return (
-    <div>
+    <ProductsMain>
       <h4>
         {page === "paintings"
           ? "Paintings"
@@ -20,10 +22,12 @@ const ProductsList = ({ match, category }) => {
           ? "Photographs"
           : "Sculptures"}
       </h4>
-      {category.map(({ id, ...productData }) => (
-        <ProductCard key={id} id={id} {...productData} />
-      ))}
-    </div>
+      <ProductsContainer>
+        {category.map(({ id, ...productData }) => (
+          <ProductCard key={id} id={id} {...productData} />
+        ))}
+      </ProductsContainer>
+    </ProductsMain>
   );
 };
 

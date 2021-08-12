@@ -12,10 +12,10 @@ export const CategoryContainer = styled.div`
 `;
 
 export const CategoryCardContainer = styled.div`
-  margin: 18px;
+  margin: 30px;
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 75%;
 `;
 
 export const CategoryImageContainer = styled.div`
