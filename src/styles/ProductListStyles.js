@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ProductsMain = styled.div`
   border: 1px dotted purple; /////////
@@ -16,13 +17,14 @@ export const ProductsContainer = styled.div`
 
 //Product Card styles
 
-export const ProductCardMain = styled.div`
+export const ProductCardMain = styled(Link)`
   /* border: 1px dotted red; */
   width: 305px;
   height: 455px;
   display: flex;
   flex-direction: column;
   margin-bottom: 70px;
+  text-decoration: none;
 `;
 
 export const ImageContainer = styled.div`

@@ -6,6 +6,18 @@ import { selectProduct } from "../redux/products/productsSelectors";
 
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { addItemToUserCart } from "../firebase/utils";
+import {
+  ButtonStyled,
+  Description,
+  InfoContainer,
+  ProductImage,
+  ProductImageContainer,
+  ProductPrice,
+  ProductTitle,
+  ProductViewMain,
+  SubTextGold,
+  SubTextPrimary,
+} from "../styles/ProductViewStyles";
 
 const ProductView = ({
   addItemToCart,
@@ -13,7 +25,7 @@ const ProductView = ({
   foundProduct,
   currentUser,
 }) => {
-  const { image, title, artist, description, category } = foundProduct;
+  const { image, title, artist, description, category, price } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
 
@@ -28,17 +40,31 @@ const ProductView = ({
   };
 
   return (
-    <div>
-      product page
-      <div style={{ border: "1px solid black" }}>
-        <img src={image} alt={title} />
-        <p>{title}</p>
+    <ProductViewMain>
+      <ProductImageContainer>
+        <ProductImage
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        />
+      </ProductImageContainer>
+      <InfoContainer>
+        <ProductTitle>{title}</ProductTitle>
+        <span style={{ marginBottom: "40px" }}>
+          <SubTextPrimary>By</SubTextPrimary>
+          <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
+        </span>
+        <ProductPrice>${price}</ProductPrice>
+        <Description>{description}</Description>
+        <ButtonStyled onClick={handleAdd}>Add to cart</ButtonStyled>
+
+        {/* <p>{title}</p>
         <p>{artist}</p>
         <p>{description}</p>
         <p>{category}</p>
-        <button onClick={handleAdd}>Add to cart</button>
-      </div>
-    </div>
+        <button onClick={handleAdd}>Add to cart</button> */}
+      </InfoContainer>
+    </ProductViewMain>
   );
 };
 

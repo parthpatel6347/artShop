@@ -14,7 +14,7 @@ import {
 
 const ProductCard = ({ title, artist, image, id, location, price }) => {
   return (
-    <ProductCardMain>
+    <ProductCardMain to={`${location.pathname}/${id}`}>
       <ImageContainer>
         <ProductImage
           style={{
@@ -38,10 +38,3 @@ const ProductCard = ({ title, artist, image, id, location, price }) => {
 };
 
 export default withRouter(ProductCard);
-
-{
-  /* <Link to={`${location.pathname}/${id}`}>
-<img src={image} alt={title} />
-<p>{title}</p>
-</Link> */
-}
