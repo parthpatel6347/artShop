@@ -5,6 +5,11 @@ import { withRouter } from "react-router";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { toggleVisibility } from "../redux/cart/cartActions";
+import {
+  CartMenuItemsContainer,
+  CartMenuMain,
+  CheckoutButton,
+} from "../styles/NavbarStyles";
 
 const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
   const handleCheckoutClick = () => {
@@ -17,14 +22,16 @@ const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
   };
 
   return (
-    <div style={{ backgroundColor: "blue", height: "400px", width: "200px" }}>
-      {cartItems.length ? (
-        cartItems.map((item) => <h4>{item.title}</h4>)
-      ) : (
-        <p>Your cart is empty</p>
-      )}
-      <button onClick={handleCheckoutClick}>Checkout</button>
-    </div>
+    <CartMenuMain>
+      <CartMenuItemsContainer>
+        {cartItems.length ? (
+          cartItems.map((item) => <h4>{item.title}</h4>)
+        ) : (
+          <p>Your cart is empty</p>
+        )}
+      </CartMenuItemsContainer>
+      <CheckoutButton onClick={handleCheckoutClick}>Checkout</CheckoutButton>
+    </CartMenuMain>
   );
 };
 

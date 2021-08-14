@@ -9,11 +9,14 @@ import { emptyCart } from "../redux/cart/cartActions";
 
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
+import { ReactComponent as Logo } from "../svg/logo.svg";
 
 import {
   NavbarContainer,
   NavbarInner,
   NavLinksContainer,
+  ShopTitle,
+  NavLink,
 } from "../styles/NavbarStyles";
 
 const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
@@ -25,18 +28,19 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
   return (
     <NavbarContainer>
       <NavbarInner>
-        <Link to="/">
-          <h3>artShop</h3>
-        </Link>
+        <ShopTitle to="/">
+          <Logo style={{ marginRight: "15px" }} />
+          artShop
+        </ShopTitle>
         <NavLinksContainer>
-          <Link to="/explore">Explore</Link>
+          <NavLink to="/explore">explore</NavLink>
           {currentUser ? (
             <>
               <div onClick={onSignOut}>Sign Out</div>
-              <Link to="/orders">Orders</Link>
+              <NavLink to="/orders">Orders</NavLink>
             </>
           ) : (
-            <Link to="/signin">Sign In</Link>
+            <NavLink to="/signin">login</NavLink>
           )}
           <CartIcon />
         </NavLinksContainer>

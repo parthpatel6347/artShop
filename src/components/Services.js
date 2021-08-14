@@ -1,10 +1,12 @@
 import React from "react";
 
 import { ServicesContainer } from "../styles/HomeStyles";
+
+import ServicesCard from "./ServicesCard";
+
 import certificate from "../svg/certificate.svg";
 import truck from "../svg/truck.svg";
 import returns from "../svg/return.svg";
-import ServicesCard from "./ServicesCard";
 
 const Services = () => {
   return (
