@@ -10,6 +10,7 @@ import {
   CartMenuMain,
   CheckoutButton,
 } from "../styles/NavbarStyles";
+import CartMenuItem from "./CartMenuItem";
 
 const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
   const handleCheckoutClick = () => {
@@ -25,7 +26,13 @@ const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
     <CartMenuMain>
       <CartMenuItemsContainer>
         {cartItems.length ? (
-          cartItems.map((item) => <h4>{item.title}</h4>)
+          cartItems.map((item) => (
+            <CartMenuItem
+              title={item.title}
+              image={item.image}
+              price={item.price}
+            />
+          ))
         ) : (
           <p>Your cart is empty</p>
         )}

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { getUserCart } from "../firebase/utils";
 import { cloneCart } from "../redux/cart/cartActions";
 import { syncOrders } from "../redux/orders/ordersActions";
+import { ContainerMain, Header } from "../styles/SigninStyles";
 
 const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -49,28 +50,27 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-        <button type="submit">Sign in</button>
-        <button onClick={handleGoogleSignin}>Sign in with Google</button>
-      </form>
+    <ContainerMain>
+      <Header>Sign In</Header>
+      <input
+        placeholder="Email"
+        type="email"
+        name="email"
+        value={email}
+        onChange={handleChange}
+      />
+      <input
+        placeholder="Password"
+        type="password"
+        name="password"
+        value={password}
+        onChange={handleChange}
+      />
+      <button onClick={handleSubmit}>Sign in</button>
+      <button onClick={handleGoogleSignin}>Sign in with Google</button>
 
       <Link to="/signup">Sign up using email</Link>
-    </div>
+    </ContainerMain>
   );
 };
 
