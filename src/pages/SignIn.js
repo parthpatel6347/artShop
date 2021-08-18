@@ -7,7 +7,18 @@ import { connect } from "react-redux";
 import { getUserCart } from "../firebase/utils";
 import { cloneCart } from "../redux/cart/cartActions";
 import { syncOrders } from "../redux/orders/ordersActions";
-import { ContainerMain, Header } from "../styles/SigninStyles";
+import {
+  ButtonGoogle,
+  ButtonStyled,
+  ContainerMain,
+  CustomInput,
+  Divider,
+  DividerLine,
+  FormContainer,
+  Header,
+} from "../styles/SigninStyles";
+
+import { ReactComponent as GoogleLogo } from "../svg/googleIcon.svg";
 
 const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -51,25 +62,35 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
 
   return (
     <ContainerMain>
-      <Header>Sign In</Header>
-      <input
-        placeholder="Email"
-        type="email"
-        name="email"
-        value={email}
-        onChange={handleChange}
-      />
-      <input
-        placeholder="Password"
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-      />
-      <button onClick={handleSubmit}>Sign in</button>
-      <button onClick={handleGoogleSignin}>Sign in with Google</button>
-
-      <Link to="/signup">Sign up using email</Link>
+      <FormContainer>
+        <Header>Sign In</Header>
+        <CustomInput
+          placeholder="Email"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+        <CustomInput
+          placeholder="Password"
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
+        <ButtonStyled onClick={handleSubmit}>Sign in</ButtonStyled>
+        <Divider>
+          <DividerLine />
+          <span style={{ margin: "0 10px" }}>OR</span>
+          <DividerLine />
+        </Divider>
+        <ButtonGoogle onClick={handleGoogleSignin}>
+          Sign in with Google
+        </ButtonGoogle>
+      </FormContainer>
+      <FormContainer>
+        Don't have an account?<Link to="/signup">Sign up</Link>
+      </FormContainer>
     </ContainerMain>
   );
 };
