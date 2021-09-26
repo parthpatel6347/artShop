@@ -78,3 +78,47 @@ export const IconContainer = styled.div`
     cursor: pointer;
   }
 `;
+
+export const TotalText = styled.span`
+  font-size: 22px;
+  color: ${(props) => props.theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-right: 40px;
+  align-self: flex-end;
+`;
+
+export const TitleContainer = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 2px solid ${(props) => props.theme.colors.gold};
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px 5px 15px;
+`;
+
+export const Title = styled.span`
+  font-size: 32px;
+  color: ${(props) => props.theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
+  font-weight: 400;
+  letter-spacing: 0.2px;
+`;
+
+export const ItemCount = styled.span`
+  font-size: 20px;
+  color: ${(props) => props.theme.colors.gold};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  margin-left: 20px;
+`;
+
+export const PaymentContainer = styled.div`
+  width: 850px;
+  display: flex;
+  flex-direction: column;
+`;

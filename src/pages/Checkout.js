@@ -19,7 +19,15 @@ import {
   addOrdertoUser,
   syncCartWithUser,
 } from "../firebase/utils";
-import { CheckoutMain, CheckoutCartContainer } from "../styles/CheckoutStyles";
+import {
+  CheckoutMain,
+  CheckoutCartContainer,
+  TotalText,
+  TitleContainer,
+  Title,
+  ItemCount,
+  PaymentContainer,
+} from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
 
 const cardElementOptions = {
@@ -91,8 +99,11 @@ const Checkout = ({
 
   return (
     <CheckoutMain>
-      <h2>Checkout</h2>
       <CheckoutCartContainer>
+        <TitleContainer>
+          <Title>Cart</Title>
+          <ItemCount>{cartItems.length} Items</ItemCount>
+        </TitleContainer>
         {cartItems.map((item) => (
           <CheckoutCartItem
             item={item}
@@ -101,11 +112,15 @@ const Checkout = ({
             }}
           />
         ))}
+        <TotalText>Total : ${total}.00</TotalText>
       </CheckoutCartContainer>
-      <h3>Total : {total}</h3>
-      {/* <StripeButton price={total} /> */}
-      <CardElement options={cardElementOptions} />
-      <button onClick={handleSubmit}>pay</button>
+      <PaymentContainer>
+        <TitleContainer>
+          <Title>Payment</Title>
+        </TitleContainer>
+        <CardElement options={cardElementOptions} />
+        <button onClick={handleSubmit}>pay</button>
+      </PaymentContainer>
     </CheckoutMain>
   );
 };
