@@ -6,7 +6,7 @@ export const ProductViewMain = styled.div`
   margin: 40px auto 0;
   padding: 65px;
   display: flex;
-  background-color: #f5f0e6;
+  background-color: ${(props) => props.theme.colors.bgDarker};
 `;
 
 export const ProductImageContainer = styled.div`

@@ -4,6 +4,13 @@ import { auth, createUserProfileDocument } from "../firebase/utils";
 import { syncCartWithUser } from "../firebase/utils";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { connect } from "react-redux";
+import {
+  ContainerMain,
+  FormContainer,
+  Header,
+  CustomInput,
+  ButtonStyled,
+} from "../styles/SigninStyles";
 
 const SignUp = ({ cartItems }) => {
   const [formData, setFormData] = useState({
@@ -50,34 +57,64 @@ const SignUp = ({ cartItems }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="name" name="name" value={name} onChange={handleChange} />
-        <label>Email</label>
-        <input
+    <ContainerMain>
+      <FormContainer>
+        <Header>Sign Up</Header>
+        <CustomInput
+          placeholder="Name"
+          name="name"
+          type="name"
+          value={name}
+          onChange={handleChange}
+        />
+        <CustomInput
+          placeholder="Email"
           type="email"
           name="email"
           value={email}
           onChange={handleChange}
         />
-        <label>Password</label>
-        <input
+        <CustomInput
+          placeholder="Password"
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
         />
-        <label>Confirm Password</label>
-        <input
+        <CustomInput
+          placeholder="Password"
           type="password"
           name="cnfPassword"
           value={cnfPassword}
           onChange={handleChange}
         />
-        <button type="submit">Sign up</button>
-      </form>
-    </div>
+        {/* <label>Name</label>
+          <input type="name" name="name" value={name} onChange={handleChange} />
+
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            name="cnfPassword"
+            value={cnfPassword}
+            onChange={handleChange}
+          /> */}
+        <ButtonStyled onClick={handleSubmit}>Sign up</ButtonStyled>
+      </FormContainer>
+    </ContainerMain>
   );
 };
 const mapStateToProps = (state) => ({

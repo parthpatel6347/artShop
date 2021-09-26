@@ -19,6 +19,8 @@ import {
   addOrdertoUser,
   syncCartWithUser,
 } from "../firebase/utils";
+import { CheckoutMain, CheckoutCartContainer } from "../styles/CheckoutStyles";
+import CheckoutCartItem from "../components/CheckoutCartItem";
 
 const cardElementOptions = {
   style: {
@@ -88,26 +90,23 @@ const Checkout = ({
   };
 
   return (
-    <div>
+    <CheckoutMain>
       <h2>Checkout</h2>
-      {cartItems.map((item) => (
-        <div>
-          <p>{item.title}</p>
-          <p>{item.price}</p>
-          <button
-            onClick={() => {
+      <CheckoutCartContainer>
+        {cartItems.map((item) => (
+          <CheckoutCartItem
+            item={item}
+            remove={() => {
               handleRemoveItem(item);
             }}
-          >
-            X
-          </button>
-        </div>
-      ))}
+          />
+        ))}
+      </CheckoutCartContainer>
       <h3>Total : {total}</h3>
       {/* <StripeButton price={total} /> */}
       <CardElement options={cardElementOptions} />
       <button onClick={handleSubmit}>pay</button>
-    </div>
+    </CheckoutMain>
   );
 };
 

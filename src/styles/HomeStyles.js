@@ -5,7 +5,7 @@ export const HomeContainer = styled.div`
   box-sizing: border-box;
   /* border: 1px dotted black; */
   width: 65%;
-  margin: 0 auto;
+  margin: 0 auto 75px;
   height: 70vh;
   display: flex;
 `;
