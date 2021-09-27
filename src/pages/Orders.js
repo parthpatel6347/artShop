@@ -3,20 +3,30 @@ import { connect } from "react-redux";
 import { selectUserOrders } from "../redux/orders/ordersSelectors";
 
 import OrderItem from "../components/OrderItem";
+import { OrdersMain } from "../styles/OrdersStyles";
 
 const Orders = ({ userOrders }) => {
   let orders = userOrders.map((order) => ({
     date: order.date,
     items: order.items,
+    orderNo: order.orderNo,
+    total: order.total,
   }));
-
-  //   let orders = userOrders.map(order=>)
+  console.log(orders);
   return (
-    <div>
-      {orders.map((order) => (
-        <OrderItem date={order.date} items={order.items} />
-      ))}
-    </div>
+    <OrdersMain>
+      <h1>orders</h1>
+      <div>
+        {orders.map((order) => (
+          <OrderItem
+            date={order.date}
+            items={order.items}
+            orderNo={order.orderNo}
+            total={order.total}
+          />
+        ))}
+      </div>
+    </OrdersMain>
   );
 };
 

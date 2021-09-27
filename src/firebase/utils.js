@@ -78,12 +78,14 @@ export const getUserCart = async (uid) => {
   return doc.data().cart;
 };
 
-export const addOrdertoUser = async (uid, cart) => {
+export const addOrdertoUser = async (uid, cart, total) => {
   if (!uid) return;
   const userRef = firestore.doc(`users/${uid}`);
   let newOrder = {
-    date: new Date().toString(),
+    date: new Date().toDateString(),
     items: cart,
+    orderNo: Math.floor(Math.random() * 9999999),
+    total,
   };
   try {
     await userRef.update({

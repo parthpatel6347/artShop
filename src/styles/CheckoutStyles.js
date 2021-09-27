@@ -121,4 +121,14 @@ export const PaymentContainer = styled.div`
   width: 850px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
+  align-items: center;
+`;
+
+export const CardDetailsContainer = styled.div`
+  box-sizing: border-box;
+  width: 500px;
+  border: 1px solid ${(props) => props.theme.colors.gold};
+  background-color: ${(props) => props.theme.colors.bgLight};
+  padding-left: 10px;
 `;

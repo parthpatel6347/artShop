@@ -27,12 +27,24 @@ import {
   Title,
   ItemCount,
   PaymentContainer,
+  CardDetailsContainer,
 } from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
+import { ButtonStyled } from "../styles/SigninStyles";
 
 const cardElementOptions = {
   style: {
-    base: {},
+    base: {
+      backgroundColor: "#FFFDF8",
+      color: "#716862",
+      fontFamily: "Nunito Sans, sans-serif",
+      fontSize: "18px",
+      fontSmoothing: "antialiased",
+      lineHeight: "36px",
+      "::placeholder": {
+        color: "#B7A79C",
+      },
+    },
     invalid: {},
   },
   hidePostalCode: true,
@@ -74,7 +86,7 @@ const Checkout = ({
       history.push("/success");
 
       //update user orders on firebase Database
-      await addOrdertoUser(currentUser.id, cartItems);
+      await addOrdertoUser(currentUser.id, cartItems, total);
 
       //empty cart in redux state
       emptyLocalCart();
@@ -118,8 +130,12 @@ const Checkout = ({
         <TitleContainer>
           <Title>Payment</Title>
         </TitleContainer>
-        <CardElement options={cardElementOptions} />
-        <button onClick={handleSubmit}>pay</button>
+        <CardDetailsContainer>
+          <CardElement options={cardElementOptions} />
+        </CardDetailsContainer>
+        <ButtonStyled style={{ width: "500px" }} onClick={handleSubmit}>
+          Pay ${total}.00
+        </ButtonStyled>
       </PaymentContainer>
     </CheckoutMain>
   );
