@@ -93,7 +93,7 @@ export const TitleContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   border-bottom: 2px solid ${(props) => props.theme.colors.gold};
-  margin: 25px 0;
+  margin: 40px 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;

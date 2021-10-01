@@ -4,6 +4,7 @@ import { selectUserOrders } from "../redux/orders/ordersSelectors";
 
 import OrderItem from "../components/OrderItem";
 import { OrdersMain } from "../styles/OrdersStyles";
+import { Title, TitleContainer } from "../styles/CheckoutStyles";
 
 const Orders = ({ userOrders }) => {
   let orders = userOrders.map((order) => ({
@@ -15,17 +16,17 @@ const Orders = ({ userOrders }) => {
   console.log(orders);
   return (
     <OrdersMain>
-      <h1>orders</h1>
-      <div>
-        {orders.map((order) => (
-          <OrderItem
-            date={order.date}
-            items={order.items}
-            orderNo={order.orderNo}
-            total={order.total}
-          />
-        ))}
-      </div>
+      <TitleContainer>
+        <Title>Orders</Title>
+      </TitleContainer>
+      {orders.map((order) => (
+        <OrderItem
+          date={order.date}
+          items={order.items}
+          orderNo={order.orderNo}
+          total={order.total}
+        />
+      ))}
     </OrdersMain>
   );
 };

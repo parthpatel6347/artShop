@@ -114,7 +114,11 @@ const Checkout = ({
       <CheckoutCartContainer>
         <TitleContainer>
           <Title>Cart</Title>
-          <ItemCount>{cartItems.length} Items</ItemCount>
+          <ItemCount>
+            {cartItems.length > 1
+              ? `${cartItems.length} Items`
+              : `${cartItems.length} Item`}
+          </ItemCount>
         </TitleContainer>
         {cartItems.map((item) => (
           <CheckoutCartItem

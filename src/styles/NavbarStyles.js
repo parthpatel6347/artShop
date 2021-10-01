@@ -77,7 +77,7 @@ export const CartNum = styled.div`
 //Cart Menu styles
 
 export const CartMenuMain = styled.div`
-  background-color: ${(props) => props.theme.colors.bg};
+  background-color: ${(props) => props.theme.colors.bgLight};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   position: absolute;
@@ -169,4 +169,48 @@ export const CartMenuName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   color: ${(props) => props.theme.colors.primary};
+`;
+
+export const UserIconContiner = styled.div`
+  width: 24px;
+  color: ${(props) => props.theme.colors.gold};
+  margin-right: 4px;
+`;
+
+export const DropDownContainer = styled.div`
+  width: 110px;
+  position: absolute;
+  top: 35px;
+  right: 27px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background-color: ${(props) => props.theme.colors.bgLight};
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-sizing: border-box;
+  border: 1px solid ${(props) => props.theme.colors.gold};
+  padding: 5px 0;
+`;
+
+export const DropDownLink = styled.span`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  color: ${(props) => props.theme.colors.gold};
+  font-family: ${(props) => props.theme.fonts.sans};
+  font-weight: 600;
+  letter-spacing: 0.2;
+  text-decoration: none;
+  padding: 5px 0;
+  box-sizing: border-box;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.bgDarker};
+    color: ${(props) => props.theme.colors.primary};
+    cursor: pointer;
+  }
+  /* &:first-child {
+    border-bottom: 1px solid ${(props) => props.theme.colors.gold};
+  } */
 `;
