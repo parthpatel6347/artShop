@@ -48,7 +48,7 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
         <NavLinksContainer>
           <NavLink to="/explore">explore</NavLink>
           {currentUser ? (
-            <>
+            <div ref={dropDownContainer}>
               <div style={{ display: "flex" }} onClick={handleDropdown}>
                 <UserIconContiner>
                   <UserIcon />
@@ -56,14 +56,14 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
                 <NavLink as="span">{currentUser.displayName}</NavLink>
               </div>
               {open && (
-                <div ref={dropDownContainer} style={{ position: "relative" }}>
+                <div style={{ position: "relative" }}>
                   <UserDropDown
                     signOut={onSignOut}
                     toggleDropdown={handleDropdown}
                   />
                 </div>
               )}
-            </>
+            </div>
           ) : (
             <>
               <NavLink to="/signin">login</NavLink>

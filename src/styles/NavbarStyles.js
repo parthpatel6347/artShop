@@ -180,7 +180,7 @@ export const UserIconContiner = styled.div`
 export const DropDownContainer = styled.div`
   width: 110px;
   position: absolute;
-  top: 35px;
+  top: 7px;
   right: 27px;
   display: flex;
   flex-direction: column;
