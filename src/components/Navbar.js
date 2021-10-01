@@ -5,7 +5,11 @@ import useOnClickOutside from "../hooks/onClickOutside";
 import { auth } from "../firebase/utils";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { selectCartHidden } from "../redux/cart/cartSelectors";
-import { emptyCart } from "../redux/cart/cartActions";
+import {
+  emptyCart,
+  toggleVisibility,
+  hideCart,
+} from "../redux/cart/cartActions";
 
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
@@ -22,16 +26,25 @@ import {
 } from "../styles/NavbarStyles";
 import UserDropDown from "./UserDropDown";
 
-const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
+const Navbar = ({
+  currentUser,
+  hidden,
+  emptyLocalCart,
+  toggleCartVisibility,
+  hideCart,
+}) => {
+  //User dropdown open/close
   const [open, setOpen] = useState(false);
-
   const dropDownContainer = useRef();
-
   useOnClickOutside(dropDownContainer, () => setOpen(false));
 
   const handleDropdown = () => {
     setOpen(!open);
   };
+
+  //Cart open/close
+  const cartContainer = useRef();
+  useOnClickOutside(cartContainer, hideCart);
 
   const onSignOut = () => {
     emptyLocalCart();
@@ -69,9 +82,13 @@ const Navbar = ({ currentUser, hidden, emptyLocalCart }) => {
               <NavLink to="/signin">login</NavLink>
             </>
           )}
-          <CartIcon />
+          <div ref={cartContainer}>
+            <div onClick={toggleCartVisibility}>
+              <CartIcon />
+            </div>
+            {!hidden && <Cart />}
+          </div>
         </NavLinksContainer>
-        {hidden ? null : <Cart />}
       </NavbarInner>
     </NavbarContainer>
   );
@@ -84,6 +101,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   emptyLocalCart: () => dispatch(emptyCart()),
+  toggleCartVisibility: () => dispatch(toggleVisibility()),
+  hideCart: () => dispatch(hideCart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

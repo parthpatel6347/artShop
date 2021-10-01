@@ -22,3 +22,7 @@ export const cloneCart = (cart) => ({
   type: CartActionTypes.CLONE_CART,
   payload: cart,
 });
+
+export const hideCart = () => ({
+  type: CartActionTypes.HIDE_CART,
+});

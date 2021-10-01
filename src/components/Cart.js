@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { selectCurrentUser } from "../redux/user/userSelectors";
-import { toggleVisibility } from "../redux/cart/cartActions";
+import { hideCart } from "../redux/cart/cartActions";
 import {
   CartMenuItemsContainer,
   CartMenuMain,
@@ -12,14 +12,14 @@ import {
 } from "../styles/NavbarStyles";
 import CartMenuItem from "./CartMenuItem";
 
-const Cart = ({ cartItems, history, toggleCartVisibility, currentUser }) => {
+const Cart = ({ cartItems, history, hideCart, currentUser }) => {
   const handleCheckoutClick = () => {
+    hideCart();
     if (!currentUser) {
       history.push("/signin");
     } else {
       history.push("/checkout");
     }
-    toggleCartVisibility();
   };
 
   return (
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleCartVisibility: () => dispatch(toggleVisibility()),
+  hideCart: () => dispatch(hideCart()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));
