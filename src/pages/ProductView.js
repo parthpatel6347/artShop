@@ -56,7 +56,9 @@ const ProductView = ({
         </span>
         <ProductPrice>${price}</ProductPrice>
         <Description>{description}</Description>
-        <ButtonStyled onClick={handleAdd}>Add to cart</ButtonStyled>
+        <ButtonStyled onClick={handleAdd} disabled={isInCart}>
+          {isInCart ? "Added to cart" : "Add to cart"}
+        </ButtonStyled>
 
         {/* <p>{title}</p>
         <p>{artist}</p>

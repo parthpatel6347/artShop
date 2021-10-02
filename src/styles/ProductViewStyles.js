@@ -72,7 +72,7 @@ export const Description = styled(SubText)`
   overflow: hidden;
 `;
 
-export const ButtonStyled = styled.div`
+export const ButtonStyled = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   color: white;
