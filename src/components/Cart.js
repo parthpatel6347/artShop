@@ -26,13 +26,7 @@ const Cart = ({ cartItems, history, hideCart, currentUser }) => {
     <CartMenuMain>
       <CartMenuItemsContainer>
         {cartItems.length ? (
-          cartItems.map((item) => (
-            <CartMenuItem
-              title={item.title}
-              image={item.image}
-              price={item.price}
-            />
-          ))
+          cartItems.map((item) => <CartMenuItem key={item.id} item={item} />)
         ) : (
           <p>Your cart is empty</p>
         )}

@@ -81,7 +81,7 @@ export const CartMenuMain = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   position: absolute;
-  width: 240px;
+  width: 265px;
   top: 60px;
   right: 40px;
   z-index: 5;
@@ -149,6 +149,7 @@ export const CartMenuItemImage = styled.div`
   width: 44px;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 `;
 
 export const CartMenuItemInfo = styled.div`
@@ -158,6 +159,7 @@ export const CartMenuItemInfo = styled.div`
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.primary};
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 export const CartMenuName = styled.p`
@@ -213,4 +215,21 @@ export const DropDownLink = styled.span`
   /* &:first-child {
     border-bottom: 1px solid ${(props) => props.theme.colors.gold};
   } */
+`;
+
+export const CloseIconContainer = styled.div`
+  width: 15px;
+  height: 20px;
+  display: none;
+  color: ${(props) => props.theme.colors.gold};
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+    cursor: pointer;
+  }
+  ${CartMenuItemMain}:hover & {
+    display: unset;
+  }
+  align-self: center;
+  margin-left: 5px;
+  box-sizing: border-box;
 `;
