@@ -25,7 +25,7 @@ const ProductView = ({
   foundProduct,
   currentUser,
 }) => {
-  const { image, title, artist, description, category, price } = foundProduct;
+  const { image, title, artist, description, price } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
 
