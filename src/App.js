@@ -19,6 +19,7 @@ import Orders from "./pages/Orders";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
+import Loader from "./pages/Loader";
 
 const App = ({ dispatchCurrentUser, currentUser }) => {
   useEffect(() => {
@@ -52,6 +53,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/success" exact component={PaymentSuccess} />
           <Route path="/orders" exact component={Orders} />
+          <Route path="/loading" exact component={Loader} />
           <Route
             path="/signin"
             exact

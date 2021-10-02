@@ -13,7 +13,6 @@ const Orders = ({ userOrders }) => {
     orderNo: order.orderNo,
     total: order.total,
   }));
-  console.log(orders);
   return (
     <OrdersMain>
       <TitleContainer>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
@@ -32,6 +32,8 @@ import {
 import CheckoutCartItem from "../components/CheckoutCartItem";
 import { ButtonStyled } from "../styles/SigninStyles";
 
+import PulseLoader from "react-spinners/PulseLoader";
+
 const cardElementOptions = {
   style: {
     base: {
@@ -59,6 +61,8 @@ const Checkout = ({
   emptyLocalCart,
   syncOrders,
 }) => {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (!currentUser) history.push("/signin");
   });
@@ -68,6 +72,7 @@ const Checkout = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     if (!stripe || !elements) {
       return;
@@ -82,20 +87,22 @@ const Checkout = ({
 
     if (error) {
       console.log("[error]", error);
+      setLoading(false);
     } else {
-      history.push("/success");
-
       //update user orders on firebase Database
       await addOrdertoUser(currentUser.id, cartItems, total);
+
+      //get orders from user firebase database and update orders in redux state
+      await getUserOrders(currentUser.id).then((orders) => syncOrders(orders));
+
+      history.push("/success");
+      setLoading(false);
 
       //empty cart in redux state
       emptyLocalCart();
 
       //empty cart on user firebase database
       await addItemToUserCart(currentUser, []);
-
-      //get orders from user firebase database and update orders in redux state
-      await getUserOrders(currentUser.id).then((orders) => syncOrders(orders));
 
       console.log("[PaymentMethod]", paymentMethod);
     }
@@ -138,7 +145,10 @@ const Checkout = ({
           <CardElement options={cardElementOptions} />
         </CardDetailsContainer>
         <ButtonStyled style={{ width: "500px" }} onClick={handleSubmit}>
-          Pay ${total}.00
+          {loading ? "Processing" : `Pay $${total}.00`}
+          <div style={{ marginLeft: "5px" }}>
+            <PulseLoader loading={loading} size={6} color="white" />
+          </div>
         </ButtonStyled>
       </PaymentContainer>
     </CheckoutMain>

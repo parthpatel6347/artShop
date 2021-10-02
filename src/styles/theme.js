@@ -5,6 +5,7 @@ export const theme = {
     bg: "#FDF8EE",
     bgLight: "#FFFDF8",
     bgDarker: "#f5f0e6",
+    success: "#31c67c",
   },
   fonts: {
     sans: "Nunito Sans, sans-serif",
