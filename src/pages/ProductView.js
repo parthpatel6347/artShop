@@ -59,12 +59,6 @@ const ProductView = ({
         <ButtonStyled onClick={handleAdd} disabled={isInCart}>
           {isInCart ? "Added to cart" : "Add to cart"}
         </ButtonStyled>
-
-        {/* <p>{title}</p>
-        <p>{artist}</p>
-        <p>{description}</p>
-        <p>{category}</p>
-        <button onClick={handleAdd}>Add to cart</button> */}
       </InfoContainer>
     </ProductViewMain>
   );

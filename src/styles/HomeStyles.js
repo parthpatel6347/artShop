@@ -24,13 +24,23 @@ export const TextContainer = styled.span`
   font-size: 60px;
   color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sansSerif};
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+`;
+
+export const MainText = styled.span`
+  line-height: 65px;
 `;
 
 export const SubText = styled.span`
   /* border: 1px dotted blue;  */
-  font-size: 30px;
-  color: ${(props) => props.theme.colors.primary};
+  font-size: 22px;
+  color: ${(props) => props.theme.colors.gold};
   font-family: ${(props) => props.theme.fonts.sans};
+  margin-bottom: 40px;
+  font-weight: 500;
+  width: 70%;
 `;
 
 export const ContainerLeft = styled.div`
@@ -73,6 +83,7 @@ export const ImageStyled = styled.div`
   background-image: url(https://images.unsplash.com/photo-1617503752587-97d2103a96ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1919&q=80);
   background-size: cover;
   background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px;
 `;
 
 const Frame = styled.div`
@@ -93,6 +104,8 @@ export const FrameTop = styled(Frame)`
   bottom: 0;
   left: 0;
   z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.1) 8px 8px 8px,
+    rgba(0, 0, 0, 0.1) 8px 8px 8px inset;
 `;
 
 //Separator text styles

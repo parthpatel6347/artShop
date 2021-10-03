@@ -16,6 +16,7 @@ import {
   ImageStyled,
   SubText,
   TextContainer,
+  MainText,
 } from "../styles/HomeStyles";
 
 const Home = () => {
@@ -24,8 +25,10 @@ const Home = () => {
     <>
       <HomeContainer>
         <ContainerLeft>
-          <TextContainer>Extraordinary art,</TextContainer>
-          <TextContainer>Curated by masters.</TextContainer>
+          <TextContainer>
+            <MainText>Extraordinary art,</MainText>
+            <MainText>Curated by masters.</MainText>
+          </TextContainer>
           <SubText>
             Discover and collect the best art from around the globe.
           </SubText>
