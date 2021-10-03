@@ -128,42 +128,47 @@ export const SeparatorContainer = styled.div`
 // Category styles
 
 export const CategoryContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
-  /* border: 1px dotted purple;  */
   width: 65%;
   margin: 0 auto 50px;
+  background-color: ${(props) => props.theme.colors.bgDarker};
+  padding: 30px;
 `;
 
 export const CategoryInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-left: 50px;
 `;
 
 export const CategoryTitle = styled.span`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   color: ${(props) => props.theme.colors.primary};
-  font-size: 45px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 10px;
 `;
 
 export const CategoryDescription = styled.span`
   font-family: ${(props) => props.theme.fonts.sans};
-  color: ${(props) => props.theme.colors.primary};
-  font-size: 24px;
+  color: ${(props) => props.theme.colors.gold};
+  font-size: 22px;
+  margin-bottom: 40px;
 `;
 
 export const CategoryImageContainer = styled.div`
   position: relative;
-  height: 440px;
-  width: 440px;
+  height: 330px;
+  width: 330px;
 `;
 
 export const CategoryImage = styled.div`
   position: absolute;
   z-index: 1;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   bottom: 0;
   right: 0;
   background-size: cover;
@@ -175,10 +180,12 @@ export const CategoryFrame = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   border: 4px solid ${(props) => props.theme.colors.gold};
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.1) 8px 8px 8px,
+    rgba(0, 0, 0, 0.1) 8px 8px 8px inset;
 `;
 
 //services styles

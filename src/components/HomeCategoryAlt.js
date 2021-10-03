@@ -12,7 +12,7 @@ import {
 
 const HomeCategoryAlt = ({ title, description, image, link }) => {
   return (
-    <CategoryContainer>
+    <CategoryContainer style={{ justifyContent: "flex-end" }}>
       <CategoryInfo
         style={{
           alignItems: "flex-end",
