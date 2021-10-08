@@ -7,6 +7,8 @@ import { selectProduct } from "../redux/products/productsSelectors";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { addItemToUserCart } from "../firebase/utils";
 import {
+  BackButton,
+  BackButtonContainer,
   ButtonStyled,
   Description,
   InfoContainer,
@@ -14,10 +16,12 @@ import {
   ProductImageContainer,
   ProductPrice,
   ProductTitle,
+  ProductViewContainer,
   ProductViewMain,
   SubTextGold,
   SubTextPrimary,
 } from "../styles/ProductViewStyles";
+import { ReactComponent as BackIcon } from "../svg/backArrow.svg";
 
 const ProductView = ({
   addItemToCart,
@@ -25,7 +29,7 @@ const ProductView = ({
   foundProduct,
   currentUser,
 }) => {
-  const { image, title, artist, description, price } = foundProduct;
+  const { image, title, artist, description, price, category } = foundProduct;
 
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
 
@@ -41,25 +45,41 @@ const ProductView = ({
 
   return (
     <ProductViewMain>
-      <ProductImageContainer>
-        <ProductImage
-          style={{
-            backgroundImage: `url(${image})`,
-          }}
-        />
-      </ProductImageContainer>
-      <InfoContainer>
-        <ProductTitle>{title}</ProductTitle>
-        <span style={{ marginBottom: "40px" }}>
-          <SubTextPrimary>By</SubTextPrimary>
-          <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
-        </span>
-        <ProductPrice>${price}</ProductPrice>
-        <Description>{description}</Description>
-        <ButtonStyled onClick={handleAdd} disabled={isInCart}>
-          {isInCart ? "Added to cart" : "Add to cart"}
-        </ButtonStyled>
-      </InfoContainer>
+      <BackButtonContainer>
+        <BackButton to={`/explore/${category}`}>
+          <BackIcon style={{ width: "24px" }} />
+          All{" "}
+          {category === "paintings"
+            ? "paintings"
+            : category === "digital"
+            ? "digital art"
+            : category === "photos"
+            ? "photos"
+            : "sculptures"}
+        </BackButton>
+      </BackButtonContainer>
+
+      <ProductViewContainer>
+        <ProductImageContainer>
+          <ProductImage
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          />
+        </ProductImageContainer>
+        <InfoContainer>
+          <ProductTitle>{title}</ProductTitle>
+          <span style={{ marginBottom: "40px" }}>
+            <SubTextPrimary>By</SubTextPrimary>
+            <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
+          </span>
+          <ProductPrice>${price}</ProductPrice>
+          <Description>{description}</Description>
+          <ButtonStyled onClick={handleAdd} disabled={isInCart}>
+            {isInCart ? "Added to cart" : "Add to cart"}
+          </ButtonStyled>
+        </InfoContainer>
+      </ProductViewContainer>
     </ProductViewMain>
   );
 };

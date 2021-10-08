@@ -68,8 +68,8 @@ export const ButtonStyled = styled(Link)`
 
 export const ImageContainer = styled.div`
   position: relative;
-  height: 610px;
-  width: 455px;
+  height: 549px;
+  width: 410px;
 `;
 
 export const ImageStyled = styled.div`
@@ -78,8 +78,8 @@ export const ImageStyled = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 385px;
-  height: 540px;
+  width: 346px;
+  height: 486px;
   background-image: url(https://images.unsplash.com/photo-1617503752587-97d2103a96ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1919&q=80);
   background-size: cover;
   background-position: center;
@@ -88,8 +88,8 @@ export const ImageStyled = styled.div`
 
 const Frame = styled.div`
   position: absolute;
-  width: 385px;
-  height: 540px;
+  width: 346px;
+  height: 486px;
   box-sizing: border-box;
   border: 4px solid ${(props) => props.theme.colors.gold};
 `;
@@ -134,6 +134,9 @@ export const CategoryContainer = styled.div`
   margin: 0 auto 50px;
   background-color: ${(props) => props.theme.colors.bgDarker};
   padding: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 `;
 
 export const CategoryInfo = styled.div`

@@ -1,12 +1,35 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ProductViewMain = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ProductViewContainer = styled.div`
   box-sizing: border-box;
   width: 1100px;
-  margin: 40px auto 0;
-  padding: 65px;
+  margin: -25px auto 0;
+  padding: 45px;
   display: flex;
   background-color: ${(props) => props.theme.colors.bgDarker};
+`;
+
+export const BackButtonContainer = styled.div`
+  width: 85%;
+  margin: 40px auto 0;
+`;
+export const BackButton = styled(Link)`
+  font-size: 19px;
+  letter-spacing: 0.3px;
+  font-family: ${(props) => props.theme.fonts.sansSerif};
+  color: ${(props) => props.theme.colors.gold};
+  text-decoration: none;
+  display: flex;
+  /* width: 137px; */
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 export const ProductImageContainer = styled.div`

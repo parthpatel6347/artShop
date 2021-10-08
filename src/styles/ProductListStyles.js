@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ProductsMain = styled.div`
-  border: 1px dotted purple; /////////
+  /* border: 1px dotted purple; ///////// */
   width: 70%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 40px auto 0;
 `;
 
 export const ProductsContainer = styled.div`
+  margin-top: 50px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -23,7 +24,7 @@ export const ProductCardMain = styled(Link)`
   height: 455px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   text-decoration: none;
 `;
 

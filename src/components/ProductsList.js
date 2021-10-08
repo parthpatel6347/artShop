@@ -8,12 +8,14 @@ import ProductCard from "./ProductCard";
 
 import { ProductsContainer, ProductsMain } from "../styles/ProductListStyles";
 
+import { Title, TitleContainer } from "../styles/CheckoutStyles";
+
 const ProductsList = ({ match, category }) => {
   let page = match.params.page;
 
   return (
     <ProductsMain>
-      <h4>
+      <Title>
         {page === "paintings"
           ? "Paintings"
           : page === "digital"
@@ -21,7 +23,7 @@ const ProductsList = ({ match, category }) => {
           : page === "photos"
           ? "Photographs"
           : "Sculptures"}
-      </h4>
+      </Title>
       <ProductsContainer>
         {category.map(({ id, ...productData }) => (
           <ProductCard key={id} id={id} {...productData} />

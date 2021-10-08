@@ -12,10 +12,16 @@ export const CategoryContainer = styled.div`
 `;
 
 export const CategoryCardContainer = styled.div`
+  box-sizing: border-box;
+  /* padding: 10px; */
   margin: 30px;
   display: flex;
   flex-direction: column;
   height: 75%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  &:hover {
+  }
 `;
 
 export const CategoryImageContainer = styled.div`
@@ -37,6 +43,8 @@ export const Frame = styled.div`
   top: 0;
   z-index: 2;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.1) 6px 6px 6px,
+    rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
 `;
 
 export const CategoryImage = styled.div`
@@ -49,6 +57,11 @@ export const CategoryImage = styled.div`
   z-index: 1;
   background-size: cover;
   background-position: center;
+  filter: grayscale(1);
+  transition: all 0.2s linear;
+  ${CategoryCardContainer}:hover & {
+    filter: grayscale(0);
+  }
 `;
 
 export const CategoryName = styled(Link)`
