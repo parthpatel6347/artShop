@@ -10,9 +10,12 @@ export const ProductViewContainer = styled.div`
   box-sizing: border-box;
   width: 1100px;
   margin: -25px auto 0;
-  padding: 45px;
+  padding: 55px;
   display: flex;
   background-color: ${(props) => props.theme.colors.bgDarker};
+  border-radius: 5px;
+  /* border: 1px solid ${(props) => props.theme.colors.gold}; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 15px; */
 `;
 
 export const BackButtonContainer = styled.div`
@@ -38,6 +41,9 @@ export const ProductImageContainer = styled.div`
   height: 640px;
   padding: 42px;
   border: 5px solid ${(props) => props.theme.colors.gold};
+  box-shadow: rgba(0, 0, 0, 0.1) 6px 6px 6px,
+    rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
+  background-color: ${(props) => props.theme.colors.bgLight};
 `;
 
 export const ProductImage = styled.div`
@@ -45,6 +51,7 @@ export const ProductImage = styled.div`
   height: 100%;
   background-size: cover;
   background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px;
 `;
 
 export const InfoContainer = styled.div`

@@ -6,6 +6,8 @@ import { auth, createUserProfileDocument } from "./firebase/utils";
 import { setCurrentUser } from "./redux/user/userActions";
 import { selectCurrentUser } from "./redux/user/userSelectors";
 
+import "./App.css";
+
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";

@@ -53,9 +53,10 @@ export const ContainerLeft = styled.div`
 `;
 
 export const ButtonStyled = styled(Link)`
+  border-radius: 5px;
   background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
-  color: white;
+  color: ${(props) => props.theme.colors.bg};
   margin-right: auto;
   height: 40px;
   text-decoration: none;
@@ -64,6 +65,15 @@ export const ButtonStyled = styled(Link)`
   padding: 6px 30px;
   font-size: 20px;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: all 0.1s ease-out;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
+    transform: translateY(-3px);
+    background-color: ${(props) => props.theme.colors.gold};
+  }
 `;
 
 export const ImageContainer = styled.div`
