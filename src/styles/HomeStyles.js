@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { mediaQueries } from "./size";
+import { maxWidth } from "./size";
 
 export const HomeContainer = styled.div`
   /* border: 1px dotted black; */
@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   height: 650px;
   display: flex;
   justify-content: space-around;
-  @media ${mediaQueries.XXL} {
+  @media ${maxWidth.XXL} {
     max-width: 85%;
     justify-content: space-between;
   }
@@ -25,17 +25,26 @@ export const ContainerRight = styled.div`
 `;
 
 export const TextContainer = styled.span`
-  /* border: 1px dotted blue;  */
-  font-size: 60px;
-  color: ${(props) => props.theme.colors.primary};
-  font-family: ${(props) => props.theme.fonts.sansSerif};
+  /* border: 1px dotted blue; */
+
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 `;
 
 export const MainText = styled.span`
+  font-size: 60px;
+  color: ${(props) => props.theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
   line-height: 65px;
+  @media ${maxWidth.XL} {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 60px;
+  }
+  @media ${maxWidth.L} {
+    font-size: 45px;
+  }
 `;
 
 export const SubText = styled.span`
@@ -46,6 +55,10 @@ export const SubText = styled.span`
   margin-bottom: 40px;
   font-weight: 500;
   width: 70%;
+  @media ${maxWidth.XL} {
+    font-size: 20px;
+    font-weight: 600;
+  }
 `;
 
 export const ContainerLeft = styled.div`
@@ -94,7 +107,10 @@ export const ImageContainer = styled.div`
   position: relative;
   height: 549px;
   width: 410px;
-  /* margin-left: 5%; */
+  @media ${maxWidth.L} {
+    height: 494px;
+    width: 369px;
+  }
 `;
 
 export const ImageStyled = styled.div`
@@ -109,6 +125,10 @@ export const ImageStyled = styled.div`
   background-size: cover;
   background-position: center;
   box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px;
+  @media ${maxWidth.L} {
+    height: 437px;
+    width: 311px;
+  }
 `;
 
 const Frame = styled.div`
@@ -117,6 +137,10 @@ const Frame = styled.div`
   height: 486px;
   box-sizing: border-box;
   border: 4px solid ${(props) => props.theme.colors.gold};
+  @media ${maxWidth.L} {
+    height: 437px;
+    width: 311px;
+  }
 `;
 
 export const FrameBottom = styled(Frame)`
