@@ -1,19 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { mediaQueries } from "./size";
 
 export const HomeContainer = styled.div`
-  box-sizing: border-box;
   /* border: 1px dotted black; */
-  width: 65%;
+  width: 1400px;
   margin: 0 auto 75px;
-  height: 70vh;
+  height: 650px;
   display: flex;
+  justify-content: space-around;
+  @media ${mediaQueries.XXL} {
+    max-width: 85%;
+    justify-content: space-between;
+  }
 `;
 
 export const ContainerRight = styled.div`
-  /* border: 1px dotted pink;  */
+  /* border: 1px dotted pink; */
   height: 100%;
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,12 +49,21 @@ export const SubText = styled.span`
 `;
 
 export const ContainerLeft = styled.div`
-  /* border: 1px dotted pink;  */
+  /* border: 1px dotted pink; */
   height: 100%;
-  width: 50%;
+  /* width: 50%; */
   display: flex;
-  flex-direction: column;
   justify-content: center;
+`;
+
+export const ContainerLeftInner = styled.div`
+  /* border: 1px dotted pink; */
+  /* width: 550px; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-right: 5%; */
 `;
 
 export const ButtonStyled = styled(Link)`
@@ -80,6 +94,7 @@ export const ImageContainer = styled.div`
   position: relative;
   height: 549px;
   width: 410px;
+  /* margin-left: 5%; */
 `;
 
 export const ImageStyled = styled.div`

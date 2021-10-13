@@ -17,6 +17,7 @@ import {
   SubText,
   TextContainer,
   MainText,
+  ContainerLeftInner,
 } from "../styles/HomeStyles";
 
 const Home = () => {
@@ -25,14 +26,16 @@ const Home = () => {
     <>
       <HomeContainer>
         <ContainerLeft>
-          <TextContainer>
-            <MainText>Extraordinary art,</MainText>
-            <MainText>Curated by masters.</MainText>
-          </TextContainer>
-          <SubText>
-            Discover and collect the best art from around the globe.
-          </SubText>
-          <ButtonStyled to="/explore">Explore</ButtonStyled>
+          <ContainerLeftInner>
+            <TextContainer>
+              <MainText>Extraordinary art,</MainText>
+              <MainText>Curated by masters.</MainText>
+            </TextContainer>
+            <SubText>
+              Discover and collect the best art from around the globe.
+            </SubText>
+            <ButtonStyled to="/explore">Explore</ButtonStyled>
+          </ContainerLeftInner>
         </ContainerLeft>
         <ContainerRight>
           <ImageContainer>
