@@ -236,11 +236,35 @@ export const CategoryContainer = styled.div`
   }
 `;
 
+export const CategoryContainerAlt = styled(CategoryContainer)`
+  justify-content: flex-end;
+  @media ${maxWidth.XXS} {
+    flex-direction: row-reverse;
+  }
+`;
+
 export const CategoryInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 50px;
+  @media ${maxWidth.XXS} {
+    margin-left: 25px;
+  }
+`;
+
+export const CategoryInfoAlt = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 50px;
+  align-items: flex-end;
+  text-align: right;
+  @media ${maxWidth.XXS} {
+    margin-left: 25px;
+    text-align: left;
+    margin-right: unset;
+  }
 `;
 
 export const CategoryTitle = styled.span`
@@ -266,6 +290,11 @@ export const CategoryDescription = styled.span`
     font-size: 16px;
     margin-bottom: 30px;
   }
+  @media ${maxWidth.XXS} {
+    margin-bottom: 0;
+    line-height: 18px;
+    display: none;
+  }
 `;
 
 export const CategoryImageContainer = styled.div`
@@ -280,7 +309,13 @@ export const CategoryImageContainer = styled.div`
     height: 172px;
     width: 172px;
   }
+  @media ${maxWidth.XXS} {
+    height: 120px;
+    width: 120px;
+  }
 `;
+
+export const CategoryImageContainerAlt = styled(CategoryImageContainer)``;
 
 export const CategoryImage = styled.div`
   position: absolute;
@@ -298,6 +333,19 @@ export const CategoryImage = styled.div`
   @media ${maxWidth.S} {
     height: 156px;
     width: 156px;
+  }
+  @media ${maxWidth.XXS} {
+    height: 109px;
+    width: 109px;
+  }
+`;
+
+export const CategoryImageAlt = styled(CategoryImage)`
+  left: 0;
+  right: unset;
+  @media ${maxWidth.XXS} {
+    right: 0;
+    left: unset;
   }
 `;
 
@@ -320,6 +368,19 @@ export const CategoryFrame = styled.div`
     height: 156px;
     width: 156px;
   }
+  @media ${maxWidth.XXS} {
+    height: 109px;
+    width: 109px;
+  }
+`;
+
+export const CategoryFrameAlt = styled(CategoryFrame)`
+  left: unset;
+  right: 0;
+  @media ${maxWidth.XXS} {
+    left: 0;
+    right: unset;
+  }
 `;
 
 export const CategoryButton = styled(ButtonStyled)`
@@ -327,6 +388,9 @@ export const CategoryButton = styled(ButtonStyled)`
   padding: 6px 25px;
   font-size: 18px;
   font-weight: 400;
+  @media ${maxWidth.XXS} {
+    display: none;
+  }
 `;
 
 //services styles

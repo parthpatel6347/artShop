@@ -8,19 +8,17 @@ import {
   CategoryImageContainer,
   CategoryImage,
   CategoryButton,
+  CategoryInfoAlt,
+  CategoryImageAlt,
+  CategoryFrameAlt,
+  CategoryContainerAlt,
+  CategoryImageContainerAlt,
 } from "../styles/HomeStyles";
 
 const HomeCategoryAlt = ({ title, description, image, link }) => {
   return (
-    <CategoryContainer style={{ justifyContent: "flex-end" }}>
-      <CategoryInfo
-        style={{
-          alignItems: "flex-end",
-          textAlign: "right",
-          marginRight: "50px",
-          marginLeft: "unset",
-        }}
-      >
+    <CategoryContainerAlt>
+      <CategoryInfoAlt>
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>
         <CategoryButton
@@ -29,25 +27,18 @@ const HomeCategoryAlt = ({ title, description, image, link }) => {
         >
           Explore {title.toLowerCase()}
         </CategoryButton>
-      </CategoryInfo>
+      </CategoryInfoAlt>
       <div>
-        <CategoryImageContainer>
-          <CategoryImage
+        <CategoryImageContainerAlt>
+          <CategoryImageAlt
             style={{
               backgroundImage: `url(${image})`,
-              left: 0,
-              right: "unset",
             }}
-          ></CategoryImage>
-          <CategoryFrame
-            style={{
-              left: "unset",
-              right: 0,
-            }}
-          ></CategoryFrame>
-        </CategoryImageContainer>
+          ></CategoryImageAlt>
+          <CategoryFrameAlt></CategoryFrameAlt>
+        </CategoryImageContainerAlt>
       </div>
-    </CategoryContainer>
+    </CategoryContainerAlt>
   );
 };
 

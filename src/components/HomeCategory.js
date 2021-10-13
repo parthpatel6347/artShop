@@ -12,7 +12,7 @@ import {
 
 const HomeCategory = ({ title, description, image, link }) => {
   return (
-    <CategoryContainer>
+    <CategoryContainer onTouchEnd={() => alert("touched")}>
       <div>
         <CategoryImageContainer>
           <CategoryImage
