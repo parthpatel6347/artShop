@@ -6,7 +6,6 @@ import Services from "../components/Services";
 import { categoryData } from "../artShopStaticData";
 
 import {
-  ButtonStyled,
   ContainerRight,
   ContainerLeft,
   FrameBottom,
@@ -18,6 +17,7 @@ import {
   TextContainer,
   MainText,
   ContainerLeftInner,
+  SplashButton,
 } from "../styles/HomeStyles";
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
             <SubText>
               Discover and collect the best art from around the globe.
             </SubText>
-            <ButtonStyled to="/explore">Explore</ButtonStyled>
+            <SplashButton to="/explore">Explore</SplashButton>
           </ContainerLeftInner>
         </ContainerLeft>
         <ContainerRight>

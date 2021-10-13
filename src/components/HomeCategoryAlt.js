@@ -4,10 +4,10 @@ import {
   CategoryInfo,
   CategoryTitle,
   CategoryDescription,
-  ButtonStyled,
   CategoryFrame,
   CategoryImageContainer,
   CategoryImage,
+  CategoryButton,
 } from "../styles/HomeStyles";
 
 const HomeCategoryAlt = ({ title, description, image, link }) => {
@@ -23,12 +23,12 @@ const HomeCategoryAlt = ({ title, description, image, link }) => {
       >
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>
-        <ButtonStyled
+        <CategoryButton
           to={`/explore/${link}`}
           style={{ marginLeft: "auto", marginRight: "unset" }}
         >
           Explore {title.toLowerCase()}
-        </ButtonStyled>
+        </CategoryButton>
       </CategoryInfo>
       <div>
         <CategoryImageContainer>

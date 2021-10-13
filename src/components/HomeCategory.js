@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  ButtonStyled,
   CategoryContainer,
   CategoryDescription,
   CategoryFrame,
@@ -8,6 +7,7 @@ import {
   CategoryInfo,
   CategoryTitle,
   CategoryImage,
+  CategoryButton,
 } from "../styles/HomeStyles";
 
 const HomeCategory = ({ title, description, image, link }) => {
@@ -26,9 +26,9 @@ const HomeCategory = ({ title, description, image, link }) => {
       <CategoryInfo>
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>
-        <ButtonStyled to={`/explore/${link}`}>
+        <CategoryButton to={`/explore/${link}`}>
           Explore {title.toLowerCase()}
-        </ButtonStyled>
+        </CategoryButton>
       </CategoryInfo>
     </CategoryContainer>
   );
