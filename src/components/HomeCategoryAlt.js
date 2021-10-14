@@ -1,12 +1,8 @@
 import React from "react";
+import { withRouter } from "react-router";
 import {
-  CategoryContainer,
-  CategoryInfo,
   CategoryTitle,
   CategoryDescription,
-  CategoryFrame,
-  CategoryImageContainer,
-  CategoryImage,
   CategoryButton,
   CategoryInfoAlt,
   CategoryImageAlt,
@@ -15,9 +11,9 @@ import {
   CategoryImageContainerAlt,
 } from "../styles/HomeStyles";
 
-const HomeCategoryAlt = ({ title, description, image, link }) => {
+const HomeCategoryAlt = ({ title, description, image, link, history }) => {
   return (
-    <CategoryContainerAlt>
+    <CategoryContainerAlt onTouchEnd={() => history.push(`/explore/${link}`)}>
       <CategoryInfoAlt>
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>
@@ -42,4 +38,4 @@ const HomeCategoryAlt = ({ title, description, image, link }) => {
   );
 };
 
-export default HomeCategoryAlt;
+export default withRouter(HomeCategoryAlt);

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { maxWidth } from "./size";
 
 export const CategoryContainer = styled.div`
   /* border: 1px dotted red; ///////// */
@@ -9,6 +10,15 @@ export const CategoryContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${maxWidth.M} {
+    flex-direction: column;
+    height: unset;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  @media ${maxWidth.XS} {
+    margin-top: 15px;
+  }
 `;
 
 export const CategoryCardContainer = styled.div`
@@ -19,8 +29,22 @@ export const CategoryCardContainer = styled.div`
   flex-direction: column;
   height: 75%;
   border: 1px solid rgba(0, 0, 0, 0);
-  border-radius: 5px;
-  &:hover {
+  @media ${maxWidth.XL} {
+    height: 70%;
+    margin: 20px;
+  }
+  @media ${maxWidth.M} {
+    height: unset;
+    width: 65%;
+    flex-direction: column-reverse;
+    margin: 15px 0;
+  }
+  @media ${maxWidth.XS} {
+    width: 75%;
+  }
+  @media ${maxWidth.XXS} {
+    width: 85%;
+    margin: 10px;
   }
 `;
 
@@ -32,6 +56,16 @@ export const CategoryImageContainer = styled.div`
   &:hover {
     cursor: pointer;
   }
+  @media ${maxWidth.XL} {
+    width: 180px;
+  }
+  @media ${maxWidth.M} {
+    height: 160px;
+    width: unset;
+  }
+  @media ${maxWidth.XXS} {
+    height: 130px;
+  }
 `;
 
 export const Frame = styled.div`
@@ -42,13 +76,23 @@ export const Frame = styled.div`
   left: 0;
   top: 0;
   z-index: 2;
-  box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.1) 6px 6px 6px,
     rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
+  @media ${maxWidth.XL} {
+    width: 165px;
+    height: calc(100% - 15px);
+  }
+  @media ${maxWidth.M} {
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+  }
+  @media ${maxWidth.XXS} {
+    height: calc(100% - 12px);
+    width: calc(100% - 12px);
+  }
 `;
 
 export const CategoryImage = styled.div`
-  background-color: cyan;
   height: calc(100% - 20px);
   width: 200px;
   position: absolute;
@@ -62,6 +106,19 @@ export const CategoryImage = styled.div`
   ${CategoryCardContainer}:hover & {
     filter: grayscale(0);
   }
+  @media ${maxWidth.XL} {
+    width: 165px;
+    height: calc(100% - 15px);
+  }
+  @media ${maxWidth.M} {
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+    filter: grayscale(0);
+  }
+  @media ${maxWidth.XXS} {
+    height: calc(100% - 12px);
+    width: calc(100% - 12px);
+  }
 `;
 
 export const CategoryName = styled(Link)`
@@ -70,4 +127,17 @@ export const CategoryName = styled(Link)`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   color: ${(props) => props.theme.colors.primary};
   text-decoration: none;
+  @media ${maxWidth.M} {
+    margin-top: unset;
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  @media ${maxWidth.XXS} {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  ${CategoryCardContainer}:hover & {
+    text-decoration: underline;
+  }
 `;

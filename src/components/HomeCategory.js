@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router";
 import {
   CategoryContainer,
   CategoryDescription,
@@ -10,9 +11,9 @@ import {
   CategoryButton,
 } from "../styles/HomeStyles";
 
-const HomeCategory = ({ title, description, image, link }) => {
+const HomeCategory = ({ title, description, image, link, history }) => {
   return (
-    <CategoryContainer onTouchEnd={() => alert("touched")}>
+    <CategoryContainer onClick={() => history.push(`/explore/${link}`)}>
       <div>
         <CategoryImageContainer>
           <CategoryImage
@@ -34,4 +35,4 @@ const HomeCategory = ({ title, description, image, link }) => {
   );
 };
 
-export default HomeCategory;
+export default withRouter(HomeCategory);

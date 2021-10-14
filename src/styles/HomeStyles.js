@@ -248,6 +248,9 @@ export const CategoryInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: 50px;
+  @media ${maxWidth.S} {
+    margin-left: 30px;
+  }
   @media ${maxWidth.XXS} {
     margin-left: 25px;
   }
@@ -260,6 +263,9 @@ export const CategoryInfoAlt = styled.div`
   margin-right: 50px;
   align-items: flex-end;
   text-align: right;
+  @media ${maxWidth.S} {
+    margin-right: 30px;
+  }
   @media ${maxWidth.XXS} {
     margin-left: 25px;
     text-align: left;
@@ -289,6 +295,7 @@ export const CategoryDescription = styled.span`
   @media ${maxWidth.S} {
     font-size: 16px;
     margin-bottom: 30px;
+    line-height: 19px;
   }
   @media ${maxWidth.XXS} {
     margin-bottom: 0;
@@ -388,7 +395,7 @@ export const CategoryButton = styled(ButtonStyled)`
   padding: 6px 25px;
   font-size: 18px;
   font-weight: 400;
-  @media ${maxWidth.XXS} {
+  @media ${maxWidth.XS} {
     display: none;
   }
 `;
