@@ -43,11 +43,18 @@ export const ProductImage = styled.div`
   z-index: 2;
   background-size: cover;
   background-position: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: all 0.2s;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: 0 2px 20px 0 rgb(0 0 0 / 15%);
+  /* transition: all 0.2s; */
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
+    opacity 0.2s ease-out;
+  transition-delay: 0.1s;
   ${ProductCardMain}:hover & {
-    transform: translate(-2px, -2px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: translate(0, -4px);
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgb(45 45 45 / 10%) 0 2px 2px, rgb(49 49 49 / 10%) 0 4px 4px,
+      rgb(42 42 42 / 10%) 0 8px 8px, rgb(32 32 32 / 10%) 0 16px 16px,
+      rgb(49 49 49 / 10%) 0 32px 32px, rgb(35 35 35 / 10%) 0 64px 64px;
   }
 `;
 

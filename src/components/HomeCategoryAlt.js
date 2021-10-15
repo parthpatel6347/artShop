@@ -13,7 +13,7 @@ import {
 
 const HomeCategoryAlt = ({ title, description, image, link, history }) => {
   return (
-    <CategoryContainerAlt onTouchEnd={() => history.push(`/explore/${link}`)}>
+    <CategoryContainerAlt onClick={() => history.push(`/explore/${link}`)}>
       <CategoryInfoAlt>
         <CategoryTitle>{title}</CategoryTitle>
         <CategoryDescription>{description}</CategoryDescription>

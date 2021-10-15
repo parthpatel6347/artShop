@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { maxWidth } from "./size";
+import { ReactComponent as Logo } from "../svg/logo.svg";
 
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 70px;
   /* box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px; */
+  @media ${maxWidth.XXS} {
+    height: 65px;
+  }
 `;
 
 export const NavbarInner = styled.div`
@@ -35,6 +39,18 @@ export const ShopTitle = styled(Link)`
   letter-spacing: 2px;
   display: flex;
   align-items: center;
+  @media ${maxWidth.XXS} {
+    font-size: 19px;
+  }
+`;
+
+export const LogoStyled = styled(Logo)`
+  margin-right: 10px;
+  width: 30px;
+  @media ${maxWidth.XXS} {
+    width: 27px;
+    margin-right: 8px;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -46,10 +62,35 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   /* margin-right: 50px; */
   height: 100%;
-  width: 100px;
+  /* width: 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 25px;
+  transition: all 0.15s ease-in;
+  box-sizing: unset;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.bgDarker};
+  }
+  @media ${maxWidth.XS} {
+    padding: 0 15px;
+  }
+
+  @media ${maxWidth.XXS} {
+    padding: 0 10px;
+    font-size: 17px;
+  }
+`;
+
+export const NavLinkExplore = styled(NavLink)`
+  @media ${maxWidth.M} {
+    display: none;
+  }
+`;
+
+export const NavHighlight = styled.div`
+  align-self: flex-end;
+  background-color: ;
 `;
 
 //Cart Icon styles
@@ -65,6 +106,9 @@ export const CartIconMain = styled.div`
 
 export const CartImg = styled.div`
   width: 22px;
+  @media ${maxWidth.XXS} {
+    width: 20px;
+  }
 `;
 
 export const CartNum = styled.div`
@@ -90,8 +134,8 @@ export const CartMenuMain = styled.div`
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   position: absolute;
   width: 265px;
-  top: 60px;
-  right: 40px;
+  top: 70px;
+  right: 7.5%;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -99,6 +143,9 @@ export const CartMenuMain = styled.div`
   padding: 20px 15px 20px 20px;
   box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.colors.gold};
+  @media ${maxWidth.XXS} {
+    top: 65px;
+  }
 `;
 
 export const CartMenuItemsContainer = styled.div`
@@ -185,20 +232,22 @@ export const UserIconContiner = styled.div`
   width: 24px;
   color: ${(props) => props.theme.colors.gold};
   margin-right: 4px;
+  @media ${maxWidth.XXS} {
+    width: 22px;
+  }
 `;
 
 export const DropDownContainer = styled.div`
-  width: 110px;
+  width: 170px;
   position: absolute;
-  top: 7px;
-  right: 27px;
+  top: 2px;
+  right: -26px;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 5;
   background-color: ${(props) => props.theme.colors.bgLight};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.colors.gold};
   padding: 5px 0;
 `;
@@ -206,23 +255,23 @@ export const DropDownContainer = styled.div`
 export const DropDownLink = styled.span`
   width: 100%;
   display: flex;
-  justify-content: center;
-  font-size: 16px;
+  /* justify-content: center; */
+  font-size: 17px;
   color: ${(props) => props.theme.colors.gold};
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 600;
   letter-spacing: 0.2;
   text-decoration: none;
-  padding: 5px 0;
+  padding: 6px 15px;
   box-sizing: border-box;
   &:hover {
     background-color: ${(props) => props.theme.colors.bgDarker};
     color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
   }
-  /* &:first-child {
-    border-bottom: 1px solid ${(props) => props.theme.colors.gold};
-  } */
+  &:first-child {
+    border-bottom: 1px solid ${(props) => props.theme.colors.bgDarker};
+  }
 `;
 
 export const CloseIconContainer = styled.div`

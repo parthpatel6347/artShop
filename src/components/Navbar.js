@@ -23,6 +23,8 @@ import {
   ShopTitle,
   NavLink,
   UserIconContiner,
+  NavLinkExplore,
+  LogoStyled,
 } from "../styles/NavbarStyles";
 import UserDropDown from "./UserDropDown";
 
@@ -55,19 +57,22 @@ const Navbar = ({
     <NavbarContainer>
       <NavbarInner>
         <ShopTitle to="/">
-          <Logo style={{ marginRight: "15px" }} />
+          <LogoStyled />
           artShop
         </ShopTitle>
         <NavLinksContainer>
-          <NavLink to="/explore">explore</NavLink>
+          <NavLinkExplore to="/explore">Explore</NavLinkExplore>
           {currentUser ? (
-            <div ref={dropDownContainer}>
-              <div style={{ display: "flex" }} onClick={handleDropdown}>
+            <div ref={dropDownContainer} style={{ height: "100%" }}>
+              <NavLink
+                onClick={handleDropdown}
+                style={{ backgroundColor: !open ? "" : "#f5f0e6" }}
+              >
                 <UserIconContiner>
                   <UserIcon />
                 </UserIconContiner>
-                <NavLink as="span">{currentUser.displayName}</NavLink>
-              </div>
+                <span>{currentUser.displayName}</span>
+              </NavLink>
               {open && (
                 <div style={{ position: "relative" }}>
                   <UserDropDown
@@ -79,13 +84,16 @@ const Navbar = ({
             </div>
           ) : (
             <>
-              <NavLink to="/signin">login</NavLink>
+              <NavLink to="/signin">Log in</NavLink>
             </>
           )}
-          <div ref={cartContainer}>
-            <div onClick={toggleCartVisibility}>
+          <div ref={cartContainer} style={{ height: "100%" }}>
+            <NavLink
+              onClick={toggleCartVisibility}
+              style={{ backgroundColor: hidden ? "" : "#f5f0e6" }}
+            >
               <CartIcon />
-            </div>
+            </NavLink>
             {!hidden && <Cart />}
           </div>
         </NavLinksContainer>
