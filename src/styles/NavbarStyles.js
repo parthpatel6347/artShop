@@ -1,27 +1,29 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { mediaQueries } from "./size";
+import { maxWidth } from "./size";
 
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 80px;
+  height: 70px;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px; */
 `;
 
 export const NavbarInner = styled.div`
-  border-bottom: 2px solid ${(props) => props.theme.colors.gold};
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 85%;
-  box-sizing: border-box;
+  border-bottom: 2px solid ${(props) => props.theme.colors.gold};
 `;
 
 export const NavLinksContainer = styled.div`
   /* width: 20%; */
   display: flex;
   justify-content: space-between;
+  height: 100%;
+  align-items: center;
 `;
 
 export const ShopTitle = styled(Link)`
@@ -39,10 +41,15 @@ export const NavLink = styled(Link)`
   font-size: 18px;
   color: ${(props) => props.theme.colors.gold};
   font-family: ${(props) => props.theme.fonts.sans};
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.5px;
   text-decoration: none;
-  margin-right: 50px;
+  /* margin-right: 50px; */
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 //Cart Icon styles
