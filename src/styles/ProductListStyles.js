@@ -1,12 +1,28 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { maxWidth } from "./size";
 
 export const ProductsMain = styled.div`
   /* border: 1px dotted purple; ///////// */
-  width: 70%;
+  width: 1300px;
   display: flex;
   flex-direction: column;
   margin: 40px auto 0;
+  @media ${maxWidth.XXL} {
+    width: 1170px;
+  }
+  @media ${maxWidth.XL} {
+    width: 870px;
+  }
+  @media ${maxWidth.M} {
+    width: 640px;
+  }
+  @media ${maxWidth.S} {
+    width: 560px;
+  }
+  @media ${maxWidth.XS} {
+    width: 290px;
+  }
 `;
 
 export const ProductsContainer = styled.div`
@@ -14,18 +30,63 @@ export const ProductsContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* border: 1px dotted red; */
+  justify-items: center;
+  @media ${maxWidth.XL} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media ${maxWidth.M} {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media ${maxWidth.XS} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ProductsTitle = styled.span`
+  font-size: 32px;
+  color: ${(props) => props.theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  padding-left: 14px;
+  @media ${maxWidth.XS} {
+    padding-left: unset;
+    text-align: center;
+  }
 `;
 
 //Product Card styles
 
 export const ProductCardMain = styled(Link)`
   /* border: 1px dotted red; */
-  width: 305px;
-  height: 455px;
+  width: 290px;
+  height: 432px;
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
   text-decoration: none;
+  padding: 10px;
+  transition: all 0.3s ease-out;
+  &:hover {
+    /* background-color: ${(props) => props.theme.colors.bgDarker}; */
+  }
+  @media ${maxWidth.XXL} {
+    width: 261px;
+    height: 389px;
+  }
+  @media ${maxWidth.M} {
+    width: 290px;
+    height: 432px;
+  }
+  @media ${maxWidth.S} {
+    width: 261px;
+    height: 389px;
+  }
+  @media ${maxWidth.XS} {
+    width: 290px;
+    height: 432px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -35,8 +96,8 @@ export const ImageContainer = styled.div`
 
 export const ProductImage = styled.div`
   position: absolute;
-  height: calc(100% - 24px);
-  width: calc(100% - 24px);
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
   right: 0;
   bottom: 0;
   box-sizing: border-box;
@@ -60,21 +121,18 @@ export const ProductImage = styled.div`
 
 export const Frame = styled.div`
   position: absolute;
-  height: calc(100% - 24px);
-  width: calc(100% - 24px);
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
   left: 0;
   top: 0;
-  box-sizing: border-box;
   border: 5px solid ${(props) => props.theme.colors.gold};
   z-index: 1;
-  transition: all 0.2s;
 `;
 
 export const InfoContainer = styled.div`
   padding-top: 10px;
   height: 64px;
   width: 100%;
-  box-sizing: border-box;
 `;
 
 export const InfoRow = styled.div`
@@ -89,6 +147,10 @@ export const TitleText = styled.span`
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-top: -2px;
+  transition: all 0.3s ease-out;
+  ${ProductCardMain}:hover & {
+    color: ${(props) => props.theme.colors.gold};
+  }
 `;
 
 export const SubTitleText = styled.span`
