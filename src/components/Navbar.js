@@ -13,7 +13,6 @@ import {
 
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
-import { ReactComponent as Logo } from "../svg/logo.svg";
 import { ReactComponent as UserIcon } from "../svg/user.svg";
 
 import {
@@ -46,7 +45,7 @@ const Navbar = ({
 
   //Cart open/close
   const cartContainer = useRef();
-  useOnClickOutside(cartContainer, hideCart);
+  useOnClickOutside(cartContainer, () => (hidden ? null : hideCart()));
 
   const onSignOut = () => {
     emptyLocalCart();

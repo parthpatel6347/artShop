@@ -10,7 +10,10 @@ import {
   Header,
   CustomInput,
   ButtonStyled,
+  BottomText,
+  BottomLink,
 } from "../styles/SigninStyles";
+import { Link } from "react-router-dom";
 
 const SignUp = ({ cartItems }) => {
   const [formData, setFormData] = useState({
@@ -88,31 +91,15 @@ const SignUp = ({ cartItems }) => {
           value={cnfPassword}
           onChange={handleChange}
         />
-        {/* <label>Name</label>
-          <input type="name" name="name" value={name} onChange={handleChange} />
-
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            name="cnfPassword"
-            value={cnfPassword}
-            onChange={handleChange}
-          /> */}
         <ButtonStyled onClick={handleSubmit}>Sign up</ButtonStyled>
+      </FormContainer>
+      <FormContainer>
+        <BottomText style={{ textAlign: "center" }}>
+          Already a member?
+          <BottomLink to="/signin" style={{ marginLeft: "6px" }}>
+            Sign in
+          </BottomLink>
+        </BottomText>
       </FormContainer>
     </ContainerMain>
   );

@@ -8,6 +8,8 @@ import { getUserCart } from "../firebase/utils";
 import { cloneCart } from "../redux/cart/cartActions";
 import { syncOrders } from "../redux/orders/ordersActions";
 import {
+  BottomLink,
+  BottomText,
   ButtonGoogle,
   ButtonStyled,
   ContainerMain,
@@ -89,7 +91,12 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
         </ButtonGoogle>
       </FormContainer>
       <FormContainer>
-        Don't have an account?<Link to="/signup">Sign up</Link>
+        <BottomText style={{ textAlign: "center" }}>
+          Don't have an account?
+          <BottomLink to="/signup" style={{ marginLeft: "6px" }}>
+            Sign up
+          </BottomLink>
+        </BottomText>
       </FormContainer>
     </ContainerMain>
   );

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { maxWidth } from "./size";
 
 export const ContainerMain = styled.div`
   margin: 0 auto;
@@ -9,6 +11,9 @@ export const ContainerMain = styled.div`
   justify-content: center;
   padding-bottom: 80px;
   box-sizing: border-box;
+  @media ${maxWidth.XXS} {
+    width: 90%;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -90,4 +95,17 @@ export const ButtonGoogle = styled.div`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const BottomLink = styled(Link)`
+  margin-left: 6px;
+  text-decoration: underline;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+export const BottomText = styled.span`
+  font-family: ${(props) => props.theme.fonts.sans};
+  color: ${(props) => props.theme.colors.primary};
+  font-size: 16px;
 `;

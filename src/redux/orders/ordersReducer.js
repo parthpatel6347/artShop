@@ -10,6 +10,10 @@ const ordersReducer = (state = INITIAL_STATE, action) => {
       return {
         userOrders: [...action.payload],
       };
+    case OrderActionTypes.CLEAR_ORDERS:
+      return {
+        userOrders: [],
+      };
     default:
       return state;
   }
