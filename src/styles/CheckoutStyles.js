@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { maxWidth } from "./size";
 
 export const CheckoutMain = styled.div`
   width: 100%;
@@ -11,6 +13,9 @@ export const CheckoutCartContainer = styled.div`
   width: 850px;
   display: flex;
   flex-direction: column;
+  @media ${maxWidth.M} {
+    width: 90%;
+  }
 `;
 
 export const CheckoutItem = styled.div`
@@ -21,6 +26,9 @@ export const CheckoutItem = styled.div`
   padding: 0 15px;
   display: flex;
   align-items: center;
+  @media ${maxWidth.M} {
+    height: 150px;
+  }
 `;
 
 export const ItemImage = styled.div`
@@ -28,16 +36,30 @@ export const ItemImage = styled.div`
   width: 125px;
   background-size: cover;
   background-position: center;
+  flex-shrink: 0;
+  @media ${maxWidth.M} {
+    height: 120px;
+    width: 90px;
+  }
 `;
 
 export const ItemInfo = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-grow: 2;
   justify-content: space-between;
   height: 170px;
   margin: 0 25px 0 40px;
   padding: 10px 0;
+  @media ${maxWidth.M} {
+    height: 120px;
+    padding: 0;
+  }
+  @media ${maxWidth.XS} {
+    margin: 0 15px 0 25px;
+  }
+  @media ${maxWidth.iphone} {
+    margin: 0 10px 0 20px;
+  }
 `;
 
 export const ItemInfoLeft = styled.div`
@@ -58,6 +80,19 @@ export const ItemTitle = styled.span`
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
+  @media ${maxWidth.M} {
+    margin-bottom: 3px;
+    font-size: 20px;
+  }
+  @media ${maxWidth.XS} {
+    font-size: 18px;
+  }
+  @media ${maxWidth.XS} {
+    font-size: 18px;
+  }
+  @media ${maxWidth.iphone} {
+    font-size: 17px;
+  }
 `;
 
 export const ItemSubTitle = styled.span`
@@ -66,6 +101,12 @@ export const ItemSubTitle = styled.span`
   color: ${(props) => props.theme.colors.gold};
   font-weight: 600;
   letter-spacing: 0.5px;
+  @media ${maxWidth.M} {
+    font-size: 15px;
+  }
+  @media ${maxWidth.XS} {
+    font-size: 14px;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -85,19 +126,31 @@ export const TotalText = styled.span`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 800;
   letter-spacing: 0.5px;
-  margin-right: 40px;
+  margin: -10px 30px 0 0;
   align-self: flex-end;
+  @media ${maxWidth.XS} {
+    margin-right: 20px;
+    font-size: 18px;
+  }
 `;
 
 export const TitleContainer = styled.div`
-  box-sizing: border-box;
   width: 100%;
   border-bottom: 2px solid ${(props) => props.theme.colors.gold};
-  margin: 40px 0 25px;
+  margin: 40px auto 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px 5px 15px;
+  @media ${maxWidth.M} {
+    width: 95%;
+  }
+  @media ${maxWidth.XS} {
+    padding-right: 20px;
+  }
+  @media ${maxWidth.iphone} {
+    padding-right: 15px;
+  }
 `;
 
 export const Title = styled.span`
@@ -106,6 +159,9 @@ export const Title = styled.span`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 400;
   letter-spacing: 0.2px;
+  @media ${maxWidth.XS} {
+    font-size: 28px;
+  }
 `;
 
 export const ItemCount = styled.span`
@@ -114,7 +170,6 @@ export const ItemCount = styled.span`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 400;
   letter-spacing: 0.2px;
-  margin-left: 20px;
 `;
 
 export const PaymentContainer = styled.div`
@@ -123,12 +178,46 @@ export const PaymentContainer = styled.div`
   flex-direction: column;
   margin-bottom: 100px;
   align-items: center;
+  @media ${maxWidth.M} {
+    width: 90%;
+  }
 `;
 
 export const CardDetailsContainer = styled.div`
-  box-sizing: border-box;
   width: 500px;
   border: 1px solid ${(props) => props.theme.colors.gold};
   background-color: ${(props) => props.theme.colors.bgLight};
   padding-left: 10px;
+  @media ${maxWidth.S} {
+    width: 85%;
+  }
+`;
+
+export const PaymentButton = styled(Link)`
+  background-color: ${(props) => props.theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.sans};
+  color: ${(props) => props.theme.colors.bg};
+  margin-right: auto;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 30px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  width: 500px;
+  margin: 20px auto 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
+  transition: all 0.1s ease-out;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
+    transform: translateY(-3px);
+    background-color: ${(props) => props.theme.colors.gold};
+  }
+  @media ${maxWidth.S} {
+    width: 85%;
+  }
 `;

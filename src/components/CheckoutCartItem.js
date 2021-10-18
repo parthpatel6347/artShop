@@ -31,7 +31,7 @@ const CheckoutCartItem = ({ item, remove }) => {
             <TrashIcon />
           </IconContainer>
         </ItemInfoLeft>
-        <ItemTitle>${price}.00</ItemTitle>
+        <ItemTitle style={{ marginLeft: "20px" }}>${price}.00</ItemTitle>
       </ItemInfo>
     </CheckoutItem>
   );

@@ -28,6 +28,7 @@ import {
   ItemCount,
   PaymentContainer,
   CardDetailsContainer,
+  PaymentButton,
 } from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
 import { ButtonStyled } from "../styles/SigninStyles";
@@ -144,12 +145,12 @@ const Checkout = ({
         <CardDetailsContainer>
           <CardElement options={cardElementOptions} />
         </CardDetailsContainer>
-        <ButtonStyled style={{ width: "500px" }} onClick={handleSubmit}>
+        <PaymentButton onClick={handleSubmit}>
           {loading ? "Processing" : `Pay $${total}.00`}
           <div style={{ marginLeft: "5px" }}>
             <PulseLoader loading={loading} size={6} color="white" />
           </div>
-        </ButtonStyled>
+        </PaymentButton>
       </PaymentContainer>
     </CheckoutMain>
   );
