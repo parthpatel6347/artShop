@@ -25,11 +25,11 @@ const ProductCard = ({ title, artist, image, id, location, price }) => {
       </ImageContainer>
       <InfoContainer>
         <InfoRow>
-          <SubTitleText style={{ marginLeft: "30px" }}>{artist}</SubTitleText>
+          <SubTitleText>{artist}</SubTitleText>
           <SubTitleText>Price</SubTitleText>
         </InfoRow>
         <InfoRow>
-          <TitleText style={{ marginLeft: "30px" }}>{title}</TitleText>
+          <TitleText>{title}</TitleText>
           <TitleText>${price}</TitleText>
         </InfoRow>
       </InfoContainer>

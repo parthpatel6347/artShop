@@ -1,4 +1,5 @@
 const size = {
+  iphone: "380px",
   XXS: "500px",
   XS: "630px",
   S: "800px",
@@ -9,6 +10,7 @@ const size = {
 };
 
 export const maxWidth = {
+  iphone: `(max-width: ${size.iphone})`,
   XXS: `(max-width: ${size.XXS})`,
   XS: `(max-width: ${size.XS})`,
   S: `(max-width: ${size.S})`,

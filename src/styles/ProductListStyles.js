@@ -21,7 +21,11 @@ export const ProductsMain = styled.div`
     width: 560px;
   }
   @media ${maxWidth.XS} {
-    width: 290px;
+    margin: 20px auto 0;
+    width: 80%;
+  }
+  @media ${maxWidth.XXS} {
+    width: 90%;
   }
 `;
 
@@ -39,8 +43,13 @@ export const ProductsContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
   @media ${maxWidth.XS} {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
   }
+  /* @media ${maxWidth.XXS} {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+  } */
 `;
 
 export const ProductsTitle = styled.span`
@@ -53,6 +62,12 @@ export const ProductsTitle = styled.span`
   @media ${maxWidth.XS} {
     padding-left: unset;
     text-align: center;
+  }
+  @media ${maxWidth.XS} {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    font-weight: 400;
   }
 `;
 
@@ -84,8 +99,19 @@ export const ProductCardMain = styled(Link)`
     height: 389px;
   }
   @media ${maxWidth.XS} {
-    width: 290px;
-    height: 432px;
+    width: 176px;
+    height: 264px;
+    margin-bottom: 10px;
+  }
+  @media ${maxWidth.XS} {
+    width: 176px;
+    height: 264px;
+    margin-bottom: 10px;
+  }
+  @media ${maxWidth.iphone} {
+    width: 160px;
+    height: 240px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -117,6 +143,10 @@ export const ProductImage = styled.div`
       rgb(42 42 42 / 10%) 0 8px 8px, rgb(32 32 32 / 10%) 0 16px 16px,
       rgb(49 49 49 / 10%) 0 32px 32px, rgb(35 35 35 / 10%) 0 64px 64px;
   }
+  @media ${maxWidth.XS} {
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+  }
 `;
 
 export const Frame = styled.div`
@@ -127,17 +157,29 @@ export const Frame = styled.div`
   top: 0;
   border: 5px solid ${(props) => props.theme.colors.gold};
   z-index: 1;
+  @media ${maxWidth.XS} {
+    border: 3px solid ${(props) => props.theme.colors.gold};
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+  }
 `;
 
 export const InfoContainer = styled.div`
   padding-top: 10px;
   height: 64px;
   width: 100%;
+  @media ${maxWidth.XS} {
+    height: 32px;
+  }
 `;
 
 export const InfoRow = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-left: 30px;
+  @media ${maxWidth.XS} {
+    margin-left: 5px;
+  }
 `;
 
 export const TitleText = styled.span`
@@ -151,6 +193,12 @@ export const TitleText = styled.span`
   ${ProductCardMain}:hover & {
     color: ${(props) => props.theme.colors.gold};
   }
+  @media ${maxWidth.XS} {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: -5px;
+  }
 `;
 
 export const SubTitleText = styled.span`
@@ -159,4 +207,7 @@ export const SubTitleText = styled.span`
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 600;
   letter-spacing: 0.5px;
+  @media ${maxWidth.XS} {
+    display: none;
+  }
 `;
