@@ -255,7 +255,7 @@ export const DropDownContainer = styled.div`
 export const DropDownLink = styled.span`
   width: 100%;
   display: flex;
-  /* justify-content: center; */
+  align-items: center;
   font-size: 17px;
   color: ${(props) => props.theme.colors.gold};
   font-family: ${(props) => props.theme.fonts.sans};
@@ -263,7 +263,6 @@ export const DropDownLink = styled.span`
   letter-spacing: 0.2;
   text-decoration: none;
   padding: 6px 15px;
-  box-sizing: border-box;
   &:hover {
     background-color: ${(props) => props.theme.colors.bgDarker};
     color: ${(props) => props.theme.colors.primary};

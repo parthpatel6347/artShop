@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { maxWidth } from "./size";
 
 export const OrdersMain = styled.div`
   width: 850px;
@@ -6,11 +7,13 @@ export const OrdersMain = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
+  @media ${maxWidth.M} {
+    width: 85%;
+  }
 `;
 
 export const OrderItemContainer = styled.div`
   width: 100%;
-  box-sizing: border-box;
   height: 142px;
   background-color: ${(props) => props.theme.colors.bgDarker};
   margin-bottom: 20px;
@@ -34,6 +37,9 @@ export const InfoContainer = styled.div`
   height: 100%;
   flex-grow: 2;
   margin-left: 35px;
+  @media ${maxWidth.XXS} {
+    margin-left: 20px;
+  }
 `;
 
 export const OrderInfoRow = styled.div`
@@ -41,12 +47,17 @@ export const OrderInfoRow = styled.div`
   width: 100%;
   justify-content: space-between;
 `;
+
 export const OrderInfo = styled.span`
   font-size: 16px;
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.primary};
   font-weight: 600;
   letter-spacing: 0.5px;
+  @media ${maxWidth.XXS} {
+    font-size: 14px;
+    letter-spacing: 0.2px;
+  }
 `;
 
 export const StatusContainer = styled.div`
@@ -64,6 +75,10 @@ export const StatusText = styled.span`
   color: ${(props) => props.theme.colors.bgLight};
   font-weight: 500;
   letter-spacing: 0.5px;
+  @media ${maxWidth.XXS} {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
 `;
 
 export const InfoTop = styled.div`

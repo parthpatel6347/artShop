@@ -24,7 +24,9 @@ const OrderItem = ({ date, items, orderNo, total }) => {
         <InfoTop>
           <OrderInfoRow>
             <OrderInfo>Order No: {orderNo}</OrderInfo>
-            <OrderInfo>{items.length} Items</OrderInfo>
+            <OrderInfo>
+              {items.length} {items.length > 1 ? "Items" : "Item"}
+            </OrderInfo>
           </OrderInfoRow>
           <OrderInfoRow>
             <OrderInfo>{date.slice(4)}</OrderInfo>
