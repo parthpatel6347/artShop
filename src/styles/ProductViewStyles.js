@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { maxWidth } from "./size";
 
 export const ProductViewMain = styled.div`
   display: flex;
@@ -7,20 +8,23 @@ export const ProductViewMain = styled.div`
 `;
 
 export const ProductViewContainer = styled.div`
-  box-sizing: border-box;
   width: 1100px;
-  margin: -25px auto 0;
+  margin: 25px auto 0;
   padding: 55px;
   display: flex;
   background-color: ${(props) => props.theme.colors.bgDarker};
   border-radius: 5px;
   /* border: 1px solid ${(props) => props.theme.colors.gold}; */
-  /* box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 15px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 15px;
+  @media ${maxWidth.XXL} {
+    width: 900px;
+    padding: 45px;
+  }
 `;
 
 export const BackButtonContainer = styled.div`
   width: 85%;
-  margin: 40px auto 0;
+  margin: 30px auto 0;
 `;
 export const BackButton = styled(Link)`
   font-size: 19px;
@@ -36,7 +40,7 @@ export const BackButton = styled(Link)`
 `;
 
 export const ProductImageContainer = styled.div`
-  box-sizing: border-box;
+  flex-shrink: 0;
   width: 500px;
   height: 640px;
   padding: 42px;
@@ -44,6 +48,11 @@ export const ProductImageContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 6px 6px 6px,
     rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
   background-color: ${(props) => props.theme.colors.bgLight};
+  @media ${maxWidth.XXL} {
+    width: 450px;
+    height: 576px;
+    padding: 38px;
+  }
 `;
 
 export const ProductImage = styled.div`
@@ -55,11 +64,12 @@ export const ProductImage = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-  width: 500px;
   padding-left: 65px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  @media ${maxWidth.XXL} {
+    padding-left: 50px;
+  }
 `;
 
 export const ProductTitle = styled.span`
@@ -70,6 +80,10 @@ export const ProductTitle = styled.span`
   letter-spacing: 0.5px;
   text-decoration: underline;
   margin-bottom: 6px;
+  @media ${maxWidth.XXL} {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const SubText = styled.span`
@@ -77,6 +91,9 @@ export const SubText = styled.span`
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 600;
   letter-spacing: 0.5px;
+  @media ${maxWidth.XXL} {
+    font-size: 17px;
+  }
 `;
 
 export const SubTextPrimary = styled(SubText)`
@@ -94,6 +111,9 @@ export const ProductPrice = styled.span`
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 40px;
+  @media ${maxWidth.XXL} {
+    font-size: 26px;
+  }
 `;
 
 export const Description = styled(SubText)`
@@ -102,19 +122,28 @@ export const Description = styled(SubText)`
   overflow: hidden;
 `;
 
-export const ButtonStyled = styled.button`
+export const AddtoCartButton = styled(Link)`
   background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
-  color: white;
+  color: ${(props) => props.theme.colors.bg};
+  margin-right: auto;
   height: 40px;
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 6px 30px;
-  font-size: 20px;
-  box-sizing: border-box;
-  margin: 40px 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin: 20px auto 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
+  transition: all 0.1s ease-out;
   &:hover {
-    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
+    transform: translateY(-3px);
+    background-color: ${(props) => props.theme.colors.gold};
   }
 `;

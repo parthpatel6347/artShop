@@ -7,6 +7,7 @@ import { selectProduct } from "../redux/products/productsSelectors";
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { addItemToUserCart } from "../firebase/utils";
 import {
+  AddtoCartButton,
   BackButton,
   BackButtonContainer,
   ButtonStyled,
@@ -75,9 +76,9 @@ const ProductView = ({
           </span>
           <ProductPrice>${price}</ProductPrice>
           <Description>{description}</Description>
-          <ButtonStyled onClick={handleAdd} disabled={isInCart}>
+          <AddtoCartButton onClick={handleAdd} disabled={isInCart}>
             {isInCart ? "Added to cart" : "Add to cart"}
-          </ButtonStyled>
+          </AddtoCartButton>
         </InfoContainer>
       </ProductViewContainer>
     </ProductViewMain>
