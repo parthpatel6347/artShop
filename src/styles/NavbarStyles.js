@@ -90,7 +90,6 @@ export const NavLinkExplore = styled(NavLink)`
 
 export const NavHighlight = styled.div`
   align-self: flex-end;
-  background-color: ;
 `;
 
 //Cart Icon styles
@@ -136,15 +135,34 @@ export const CartMenuMain = styled.div`
   width: 265px;
   top: 70px;
   right: 7.5%;
-  z-index: 5;
+  z-index: 6;
   display: flex;
   flex-direction: column;
   max-height: 500px;
   padding: 20px 15px 20px 20px;
   box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.colors.gold};
+  transition: opacity 0.3s ease-out;
+
   @media ${maxWidth.XXS} {
     top: 65px;
+  }
+  transform-origin: top;
+
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    opacity: 0;
   }
 `;
 
@@ -288,4 +306,26 @@ export const CloseIconContainer = styled.div`
   align-self: center;
   margin-left: 5px;
   box-sizing: border-box;
+`;
+
+export const UserMenuContainer = styled.div`
+  position: relative;
+  transition: opacity 0.3s ease-out;
+  z-index: 5;
+
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    opacity: 0;
+  }
 `;

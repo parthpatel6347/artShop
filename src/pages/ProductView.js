@@ -10,7 +10,6 @@ import {
   AddtoCartButton,
   BackButton,
   BackButtonContainer,
-  ButtonStyled,
   Description,
   InfoContainer,
   ProductImage,

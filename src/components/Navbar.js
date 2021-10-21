@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
+import { CSSTransition } from "react-transition-group";
+
 import useOnClickOutside from "../hooks/onClickOutside";
 
 import { auth } from "../firebase/utils";
@@ -24,6 +26,8 @@ import {
   UserIconContiner,
   NavLinkExplore,
   LogoStyled,
+  UserMenuContainer,
+  CartMenuContainer,
 } from "../styles/NavbarStyles";
 import UserDropDown from "./UserDropDown";
 
@@ -72,14 +76,21 @@ const Navbar = ({
                 </UserIconContiner>
                 <span>{currentUser.displayName}</span>
               </NavLink>
-              {open && (
-                <div style={{ position: "relative" }}>
-                  <UserDropDown
-                    signOut={onSignOut}
-                    toggleDropdown={handleDropdown}
-                  />
-                </div>
-              )}
+              <CSSTransition
+                in={open}
+                timeout={300}
+                classNames="fade"
+                unmountOnExit
+              >
+                {() => (
+                  <UserMenuContainer style={{ position: "relative" }}>
+                    <UserDropDown
+                      signOut={onSignOut}
+                      toggleDropdown={handleDropdown}
+                    />
+                  </UserMenuContainer>
+                )}
+              </CSSTransition>
             </div>
           ) : (
             <>
@@ -93,7 +104,14 @@ const Navbar = ({
             >
               <CartIcon />
             </NavLink>
-            {!hidden && <Cart />}
+            <CSSTransition
+              in={!hidden}
+              timeout={300}
+              classNames="fade"
+              unmountOnExit
+            >
+              {() => <Cart />}
+            </CSSTransition>
           </div>
         </NavLinksContainer>
       </NavbarInner>
