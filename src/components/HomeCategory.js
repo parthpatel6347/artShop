@@ -12,8 +12,15 @@ import {
 } from "../styles/HomeStyles";
 
 const HomeCategory = ({ title, description, image, link, history }) => {
+
+  const handleClick = () => {
+    if (window.innerWidth <= 630) {
+      history.push(`/explore/${link}`)
+    }
+  }
+
   return (
-    <CategoryContainer onClick={() => history.push(`/explore/${link}`)}>
+    <CategoryContainer onClick={handleClick}>
       <div>
         <CategoryImageContainer>
           <CategoryImage
