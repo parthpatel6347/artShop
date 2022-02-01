@@ -20,6 +20,19 @@ export const ProductViewContainer = styled.div`
     width: 900px;
     padding: 45px;
   }
+  @media ${maxWidth.L} {
+    width: 85%;
+  }
+  @media ${maxWidth.S}{
+    flex-direction: column;
+  }
+  @media ${maxWidth.XXS} {
+    margin-top:5px;
+    width: 95%;
+    padding: 5%;
+    background-color: unset;
+    box-shadow: none;
+  }
 `;
 
 export const BackButtonContainer = styled.div`
@@ -49,9 +62,15 @@ export const ProductImageContainer = styled.div`
     rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
   background-color: ${(props) => props.theme.colors.bgLight};
   @media ${maxWidth.XXL} {
-    width: 450px;
-    height: 576px;
-    padding: 38px;
+    width: 50%;
+    height: unset;
+    aspect-ratio:500/640;
+    padding: 30px;
+  }
+  @media ${maxWidth.S}{
+    max-width: 400px;
+    width: 100%;
+
   }
 `;
 
@@ -70,6 +89,10 @@ export const InfoContainer = styled.div`
   @media ${maxWidth.XXL} {
     padding-left: 50px;
   }
+  @media ${maxWidth.S} {
+    padding-left: 0;
+    margin-top: 20px;
+  }
 `;
 
 export const ProductTitle = styled.span`
@@ -78,13 +101,24 @@ export const ProductTitle = styled.span`
   font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   margin-bottom: 6px;
   @media ${maxWidth.XXL} {
     font-size: 28px;
     margin-bottom: 5px;
   }
+  @media ${maxWidth.XS} {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
 `;
+
+export const ArtistNameContainer = styled.span`
+  margin-bottom: 40px;
+  @media ${maxWidth.S} {
+    margin-bottom: 10px;
+  }
+`
 
 export const SubText = styled.span`
   font-size: 18px;
@@ -93,6 +127,9 @@ export const SubText = styled.span`
   letter-spacing: 0.5px;
   @media ${maxWidth.XXL} {
     font-size: 17px;
+  }
+  @media ${maxWidth.XS} {
+    font-size: 16px;
   }
 `;
 
@@ -114,16 +151,23 @@ export const ProductPrice = styled.span`
   @media ${maxWidth.XXL} {
     font-size: 26px;
   }
+  @media ${maxWidth.S} {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
 `;
 
 export const Description = styled(SubText)`
   color: ${(props) => props.theme.colors.gold};
   height: 72px;
   overflow: hidden;
+  @media ${maxWidth.S} {
+    display: none;
+  }
 `;
 
 export const AddtoCartButton = styled(Link)`
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.bg};
   margin-right: auto;
@@ -141,9 +185,14 @@ export const AddtoCartButton = styled(Link)`
     rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
   transition: all 0.1s ease-out;
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
-      rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
-    transform: translateY(-3px);
-    background-color: ${(props) => props.theme.colors.gold};
+    box-shadow:${props => !props.disabled && "rgba(0, 0, 0, 0.2) 0px 10px 15px -3px, rgba(0, 0, 0, 0.15) 0px 4px 6px -2px"};
+    transform: ${props => !props.disabled && "translateY(-3px)"};
+    background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.gold};
+    cursor: ${props => props.disabled && "default"};
   }
+  @media ${maxWidth.S} {
+    width:auto;
+    margin:20px auto 0 0;
+  }
+
 `;

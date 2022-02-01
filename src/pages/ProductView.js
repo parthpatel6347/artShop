@@ -8,6 +8,7 @@ import { selectCurrentUser } from "../redux/user/userSelectors";
 import { addItemToUserCart } from "../firebase/utils";
 import {
   AddtoCartButton,
+  ArtistNameContainer,
   BackButton,
   BackButtonContainer,
   Description,
@@ -34,13 +35,11 @@ const ProductView = ({
   let isInCart = cartItems.find((product) => product.id === foundProduct.id);
 
   const handleAdd = () => {
-    if (isInCart) {
-      alert("Item already added");
-      return;
+    if (!isInCart) {
+      addItemToCart(foundProduct);
+      if (currentUser)
+        addItemToUserCart(currentUser, [...cartItems, foundProduct]);
     }
-    addItemToCart(foundProduct);
-    if (currentUser)
-      addItemToUserCart(currentUser, [...cartItems, foundProduct]);
   };
 
   return (
@@ -52,10 +51,10 @@ const ProductView = ({
           {category === "paintings"
             ? "paintings"
             : category === "digital"
-            ? "digital art"
-            : category === "photos"
-            ? "photos"
-            : "sculptures"}
+              ? "digital art"
+              : category === "photos"
+                ? "photos"
+                : "sculptures"}
         </BackButton>
       </BackButtonContainer>
 
@@ -69,14 +68,14 @@ const ProductView = ({
         </ProductImageContainer>
         <InfoContainer>
           <ProductTitle>{title}</ProductTitle>
-          <span style={{ marginBottom: "40px" }}>
+          <ArtistNameContainer>
             <SubTextPrimary>By</SubTextPrimary>
             <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
-          </span>
+          </ArtistNameContainer>
           <ProductPrice>${price}</ProductPrice>
           <Description>{description}</Description>
           <AddtoCartButton onClick={handleAdd} disabled={isInCart}>
-            {isInCart ? "Added to cart" : "Add to cart"}
+            {isInCart ? "Item in cart" : "Add to cart"}
           </AddtoCartButton>
         </InfoContainer>
       </ProductViewContainer>

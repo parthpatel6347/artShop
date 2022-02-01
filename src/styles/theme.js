@@ -9,6 +9,9 @@ export const theme = {
   },
   fonts: {
     sans: "Nunito Sans, sans-serif",
-    sansSerif: "Playfair Display, serif",
+    sansSerif: "Kaisei Tokumin, serif",
+    // sansSerif: "Martel, serif",
+    // sansSerif: "Rufina, serif",
+    // sansSerif: "Playfair Display, serif",
   },
 };
