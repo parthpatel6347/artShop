@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { signInWithGoogle, auth, getUserOrders } from "../firebase/utils";
 import { Link } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import { syncCartWithUser } from "../firebase/utils";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { connect } from "react-redux";
@@ -16,14 +17,20 @@ import {
   CustomInput,
   Divider,
   DividerLine,
+  ErrorText,
   FormContainer,
+  FormContainerBottom,
   Header,
+  LoginFormContainer,
 } from "../styles/SigninStyles";
 
 import { ReactComponent as GoogleLogo } from "../svg/googleIcon.svg";
 
 const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
+
   const { email, password } = formData;
 
   const handleChange = (e) => {
@@ -31,6 +38,7 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
 
     try {
@@ -45,8 +53,11 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
           getUserOrders(userCred.user.uid).then((orders) => syncOrders(orders));
         });
       setFormData({ email: "", password: "" });
+      setErrorMessage(null)
+      setLoading(false)
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.message);
+      setLoading(false)
     }
   };
 
@@ -64,40 +75,51 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
 
   return (
     <ContainerMain>
-      <FormContainer>
+      <LoginFormContainer>
         <Header>Sign In</Header>
-        <CustomInput
-          placeholder="Email"
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-        <CustomInput
-          placeholder="Password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-        <ButtonStyled onClick={handleSubmit}>Sign in</ButtonStyled>
-        <Divider>
-          <DividerLine />
-          <span style={{ margin: "0 10px" }}>OR</span>
-          <DividerLine />
-        </Divider>
-        <ButtonGoogle onClick={handleGoogleSignin}>
-          Sign in with Google
-        </ButtonGoogle>
-      </FormContainer>
-      <FormContainer>
+        <>
+          <form onSubmit={handleSubmit}>
+            {errorMessage && (<ErrorText>{errorMessage}</ErrorText>)}
+            <CustomInput
+              placeholder="Email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+            <CustomInput
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+            <ButtonStyled type="submit">
+              {loading ? (
+                <div style={{ marginLeft: "5px" }}>
+                  <PulseLoader loading={loading} size={6} color="white" />
+                </div>
+              ) : "Sign in"}
+            </ButtonStyled>
+          </form>
+          <Divider>
+            <DividerLine />
+            <span style={{ margin: "0 10px" }}>OR</span>
+            <DividerLine />
+          </Divider>
+          <ButtonGoogle onClick={handleGoogleSignin}>
+            Sign in with Google
+          </ButtonGoogle>
+        </>
+      </LoginFormContainer>
+      <FormContainerBottom>
         <BottomText style={{ textAlign: "center" }}>
           Don't have an account?
           <BottomLink to="/signup" style={{ marginLeft: "6px" }}>
             Sign up
           </BottomLink>
         </BottomText>
-      </FormContainer>
+      </FormContainerBottom>
     </ContainerMain>
   );
 };

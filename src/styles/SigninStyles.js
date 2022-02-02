@@ -18,8 +18,10 @@ export const ContainerMain = styled.div`
 
 export const FormContainer = styled.div`
   width: 100%;
+  height: 460px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 50px;
   border: 1px solid ${(props) => props.theme.colors.gold};
   box-sizing: border-box;
@@ -29,13 +31,21 @@ export const FormContainer = styled.div`
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 `;
 
+export const LoginFormContainer = styled(FormContainer)`
+  height: 430px;
+`
+
+export const FormContainerBottom = styled(FormContainer)`
+  height: unset;
+`
+
 export const Header = styled.span`
   font-size: 24px;
   color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 700;
   letter-spacing: 0.5px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 `;
 
 export const CustomInput = styled.input`
@@ -44,9 +54,12 @@ export const CustomInput = styled.input`
   box-sizing: border-box;
   padding: 10px;
   outline: none;
+  width: 100%;
 `;
 
-export const ButtonStyled = styled.div`
+export const ButtonStyled = styled.button`
+  outline: none;
+  border: none;
   background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   color: white;
@@ -59,6 +72,7 @@ export const ButtonStyled = styled.div`
   font-size: 18px;
   box-sizing: border-box;
   margin: 15px 0;
+  width: 100%;
   &:hover {
     cursor: pointer;
   }
@@ -91,7 +105,7 @@ export const ButtonGoogle = styled.div`
   padding: 6px 30px;
   font-size: 18px;
   box-sizing: border-box;
-  margin: 10px 0;
+  margin: 10px 0 0;
   &:hover {
     cursor: pointer;
   }
@@ -109,3 +123,11 @@ export const BottomText = styled.span`
   color: ${(props) => props.theme.colors.primary};
   font-size: 16px;
 `;
+
+export const ErrorText = styled.div`
+  color: #EA3842;
+  font-family: ${(props) => props.theme.fonts.sans};
+  font-size:14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+`

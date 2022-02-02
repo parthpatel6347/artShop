@@ -4,6 +4,8 @@ import { auth, createUserProfileDocument } from "../firebase/utils";
 import { syncCartWithUser } from "../firebase/utils";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { connect } from "react-redux";
+import PulseLoader from "react-spinners/PulseLoader";
+
 import {
   ContainerMain,
   FormContainer,
@@ -12,7 +14,11 @@ import {
   ButtonStyled,
   BottomText,
   BottomLink,
+  ErrorText,
+  FormContainerBottom,
 } from "../styles/SigninStyles";
+
+
 import { Link } from "react-router-dom";
 
 const SignUp = ({ cartItems }) => {
@@ -22,6 +28,8 @@ const SignUp = ({ cartItems }) => {
     password: "",
     cnfPassword: "",
   });
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
   const { name, email, password, cnfPassword } = formData;
 
   const handleChange = (e) => {
@@ -29,10 +37,12 @@ const SignUp = ({ cartItems }) => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
 
     if (password !== cnfPassword) {
-      alert("passwords dont match");
+      setErrorMessage("Passwords do not match.")
+      setLoading(false)
       return;
     }
 
@@ -54,8 +64,11 @@ const SignUp = ({ cartItems }) => {
         password: "",
         cnfPassword: "",
       });
+      setErrorMessage(null)
+      setLoading(false)
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.message)
+      setLoading(false)
     }
   };
 
@@ -63,48 +76,57 @@ const SignUp = ({ cartItems }) => {
     <ContainerMain>
       <FormContainer>
         <Header>Sign Up</Header>
-        <CustomInput
-          placeholder="Name"
-          name="name"
-          type="name"
-          value={name}
-          onChange={handleChange}
-          required
-        />
-        <CustomInput
-          placeholder="Email"
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <CustomInput
-          placeholder="Password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          required
-        />
-        <CustomInput
-          placeholder="Password"
-          type="password"
-          name="cnfPassword"
-          value={cnfPassword}
-          onChange={handleChange}
-          required
-        />
-        <ButtonStyled onClick={handleSubmit}>Sign up</ButtonStyled>
+        <form onSubmit={handleSubmit}>
+          {errorMessage && (<ErrorText>{errorMessage}</ErrorText>)}
+          <CustomInput
+            placeholder="Name"
+            name="name"
+            type="name"
+            value={name}
+            onChange={handleChange}
+            required
+          />
+          <CustomInput
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+          <CustomInput
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+            required
+          />
+          <CustomInput
+            placeholder="Password"
+            type="password"
+            name="cnfPassword"
+            value={cnfPassword}
+            onChange={handleChange}
+            required
+          />
+          <ButtonStyled type="submit">
+            {loading ? (
+              <div style={{ marginLeft: "5px" }}>
+                <PulseLoader loading={loading} size={6} color="white" />
+              </div>
+            ) : "Sign up"}
+          </ButtonStyled>
+        </form>
       </FormContainer>
-      <FormContainer>
+      <FormContainerBottom>
         <BottomText style={{ textAlign: "center" }}>
           Already a member?
           <BottomLink to="/signin" style={{ marginLeft: "6px" }}>
             Sign in
           </BottomLink>
         </BottomText>
-      </FormContainer>
+      </FormContainerBottom>
     </ContainerMain>
   );
 };
