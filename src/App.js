@@ -60,13 +60,13 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
             path="/signin"
             exact
             render={() =>
-              currentUser ? <Redirect to="/explore" /> : <SignIn />
+              currentUser ? <Redirect to="/" /> : <SignIn />
             }
           />
           <Route
             path="/signup"
             render={() =>
-              currentUser ? <Redirect to="/explore" /> : <SignUp />
+              currentUser ? <Redirect to="/" /> : <SignUp />
             }
           />
         </Switch>

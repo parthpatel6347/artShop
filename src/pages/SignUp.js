@@ -69,6 +69,7 @@ const SignUp = ({ cartItems }) => {
           type="name"
           value={name}
           onChange={handleChange}
+          required
         />
         <CustomInput
           placeholder="Email"
@@ -76,6 +77,7 @@ const SignUp = ({ cartItems }) => {
           name="email"
           value={email}
           onChange={handleChange}
+          required
         />
         <CustomInput
           placeholder="Password"
@@ -83,6 +85,7 @@ const SignUp = ({ cartItems }) => {
           name="password"
           value={password}
           onChange={handleChange}
+          required
         />
         <CustomInput
           placeholder="Password"
@@ -90,6 +93,7 @@ const SignUp = ({ cartItems }) => {
           name="cnfPassword"
           value={cnfPassword}
           onChange={handleChange}
+          required
         />
         <ButtonStyled onClick={handleSubmit}>Sign up</ButtonStyled>
       </FormContainer>

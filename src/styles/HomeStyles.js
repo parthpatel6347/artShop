@@ -220,7 +220,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   width: 1000px;
   margin: 0 auto 50px;
-  background-color: ${(props) => props.theme.colors.bgDarker};
+  background-color: ${(props) => props.theme.colors.bgLight};
   padding: 25px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,

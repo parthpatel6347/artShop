@@ -1,5 +1,4 @@
 import { createSelector } from "reselect";
-import products from "../../seedTest";
 
 const selectProducts = (state) => state.products;
 
