@@ -11,27 +11,34 @@ import {
   ProductsMain,
   ProductsTitle,
 } from "../styles/ProductListStyles";
+import NotFound from "../pages/NotFound";
 
 const ProductsList = ({ match, category }) => {
   let page = match.params.page;
 
   return (
-    <ProductsMain>
-      <ProductsTitle style={{ marginLeft: "10px" }}>
-        {page === "paintings"
-          ? "Paintings"
-          : page === "digital"
-          ? "Digital Art"
-          : page === "photos"
-          ? "Photographs"
-          : "Sculptures"}
-      </ProductsTitle>
-      <ProductsContainer>
-        {category.map(({ id, ...productData }) => (
-          <ProductCard key={id} id={id} {...productData} />
-        ))}
-      </ProductsContainer>
-    </ProductsMain>
+    <>
+      {category ? (
+        <ProductsMain>
+          <ProductsTitle style={{ marginLeft: "10px" }}>
+            {page === "paintings"
+              ? "Paintings"
+              : page === "digital"
+                ? "Digital Art"
+                : page === "photos"
+                  ? "Photographs"
+                  : "Sculptures"}
+          </ProductsTitle>
+          <ProductsContainer>
+            {category.map(({ id, ...productData }) => (
+              <ProductCard key={id} id={id} {...productData} />
+            ))}
+          </ProductsContainer>
+        </ProductsMain>
+      ) : (
+        <NotFound />
+      )}
+    </>
   );
 };
 

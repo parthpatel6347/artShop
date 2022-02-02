@@ -18,6 +18,7 @@ import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
+import NotFound from "./pages/NotFound";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -35,7 +36,6 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
           });
         });
       }
-
       dispatchCurrentUser(userAuth);
     });
     return () => {
@@ -65,10 +65,12 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
           />
           <Route
             path="/signup"
+            exact
             render={() =>
               currentUser ? <Redirect to="/" /> : <SignUp />
             }
           />
+          <Route path="*" component={NotFound} />
         </Switch>
       </ThemeProvider>
     </div>

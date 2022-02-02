@@ -23,6 +23,9 @@ import {
   SubTextPrimary,
 } from "../styles/ProductViewStyles";
 import { ReactComponent as BackIcon } from "../svg/backArrow.svg";
+import { useEffect } from "react";
+import { useState } from "react";
+import NotFound from "./NotFound";
 
 const ProductView = ({
   addItemToCart,
@@ -30,9 +33,18 @@ const ProductView = ({
   foundProduct,
   currentUser,
 }) => {
-  const { image, title, artist, description, price, category } = foundProduct;
 
-  let isInCart = cartItems.find((product) => product.id === foundProduct.id);
+  const [productData, setProductData] = useState({})
+  const [isInCart, setIsInCart] = useState(false)
+
+  useEffect(() => {
+    if (foundProduct) {
+      setProductData(foundProduct)
+      setIsInCart(cartItems.find((product) => product.id === foundProduct.id))
+    }
+  }, [cartItems, foundProduct])
+
+  const { image, title, artist, description, price, category } = productData;
 
   const handleAdd = () => {
     if (!isInCart) {
@@ -42,44 +54,51 @@ const ProductView = ({
     }
   };
 
-  return (
-    <ProductViewMain>
-      <BackButtonContainer>
-        <BackButton to={`/explore/${category}`}>
-          <BackIcon style={{ width: "24px" }} />
-          All{" "}
-          {category === "paintings"
-            ? "paintings"
-            : category === "digital"
-              ? "digital art"
-              : category === "photos"
-                ? "photos"
-                : "sculptures"}
-        </BackButton>
-      </BackButtonContainer>
 
-      <ProductViewContainer>
-        <ProductImageContainer>
-          <ProductImage
-            style={{
-              backgroundImage: `url(${image})`,
-            }}
-          />
-        </ProductImageContainer>
-        <InfoContainer>
-          <ProductTitle>{title}</ProductTitle>
-          <ArtistNameContainer>
-            <SubTextPrimary>By</SubTextPrimary>
-            <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
-          </ArtistNameContainer>
-          <ProductPrice>${price}</ProductPrice>
-          <Description>{description}</Description>
-          <AddtoCartButton onClick={handleAdd} disabled={isInCart}>
-            {isInCart ? "Item in cart" : "Add to cart"}
-          </AddtoCartButton>
-        </InfoContainer>
-      </ProductViewContainer>
-    </ProductViewMain>
+  return (<>
+    {foundProduct ? (
+      <ProductViewMain>
+        <BackButtonContainer>
+          <BackButton to={`/explore/${category}`}>
+            <BackIcon style={{ width: "24px" }} />
+            All{" "}
+            {category === "paintings"
+              ? "paintings"
+              : category === "digital"
+                ? "digital art"
+                : category === "photos"
+                  ? "photos"
+                  : "sculptures"}
+          </BackButton>
+        </BackButtonContainer>
+
+        <ProductViewContainer>
+          <ProductImageContainer>
+            <ProductImage
+              style={{
+                backgroundImage: `url(${image})`,
+              }}
+            />
+          </ProductImageContainer>
+          <InfoContainer>
+            <ProductTitle>{title}</ProductTitle>
+            <ArtistNameContainer>
+              <SubTextPrimary>By</SubTextPrimary>
+              <SubTextGold style={{ marginLeft: "5px" }}>{artist}</SubTextGold>
+            </ArtistNameContainer>
+            <ProductPrice>${price}</ProductPrice>
+            <Description>{description}</Description>
+            <AddtoCartButton onClick={handleAdd} disabled={isInCart}>
+              {isInCart ? "Item in cart" : "Add to cart"}
+            </AddtoCartButton>
+          </InfoContainer>
+        </ProductViewContainer>
+      </ProductViewMain>
+    ) : (
+      <NotFound />
+    )}
+  </>
+
   );
 };
 
