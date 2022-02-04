@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { maxWidth } from "./size";
 
 export const CategoryContainer = styled.div`
-  /* border: 1px dotted red; ///////// */
   height: calc(100vh - 100px);
   width: 100vw;
   box-sizing: border-box;
@@ -23,7 +22,6 @@ export const CategoryContainer = styled.div`
 
 export const CategoryCardContainer = styled.div`
   box-sizing: border-box;
-  /* padding: 10px; */
   margin: 30px;
   display: flex;
   flex-direction: column;
@@ -50,7 +48,6 @@ export const CategoryCardContainer = styled.div`
 
 export const CategoryImageContainer = styled.div`
   position: relative;
-  /* border: 1px dotted orange; */
   height: 90%;
   width: 220px;
   &:hover {
@@ -69,7 +66,7 @@ export const CategoryImageContainer = styled.div`
 `;
 
 export const Frame = styled.div`
-  border: 4px solid ${(props) => props.theme.colors.gold};
+  border: 4px solid ${(props) => props.theme.colors.accentDark};
   height: calc(100% - 20px);
   width: 200px;
   position: absolute;
@@ -123,10 +120,11 @@ export const CategoryImage = styled.div`
 
 export const CategoryName = styled(Link)`
   margin-top: 12px;
-  font-size: 25px;
+  font-size: 23px;
   font-family: ${(props) => props.theme.fonts.sansSerif};
   color: ${(props) => props.theme.colors.primary};
   text-decoration: none;
+  font-weight:600;
   @media ${maxWidth.M} {
     margin-top: unset;
     margin-bottom: 6px;

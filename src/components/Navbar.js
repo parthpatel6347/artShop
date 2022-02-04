@@ -27,7 +27,6 @@ import {
   NavLinkExplore,
   LogoStyled,
   UserMenuContainer,
-  CartMenuContainer,
 } from "../styles/NavbarStyles";
 import UserDropDown from "./UserDropDown";
 
@@ -69,7 +68,7 @@ const Navbar = ({
             <div ref={dropDownContainer} style={{ height: "100%" }}>
               <NavLink
                 onClick={handleDropdown}
-                style={{ backgroundColor: !open ? "" : "#f5f0e6" }}
+                style={{ backgroundColor: !open ? "" : "#EDE5D9" }}
               >
                 <UserIconContiner>
                   <UserIcon />
@@ -100,7 +99,7 @@ const Navbar = ({
           <div ref={cartContainer} style={{ height: "100%" }}>
             <NavLink
               onClick={toggleCartVisibility}
-              style={{ backgroundColor: hidden ? "" : "#f5f0e6" }}
+              style={{ backgroundColor: hidden ? "" : "#EDE5D9" }}
             >
               <CartIcon />
             </NavLink>

@@ -18,6 +18,7 @@ import {
   MainText,
   ContainerLeftInner,
   SplashButton,
+  MainTextBG,
 } from "../styles/HomeStyles";
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
         <ContainerLeft>
           <ContainerLeftInner>
             <TextContainer>
-              <MainText>Extraordinary art,</MainText>
+              <MainText><MainTextBG>Extraordinary</MainTextBG> art,</MainText>
               <MainText>Curated by masters.</MainText>
             </TextContainer>
             <SubText>

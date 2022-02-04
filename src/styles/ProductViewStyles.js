@@ -57,7 +57,7 @@ export const ProductImageContainer = styled.div`
   width: 500px;
   height: 640px;
   padding: 42px;
-  border: 5px solid ${(props) => props.theme.colors.gold};
+  border: 5px solid ${(props) => props.theme.colors.accentDark};
   box-shadow: rgba(0, 0, 0, 0.1) 6px 6px 6px,
     rgba(0, 0, 0, 0.1) 6px 6px 6px inset;
   background-color: ${(props) => props.theme.colors.bgLight};

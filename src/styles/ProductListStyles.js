@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { maxWidth } from "./size";
 
 export const ProductsMain = styled.div`
-  /* border: 1px dotted purple; ///////// */
   width: 1300px;
   display: flex;
   flex-direction: column;
@@ -34,7 +33,6 @@ export const ProductsContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* border: 1px dotted red; */
   justify-items: center;
   @media ${maxWidth.XL} {
     grid-template-columns: 1fr 1fr 1fr;
@@ -46,10 +44,6 @@ export const ProductsContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     margin-top: 20px;
   }
-  /* @media ${maxWidth.XXS} {
-    grid-template-columns: 1fr 1fr;
-    margin-top: 30px;
-  } */
 `;
 
 export const ProductsTitle = styled.span`
@@ -74,7 +68,6 @@ export const ProductsTitle = styled.span`
 //Product Card styles
 
 export const ProductCardMain = styled(Link)`
-  /* border: 1px dotted red; */
   width: 290px;
   height: 432px;
   display: flex;
@@ -83,8 +76,11 @@ export const ProductCardMain = styled(Link)`
   text-decoration: none;
   padding: 10px;
   transition: all 0.3s ease-out;
+  background-color: ${(props) => props.theme.colors.bgLight};
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   &:hover {
-    /* background-color: ${(props) => props.theme.colors.bgDarker}; */
+    transform: translate(0, -4px);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   }
   @media ${maxWidth.XXL} {
     width: 261px;
@@ -95,23 +91,23 @@ export const ProductCardMain = styled(Link)`
     height: 432px;
   }
   @media ${maxWidth.S} {
-    width: 261px;
-    height: 389px;
+    width: 248px;
+    height: 370px;
   }
   @media ${maxWidth.XS} {
     width: 176px;
     height: 264px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    padding: 7px;
+
   }
-  @media ${maxWidth.XS} {
-    width: 176px;
-    height: 264px;
-    margin-bottom: 10px;
+  @media ${maxWidth.XXS} {
+    width: 160px;
+    height: 240px;
   }
   @media ${maxWidth.iphone} {
     width: 160px;
     height: 240px;
-    margin-bottom: 10px;
   }
 `;
 
@@ -122,10 +118,10 @@ export const ImageContainer = styled.div`
 
 export const ProductImage = styled.div`
   position: absolute;
-  height: calc(100% - 20px);
-  width: calc(100% - 20px);
-  right: 0;
-  bottom: 0;
+  height: 100%;
+  width: 100%;
+  /* right: 0;
+  top: 0; */
   box-sizing: border-box;
   z-index: 2;
   background-size: cover;
@@ -136,17 +132,6 @@ export const ProductImage = styled.div`
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
     opacity 0.2s ease-out;
   transition-delay: 0.1s;
-  ${ProductCardMain}:hover & {
-    transform: translate(0, -4px);
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-    box-shadow: rgb(45 45 45 / 10%) 0 2px 2px, rgb(49 49 49 / 10%) 0 4px 4px,
-      rgb(42 42 42 / 10%) 0 8px 8px, rgb(32 32 32 / 10%) 0 16px 16px,
-      rgb(49 49 49 / 10%) 0 32px 32px, rgb(35 35 35 / 10%) 0 64px 64px;
-  }
-  @media ${maxWidth.XS} {
-    height: calc(100% - 10px);
-    width: calc(100% - 10px);
-  }
 `;
 
 export const Frame = styled.div`
@@ -154,8 +139,10 @@ export const Frame = styled.div`
   height: calc(100% - 20px);
   width: calc(100% - 20px);
   left: 0;
-  top: 0;
-  border: 5px solid ${(props) => props.theme.colors.gold};
+  bottom: 0;
+  /* background-color: ${(props) => props.theme.colors.accent}; */
+  opacity:1;
+  /* border: 4px solid ${(props) => props.theme.colors.accent}; */
   z-index: 1;
   @media ${maxWidth.XS} {
     border: 3px solid ${(props) => props.theme.colors.gold};
@@ -166,20 +153,20 @@ export const Frame = styled.div`
 
 export const InfoContainer = styled.div`
   padding-top: 10px;
-  height: 64px;
+  /* height: 64px; */
   width: 100%;
   @media ${maxWidth.XS} {
-    height: 32px;
+    height: 28px;
+  }
+  @media ${maxWidth.XXS} {
+    height: 25px;
   }
 `;
 
 export const InfoRow = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 30px;
-  @media ${maxWidth.XS} {
-    margin-left: 5px;
-  }
+  /* margin-left: 30px; */
 `;
 
 export const TitleText = styled.span`
@@ -190,8 +177,12 @@ export const TitleText = styled.span`
   letter-spacing: 0.5px;
   margin-top: -2px;
   transition: all 0.3s ease-out;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width:80%;
   ${ProductCardMain}:hover & {
-    color: ${(props) => props.theme.colors.gold};
+    color: ${(props) => props.theme.colors.primary};
   }
   @media ${maxWidth.XS} {
     font-size: 15px;
@@ -199,11 +190,14 @@ export const TitleText = styled.span`
     letter-spacing: 0.3px;
     margin-top: -5px;
   }
+  @media ${maxWidth.XXS} {
+    font-size: 13px;
+  }
 `;
 
 export const SubTitleText = styled.span`
   font-size: 13px;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 600;
   letter-spacing: 0.5px;

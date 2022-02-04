@@ -7,7 +7,6 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 70px;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px; */
   @media ${maxWidth.XXS} {
     height: 65px;
   }
@@ -19,7 +18,7 @@ export const NavbarInner = styled.div`
   align-items: center;
   height: 100%;
   width: 85%;
-  border-bottom: 2px solid ${(props) => props.theme.colors.gold};
+  border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 `;
 
 export const NavLinksContainer = styled.div`
@@ -31,7 +30,7 @@ export const NavLinksContainer = styled.div`
 `;
 
 export const ShopTitle = styled(Link)`
-  font-size: 20px;
+  font-size: 21px;
   font-family: ${(props) => props.theme.fonts.sansSerif};
   color: ${(props) => props.theme.colors.primary};
   text-decoration: none;
@@ -45,32 +44,33 @@ export const ShopTitle = styled(Link)`
 `;
 
 export const LogoStyled = styled(Logo)`
+  margin-left: 25px;
   margin-right: 10px;
   width: 30px;
   @media ${maxWidth.XXS} {
     width: 27px;
     margin-right: 8px;
+    margin-left: 0px;
+
   }
 `;
 
 export const NavLink = styled(Link)`
-  font-size: 18px;
-  color: ${(props) => props.theme.colors.gold};
+  font-size: 17px;
+  color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
-  /* margin-right: 50px; */
   height: 100%;
-  /* width: 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 25px;
-  transition: all 0.15s ease-in;
+  transition: all 0.1s ease-in;
   box-sizing: unset;
   &:hover {
-    background-color: ${(props) => props.theme.colors.bgDarker};
+    background-color: ${(props) => props.theme.colors.accentLight};
   }
   @media ${maxWidth.XS} {
     padding: 0 15px;
@@ -101,9 +101,12 @@ export const CartIconMain = styled.div`
   font-weight: 400;
   letter-spacing: 0.5px;
   display: flex;
+  align-items: center;
 `;
 
 export const CartImg = styled.div`
+ display: flex;
+  align-items: center;
   width: 22px;
   @media ${maxWidth.XXS} {
     width: 20px;
@@ -112,8 +115,7 @@ export const CartImg = styled.div`
 
 export const CartNum = styled.div`
   border-radius: 50%;
-  border: 1px solid ${(props) => props.theme.colors.gold};
-  /* background-color: ${(props) => props.theme.colors.gold}; */
+  border: 1px solid ${(props) => props.theme.colors.primary};
   width: 20px;
   height: 20px;
   font-family: ${(props) => props.theme.fonts.sans};
@@ -247,6 +249,8 @@ export const CartMenuName = styled.p`
 `;
 
 export const UserIconContiner = styled.div`
+  display: flex;
+  align-items: center;
   width: 24px;
   color: ${(props) => props.theme.colors.gold};
   margin-right: 4px;

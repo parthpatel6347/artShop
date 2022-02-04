@@ -61,8 +61,11 @@ export const MainText = styled.span`
   }
 `;
 
+export const MainTextBG = styled(MainText)`
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(246,194,92,0.67) 65%, rgba(246,194,92,0.67) 95%,rgba(255,255,255,0) 95%);
+`
+
 export const SubText = styled.span`
-  /* border: 1px dotted blue;  */
   font-size: 22px;
   color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
@@ -132,8 +135,8 @@ export const SplashButton = styled(ButtonStyled)`
 
 export const ImageContainer = styled.div`
   position: relative;
-  height: 549px;
-  width: 410px;
+  height: 539px;
+  width: 400px;
   @media ${maxWidth.L} {
     height: 494px;
     width: 369px;
@@ -155,7 +158,7 @@ export const ImageStyled = styled.div`
   background-image: url(https://images.unsplash.com/photo-1617503752587-97d2103a96ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1919&q=80);
   background-size: cover;
   background-position: center;
-  box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px; */
   @media ${maxWidth.L} {
     height: 437px;
     width: 311px;
@@ -171,7 +174,6 @@ const Frame = styled.div`
   width: 346px;
   height: 486px;
   box-sizing: border-box;
-  border: 4px solid ${(props) => props.theme.colors.gold};
   @media ${maxWidth.L} {
     height: 437px;
     width: 311px;
@@ -185,15 +187,15 @@ const Frame = styled.div`
 export const FrameBottom = styled(Frame)`
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const FrameTop = styled(Frame)`
   bottom: 0;
   left: 0;
-  z-index: 3;
-  box-shadow: rgba(0, 0, 0, 0.1) 8px 8px 8px,
-    rgba(0, 0, 0, 0.1) 8px 8px 8px inset;
+  z-index: 1;
+  background-color:${(props) => props.theme.colors.accent} ;
+  
 `;
 
 //Separator text styles
@@ -211,6 +213,19 @@ export const SeparatorContainer = styled.div`
   padding-bottom: 20px;
   margin-top: 30px;
   margin-bottom: 80px;
+  @media ${maxWidth.S} {
+    font-size: 28px;
+  }
+  @media ${maxWidth.XS} {
+    width: 60%;
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  @media ${maxWidth.XXS} {
+    width: 80%;
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
 `;
 
 // Category styles
@@ -221,10 +236,9 @@ export const CategoryContainer = styled.div`
   width: 1000px;
   margin: 0 auto 50px;
   background-color: ${(props) => props.theme.colors.bgLight};
+  /* border:2px solid ${(props) => props.theme.colors.accentLight}; */
   padding: 25px;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
   @media ${maxWidth.XXL} {
     width: 800px;
   }
@@ -281,6 +295,10 @@ export const CategoryTitle = styled.span`
   margin-bottom: 5px;
   @media ${maxWidth.S} {
     font-size: 25px;
+    margin-bottom: 5px;
+  }
+  @media ${maxWidth.XXS} {
+    font-size: 20px;
     margin-bottom: 5px;
   }
 `;
@@ -363,8 +381,9 @@ export const CategoryFrame = styled.div`
   z-index: 2;
   width: 243px;
   height: 243px;
-  border: 4px solid ${(props) => props.theme.colors.gold};
+  border: 4px solid ${(props) => props.theme.colors.accent};
   box-sizing: border-box;
+  
   box-shadow: rgba(0, 0, 0, 0.1) 8px 8px 8px,
     rgba(0, 0, 0, 0.1) 8px 8px 8px inset;
   @media ${maxWidth.XXL} {
