@@ -22,7 +22,7 @@ import {
   SubTextGold,
   SubTextPrimary,
 } from "../styles/ProductViewStyles";
-import { ReactComponent as BackIcon } from "../svg/backArrow.svg";
+import backArrow from "../svg/backArrow.svg";
 import { useEffect } from "react";
 import { useState } from "react";
 import NotFound from "./NotFound";
@@ -60,7 +60,7 @@ const ProductView = ({
       <ProductViewMain>
         <BackButtonContainer>
           <BackButton to={`/explore/${category}`}>
-            <BackIcon style={{ width: "24px" }} />
+            <img src={backArrow} alt="back" style={{ width: "24px", opacity: 0.7, marginTop: "3px" }} />
             All{" "}
             {category === "paintings"
               ? "paintings"

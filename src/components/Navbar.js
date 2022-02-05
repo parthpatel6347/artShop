@@ -15,7 +15,7 @@ import {
 
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
-import { ReactComponent as UserIcon } from "../svg/user.svg";
+import userIcon from "../svg/user.svg";
 
 import {
   NavbarContainer,
@@ -75,7 +75,7 @@ const Navbar = ({
                 style={{ backgroundColor: !open ? "" : "#EDE5D9" }}
               >
                 <UserIconContiner>
-                  <UserIcon />
+                  <img src={userIcon} alt="user" />
                 </UserIconContiner>
                 <span>{currentUser.displayName}</span>
               </NavLink>

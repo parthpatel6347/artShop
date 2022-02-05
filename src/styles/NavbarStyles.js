@@ -109,8 +109,10 @@ export const CartImg = styled.div`
  display: flex;
   align-items: center;
   width: 22px;
+  margin-right: 3px;
   @media ${maxWidth.XXS} {
     width: 20px;
+    margin-right: 5px;
   }
 `;
 
@@ -251,7 +253,6 @@ export const UserIconContiner = styled.div`
   display: flex;
   align-items: center;
   width: 24px;
-  color: ${(props) => props.theme.colors.navFont};
   margin-right: 4px;
   @media ${maxWidth.XXS} {
     width: 22px;

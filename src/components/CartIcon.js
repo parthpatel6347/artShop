@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { CartIconMain, CartImg, CartNum } from "../styles/NavbarStyles";
 
-import { ReactComponent as IconCart } from "../svg/cart.svg";
+import iconCart from "../svg/cart.svg";
 
 const CartIcon = ({ cartItems }) => {
   return (
     <CartIconMain>
       <CartImg>
-        <IconCart />
+        <img src={iconCart} alt="cart" />
       </CartImg>
       <CartNum>{cartItems.length}</CartNum>
     </CartIconMain>
