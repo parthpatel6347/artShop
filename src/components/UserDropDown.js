@@ -16,7 +16,6 @@ const UserDropDown = ({ signOut, history, toggleDropdown, clearOrders }) => {
   const handleSignOut = () => {
     toggleDropdown();
     signOut();
-    history.push("/");
     clearOrders();
   };
   return (

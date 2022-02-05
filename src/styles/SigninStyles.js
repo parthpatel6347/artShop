@@ -23,7 +23,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 50px;
-  border: 1px solid ${(props) => props.theme.colors.gold};
+  border: 2px solid ${(props) => props.theme.colors.accentLight};
   box-sizing: border-box;
   margin-bottom: 20px;
   background-color: ${(props) => props.theme.colors.bgLight};
@@ -42,19 +42,21 @@ export const FormContainerBottom = styled(FormContainer)`
 export const Header = styled.span`
   font-size: 24px;
   color: ${(props) => props.theme.colors.primary};
-  font-family: ${(props) => props.theme.fonts.sans};
+  font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 25px;
 `;
 
 export const CustomInput = styled.input`
-  border: 1px solid ${(props) => props.theme.colors.gold};
+  border: 1px solid ${(props) => props.theme.colors.accentDark};
   margin-bottom: 15px;
   box-sizing: border-box;
   padding: 10px;
   outline: none;
   width: 100%;
+  font-family: ${(props) => props.theme.fonts.sans};
+  font-weight: 500;
 `;
 
 export const ButtonStyled = styled.button`
@@ -69,7 +71,8 @@ export const ButtonStyled = styled.button`
   justify-content: center;
   align-items: center;
   padding: 6px 30px;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight:500;
   box-sizing: border-box;
   margin: 15px 0;
   width: 100%;
@@ -85,6 +88,7 @@ export const Divider = styled.div`
   align-items: center;
   opacity: 0.7;
   font-size: 16px;
+  font-weight:500;
 `;
 
 export const DividerLine = styled.div`
@@ -103,9 +107,11 @@ export const ButtonGoogle = styled.div`
   justify-content: center;
   align-items: center;
   padding: 6px 30px;
-  font-size: 18px;
+  font-size: 17px;
   box-sizing: border-box;
+  font-weight:600;
   margin: 10px 0 0;
+  opacity:0.6;
   &:hover {
     cursor: pointer;
   }
@@ -122,6 +128,8 @@ export const BottomText = styled.span`
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.primary};
   font-size: 16px;
+  font-weight:500;
+  opacity:0.7;
 `;
 
 export const ErrorText = styled.div`

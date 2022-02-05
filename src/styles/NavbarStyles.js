@@ -57,9 +57,9 @@ export const LogoStyled = styled(Logo)`
 
 export const NavLink = styled(Link)`
   font-size: 17px;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.navFont};
   font-family: ${(props) => props.theme.fonts.sans};
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.5px;
   text-decoration: none;
   height: 100%;
@@ -71,6 +71,7 @@ export const NavLink = styled(Link)`
   box-sizing: unset;
   &:hover {
     background-color: ${(props) => props.theme.colors.accentLight};
+    opacity:1;
   }
   @media ${maxWidth.XS} {
     padding: 0 15px;
@@ -96,7 +97,7 @@ export const NavHighlight = styled.div`
 
 export const CartIconMain = styled.div`
   font-size: 18px;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.navFont};
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -115,13 +116,13 @@ export const CartImg = styled.div`
 
 export const CartNum = styled.div`
   border-radius: 50%;
-  border: 1px solid ${(props) => props.theme.colors.primary};
+  border: 1px  solid ${(props) => props.theme.colors.navFont};
   width: 20px;
   height: 20px;
   font-family: ${(props) => props.theme.fonts.sans};
   font-size: 14px;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.navFont};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,8 +132,7 @@ export const CartNum = styled.div`
 
 export const CartMenuMain = styled.div`
   background-color: ${(props) => props.theme.colors.bgLight};
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;  border: 2px solid ${(props) => props.theme.colors.accentLight};
   position: absolute;
   width: 265px;
   top: 70px;
@@ -143,7 +143,6 @@ export const CartMenuMain = styled.div`
   max-height: 500px;
   padding: 20px 15px 20px 20px;
   box-sizing: border-box;
-  border: 1px solid ${(props) => props.theme.colors.gold};
   transition: opacity 0.3s ease-out;
 
   @media ${maxWidth.XXS} {
@@ -212,7 +211,7 @@ export const CheckoutButton = styled.div`
 export const CartMenuItemMain = styled.div`
   width: 90%;
   display: flex;
-  border-bottom: 1px solid ${(props) => props.theme.colors.gold};
+  border-bottom: 1px solid ${(props) => props.theme.colors.accentLight};
   box-sizing: border-box;
   height: 78px;
   padding-bottom: 15px;
@@ -252,7 +251,7 @@ export const UserIconContiner = styled.div`
   display: flex;
   align-items: center;
   width: 24px;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.navFont};
   margin-right: 4px;
   @media ${maxWidth.XXS} {
     width: 22px;
@@ -262,15 +261,13 @@ export const UserIconContiner = styled.div`
 export const DropDownContainer = styled.div`
   width: 170px;
   position: absolute;
-  top: 2px;
+  top: 1px;
   right: -26px;
   display: flex;
   flex-direction: column;
   z-index: 5;
   background-color: ${(props) => props.theme.colors.bgLight};
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border: 1px solid ${(props) => props.theme.colors.gold};
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;  border: 1px solid ${(props) => props.theme.colors.accentLight};
   padding: 5px 0;
 `;
 
@@ -279,15 +276,14 @@ export const DropDownLink = styled.span`
   display: flex;
   align-items: center;
   font-size: 17px;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.navFont};
   font-family: ${(props) => props.theme.fonts.sans};
   font-weight: 600;
   letter-spacing: 0.2;
   text-decoration: none;
-  padding: 6px 15px;
+  padding: 10px 15px;
   &:hover {
-    background-color: ${(props) => props.theme.colors.bgDarker};
-    color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.accentLight};
     cursor: pointer;
   }
   &:first-child {

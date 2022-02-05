@@ -28,13 +28,13 @@ const services = {
   art: {
     title: "Authentic",
     description:
-      "All our art pieces are unique and come with an authencity certificate along with a letter from the artist.",
+      "All art pieces are unique and come with an authencity certificate.",
     logo: certificate,
   },
   shipping: {
     title: "Free Shipping",
     description:
-      "We provide free expedited domestic and international shipping.",
+      "Free expedited domestic and international shipping.",
     logo: truck,
   },
   returns: {

@@ -49,7 +49,7 @@ const CartMenuItem = ({
       ></CartMenuItemImage>
       <CartMenuItemInfo onClick={handleRoute}>
         <CartMenuName>{title}</CartMenuName>
-        <span style={{ fontWeight: 400, fontSize: "13px" }}>${price}</span>
+        <span style={{ fontWeight: 600, fontSize: "13px", opacity: "0.6" }}>${price}</span>
       </CartMenuItemInfo>
       <CloseIconContainer>
         <CrossIcon onClick={() => handleRemoveItem(item)} />

@@ -126,7 +126,7 @@ export const SubText = styled.span`
   font-weight: 600;
   letter-spacing: 0.5px;
   @media ${maxWidth.XXL} {
-    font-size: 17px;
+    font-size: 16px;
   }
   @media ${maxWidth.XS} {
     font-size: 16px;
@@ -135,10 +135,11 @@ export const SubText = styled.span`
 
 export const SubTextPrimary = styled(SubText)`
   color: ${(props) => props.theme.colors.primary};
+  opacity:0.7;
 `;
 
 export const SubTextGold = styled(SubText)`
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.accentDark};
 `;
 
 export const ProductPrice = styled.span`

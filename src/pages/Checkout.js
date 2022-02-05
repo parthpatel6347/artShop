@@ -29,6 +29,8 @@ import {
   PaymentContainer,
   CardDetailsContainer,
   PaymentButton,
+  ItemSubTitle,
+  TestCardDetails,
 } from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
 import { ButtonStyled } from "../styles/SigninStyles";
@@ -151,8 +153,11 @@ const Checkout = ({
             <PulseLoader loading={loading} size={6} color="white" />
           </div>
         </PaymentButton>
+        <TestCardDetails style={{ marginTop: "25px" }}>Test Card Number: 4242 4242 4242 4242</TestCardDetails>
+        <TestCardDetails>Date: Any future date</TestCardDetails>
+        <TestCardDetails>CVC: Any 3 digits</TestCardDetails>
       </PaymentContainer>
-    </CheckoutMain>
+    </CheckoutMain >
   );
 };
 

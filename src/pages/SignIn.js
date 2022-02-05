@@ -79,7 +79,7 @@ const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
         <Header>Sign In</Header>
         <>
           <form onSubmit={handleSubmit}>
-            {errorMessage && (<ErrorText>{errorMessage}</ErrorText>)}
+            {errorMessage && (<ErrorText>Email or Password is invalid.</ErrorText>)}
             <CustomInput
               placeholder="Email"
               type="email"

@@ -29,6 +29,7 @@ import {
   UserMenuContainer,
 } from "../styles/NavbarStyles";
 import UserDropDown from "./UserDropDown";
+import { useHistory } from "react-router-dom";
 
 const Navbar = ({
   currentUser,
@@ -50,9 +51,12 @@ const Navbar = ({
   const cartContainer = useRef();
   useOnClickOutside(cartContainer, () => (hidden ? null : hideCart()));
 
-  const onSignOut = () => {
+  const history = useHistory();
+
+  const onSignOut = async () => {
     emptyLocalCart();
-    auth.signOut();
+    await auth.signOut()
+    history.push("/signin")
   };
 
   return (

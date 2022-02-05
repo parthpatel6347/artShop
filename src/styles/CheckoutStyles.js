@@ -21,11 +21,12 @@ export const CheckoutCartContainer = styled.div`
 export const CheckoutItem = styled.div`
   box-sizing: border-box;
   height: 200px;
-  background-color: ${(props) => props.theme.colors.bgDarker};
+  background-color: ${(props) => props.theme.colors.bgLight};
   margin-bottom: 20px;
   padding: 0 15px;
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
   @media ${maxWidth.M} {
     height: 150px;
   }
@@ -90,7 +91,7 @@ export const ItemTitle = styled.span`
   @media ${maxWidth.XS} {
     font-size: 18px;
   }
-  @media ${maxWidth.iphone} {
+  @media ${maxWidth.XXS} {
     font-size: 17px;
   }
 `;
@@ -98,7 +99,8 @@ export const ItemTitle = styled.span`
 export const ItemSubTitle = styled.span`
   font-size: 16px;
   font-family: ${(props) => props.theme.fonts.sans};
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.primary};
+  opacity:0.7;
   font-weight: 600;
   letter-spacing: 0.5px;
   @media ${maxWidth.M} {
@@ -168,7 +170,7 @@ export const ItemCount = styled.span`
   font-size: 20px;
   color: ${(props) => props.theme.colors.gold};
   font-family: ${(props) => props.theme.fonts.sansSerif};
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.2px;
 `;
 
@@ -196,7 +198,7 @@ export const CardDetailsContainer = styled.div`
 export const PaymentButton = styled(Link)`
   background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
-  color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.bgLight};
   margin-right: auto;
   height: 40px;
   text-decoration: none;
@@ -215,9 +217,18 @@ export const PaymentButton = styled(Link)`
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
       rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
     transform: translateY(-3px);
-    background-color: ${(props) => props.theme.colors.gold};
+    background-color: ${(props) => props.theme.colors.primaryHover};
+    
   }
   @media ${maxWidth.S} {
     width: 85%;
   }
 `;
+
+export const TestCardDetails = styled(ItemSubTitle)`
+  width: 500px;
+  margin-bottom: 5px;
+  @media ${maxWidth.S} {
+    width: 85%;
+  }
+`

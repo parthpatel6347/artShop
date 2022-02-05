@@ -15,11 +15,12 @@ export const OrdersMain = styled.div`
 export const OrderItemContainer = styled.div`
   width: 100%;
   height: 142px;
-  background-color: ${(props) => props.theme.colors.bgDarker};
+  background-color: ${(props) => props.theme.colors.bgLight};
   margin-bottom: 20px;
   padding: 15px 15px;
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
 `;
 
 export const ItemImage = styled.div`
@@ -63,7 +64,7 @@ export const OrderInfo = styled.span`
 export const StatusContainer = styled.div`
   height: 30px;
   width: 115px;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primaryHover};
   display: flex;
   align-items: center;
   justify-content: center;

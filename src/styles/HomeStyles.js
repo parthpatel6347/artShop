@@ -236,7 +236,6 @@ export const CategoryContainer = styled.div`
   width: 1000px;
   margin: 0 auto 50px;
   background-color: ${(props) => props.theme.colors.bgLight};
-  /* border:2px solid ${(props) => props.theme.colors.accentLight}; */
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
   @media ${maxWidth.XXL} {
@@ -423,32 +422,86 @@ export const CategoryButton = styled(ButtonStyled)`
 
 export const ServicesContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
   width: 65%;
+  @media ${maxWidth.XL}{
+    justify-content: space-between;
+    width: 75%;
+  }
+  @media ${maxWidth.S}{
+    width: 85%;
+  }
+  @media ${maxWidth.XXS}{
+    width: 90%;
+  }
 `;
 
 export const ServiceCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  max-width: 250px;
   text-align: center;
+  @media ${maxWidth.XL}{
+    max-width:200px;
+  }
+  @media ${maxWidth.M}{
+    max-width:170px;
+  }
+  @media ${maxWidth.S}{
+    width: 150px;
+  }
+  @media ${maxWidth.XS}{
+    width: 125px;
+  }
+  @media ${maxWidth.XS}{
+    width: 100px;
+  }
 `;
 
 export const ServiceIcon = styled.img`
   height: 48px;
+  opacity:0.6;
+  @media ${maxWidth.M}{
+    height:35px;
+  }
+  @media ${maxWidth.XS}{
+    height:28px;
+  }
+  @media ${maxWidth.XXS}{
+    height:24px;
+  }
 `;
 
 export const ServiceTitle = styled.span`
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.primary};
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 22px;
+  margin-top: 10px;
+  font-weight:600;
+  @media ${maxWidth.M}{
+    font-size: 20px;
+  }
+  @media ${maxWidth.XS}{
+    font-size:18px;
+  }
+  @media ${maxWidth.XXS}{
+    font-size:16px;
+  }
 `;
 
 export const ServiceDescription = styled.span`
-  font-size: 20px;
+  font-size: 18px;
   font-family: ${(props) => props.theme.fonts.sans};
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.primary};
+  opacity:0.7;
   margin-top: 10px;
+  font-weight: 500;
+  @media ${maxWidth.M}{
+    font-size: 16px;
+  }
+  @media ${maxWidth.XS}{
+    font-size:14px;
+    margin-top:5px;
+  }
 `;

@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import Loader from "./pages/Loader";
+import Footer from "./components/Footer";
 
 const App = ({ dispatchCurrentUser, currentUser }) => {
   useEffect(() => {
@@ -72,6 +73,7 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
           />
           <Route path="*" component={NotFound} />
         </Switch>
+        <Footer />
       </ThemeProvider>
     </div>
   );

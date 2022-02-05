@@ -1,6 +1,8 @@
 export const theme = {
   colors: {
     primary: "black",
+    primaryHover: "#A57F35",
+    navFont: "#61605D",
     accent: "#F6C25C",
     accentLight: "#EDE5D9",
     accentDark: "#D29B30",
@@ -11,12 +13,7 @@ export const theme = {
     success: "#31c67c",
   },
   fonts: {
-    // sans: "Nunito Sans, sans-serif",
-    // sans: "Mukta, sans-serif",
     sans: "Quicksand, sans-serif",
     sansSerif: "Kaisei Tokumin, serif",
-    // sansSerif: "Martel, serif",
-    // sansSerif: "Rufina, serif",
-    // sansSerif: "Playfair Display, serif",
   },
 };
