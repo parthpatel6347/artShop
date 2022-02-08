@@ -13,8 +13,7 @@ export const ProductViewContainer = styled.div`
   padding: 55px;
   display: flex;
   background-color: ${(props) => props.theme.colors.bgLight};
-  border-radius: 5px;
-  /* border: 1px solid ${(props) => props.theme.colors.gold}; */
+  border: 2px solid ${(props) => props.theme.colors.accentLight};
   box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 15px;
   @media ${maxWidth.XXL} {
     width: 900px;

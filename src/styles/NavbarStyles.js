@@ -249,6 +249,8 @@ export const CartMenuName = styled.p`
   color: ${(props) => props.theme.colors.primary};
 `;
 
+// User dropdown styles 
+
 export const UserIconContiner = styled.div`
   display: flex;
   align-items: center;
@@ -263,7 +265,7 @@ export const DropDownContainer = styled.div`
   width: 170px;
   position: absolute;
   top: 1px;
-  right: -26px;
+  /* right: 0px; */
   display: flex;
   flex-direction: column;
   z-index: 5;
