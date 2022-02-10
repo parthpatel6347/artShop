@@ -1,4 +1,6 @@
 import React from "react";
+
+// import styled components
 import {
   CheckoutItem,
   ItemImage,
@@ -10,6 +12,7 @@ import {
   IconContainer,
 } from "../styles/CheckoutStyles";
 
+// import icon
 import { ReactComponent as TrashIcon } from "../svg/trash.svg";
 
 const CheckoutCartItem = ({ item, remove }) => {

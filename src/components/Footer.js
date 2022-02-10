@@ -1,5 +1,21 @@
 import React from 'react';
-import { FooterList, FooterMain, FooterTop, ListTitle, ListItem, FollowUsContainer, FollowUsText, SocialImg, CopyrightText, CodeLink, CreditsText, CreditsContainer } from '../styles/FooterStyles';
+
+// import styled components
+import {
+    FooterList,
+    FooterMain,
+    FooterTop,
+    ListTitle,
+    ListItem,
+    FollowUsContainer,
+    FollowUsText,
+    SocialImg, CopyrightText,
+    CodeLink,
+    CreditsText,
+    CreditsContainer
+} from '../styles/FooterStyles';
+
+// import icons
 import facebook from "../icons/facebook.png";
 import instagram from "../icons/instagram.png";
 import twitter from "../icons/twitter.png";
@@ -39,8 +55,6 @@ function Footer(props) {
                     <CodeLink src={github} alt="github" />
                 </a>
             </CreditsContainer>
-            
-            
         </FooterMain>
     );
 }

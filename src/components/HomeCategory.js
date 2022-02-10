@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
+
+// import styled components
 import {
   CategoryContainer,
   CategoryDescription,
@@ -11,8 +13,10 @@ import {
   CategoryButton,
 } from "../styles/HomeStyles";
 
+
 const HomeCategory = ({ title, description, image, link, history }) => {
 
+  // for mobile and smaller screen sizes, clicking on the entire container will redirect to the link
   const handleClick = () => {
     if (window.innerWidth <= 630) {
       history.push(`/explore/${link}`)

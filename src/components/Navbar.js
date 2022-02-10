@@ -1,10 +1,15 @@
 import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
+import { useHistory } from "react-router-dom";
 
+// import onclickoutside helper hook
 import useOnClickOutside from "../hooks/onClickOutside";
 
+// import firebase utility
 import { auth } from "../firebase/utils";
+
+// redux imports
 import { selectCurrentUser } from "../redux/user/userSelectors";
 import { selectCartHidden } from "../redux/cart/cartSelectors";
 import {
@@ -13,10 +18,12 @@ import {
   hideCart,
 } from "../redux/cart/cartActions";
 
+// import icons
 import CartIcon from "./CartIcon";
 import Cart from "./Cart";
 import userIcon from "../svg/user.svg";
 
+// import styled components
 import {
   NavbarContainer,
   NavbarInner,
@@ -28,8 +35,9 @@ import {
   LogoStyled,
   UserMenuContainer,
 } from "../styles/NavbarStyles";
+
+
 import UserDropDown from "./UserDropDown";
-import { useHistory } from "react-router-dom";
 
 const Navbar = ({
   currentUser,
@@ -51,8 +59,10 @@ const Navbar = ({
   const cartContainer = useRef();
   useOnClickOutside(cartContainer, () => (hidden ? null : hideCart()));
 
+
   const history = useHistory();
 
+  // empty redux state for cart, signout and redirect to sign in page
   const onSignOut = async () => {
     emptyLocalCart();
     await auth.signOut()
@@ -85,14 +95,12 @@ const Navbar = ({
                 classNames="fade"
                 unmountOnExit
               >
-                {() => (
-                  <UserMenuContainer style={{ position: "relative" }}>
-                    <UserDropDown
-                      signOut={onSignOut}
-                      toggleDropdown={handleDropdown}
-                    />
-                  </UserMenuContainer>
-                )}
+                <UserMenuContainer style={{ position: "relative" }}>
+                  <UserDropDown
+                    signOut={onSignOut}
+                    toggleDropdown={handleDropdown}
+                  />
+                </UserMenuContainer>
               </CSSTransition>
             </div>
           ) : (
@@ -113,7 +121,7 @@ const Navbar = ({
               classNames="fade"
               unmountOnExit
             >
-              {() => <Cart />}
+              <Cart />
             </CSSTransition>
           </div>
         </NavLinksContainer>

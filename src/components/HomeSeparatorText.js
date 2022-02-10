@@ -1,4 +1,6 @@
 import React from "react";
+
+// import styled component
 import { SeparatorContainer } from "../styles/HomeStyles";
 
 const HomeSeparatorText = ({ text }) => {

@@ -1,14 +1,17 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+
+// redux imports
 import { hideCart } from "../redux/cart/cartActions";
 import { selectCartItems } from "../redux/cart/cartSelectors";
 import { removeItem } from "../redux/cart/cartActions";
 import { selectCurrentUser } from "../redux/user/userSelectors";
+
+// import firebase utility
 import { addItemToUserCart } from "../firebase/utils";
 
-import { ReactComponent as CrossIcon } from "../svg/cross.svg";
-
+// import styled components
 import {
   CartMenuItemImage,
   CartMenuItemInfo,
@@ -16,6 +19,10 @@ import {
   CartMenuName,
   CloseIconContainer,
 } from "../styles/NavbarStyles";
+
+// import icon
+import { ReactComponent as CrossIcon } from "../svg/cross.svg";
+
 
 const CartMenuItem = ({
   item,
@@ -27,6 +34,7 @@ const CartMenuItem = ({
 }) => {
   const { category, id, image, price, title } = item;
 
+  // remove item from redux cart state and update user cart on firebase database
   const handleRemoveItem = async (data) => {
     removeItem(data);
     await addItemToUserCart(
@@ -35,10 +43,13 @@ const CartMenuItem = ({
     );
   };
 
+  // go to product view page
   const handleRoute = () => {
     hideCart();
     history.push(`/explore/${category}/${id}`);
   };
+
+
   return (
     <CartMenuItemMain>
       <CartMenuItemImage

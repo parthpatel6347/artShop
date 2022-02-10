@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 
+// import styled components
 import {
   CategoryCardContainer,
   CategoryImageContainer,
@@ -8,6 +9,7 @@ import {
   Frame,
   CategoryName,
 } from "../styles/CategoriesStyles";
+
 
 const CategoryCard = ({ title, image, link, history }) => {
   return (
