@@ -45,34 +45,36 @@ const App = ({ dispatchCurrentUser, currentUser }) => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <ThemeProvider theme={theme}>
         <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/explore" exact component={Categories} />
-          <Route path="/explore/:page" exact component={Explore} />
-          <Route path="/explore/:page/:id" exact component={ProductView} />
-          <Route path="/checkout" exact component={Checkout} />
-          <Route path="/success" exact component={PaymentSuccess} />
-          <Route path="/orders" exact component={Orders} />
-          <Route path="/loading" exact component={Loader} />
-          <Route
-            path="/signin"
-            exact
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <SignIn />
-            }
-          />
-          <Route
-            path="/signup"
-            exact
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <SignUp />
-            }
-          />
-          <Route path="*" component={NotFound} />
-        </Switch>
+        <main>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/explore" exact component={Categories} />
+            <Route path="/explore/:page" exact component={Explore} />
+            <Route path="/explore/:page/:id" exact component={ProductView} />
+            <Route path="/checkout" exact component={Checkout} />
+            <Route path="/success" exact component={PaymentSuccess} />
+            <Route path="/orders" exact component={Orders} />
+            <Route path="/loading" exact component={Loader} />
+            <Route
+              path="/signin"
+              exact
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignIn />
+              }
+            />
+            <Route
+              path="/signup"
+              exact
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignUp />
+              }
+            />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </main>
         <Footer />
       </ThemeProvider>
     </div>

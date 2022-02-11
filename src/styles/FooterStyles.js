@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { maxWidth } from "./size";
 
 export const FooterMain = styled.div`
+    /* position:absolute;
+    bottom:0; */
     width: 100%;
     background-color: rgba(0,0,0,0.15);
     margin-top: 60px;
