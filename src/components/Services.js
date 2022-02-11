@@ -1,9 +1,11 @@
 import React from "react";
 
+// import styled component
 import { ServicesContainer } from "../styles/HomeStyles";
 
 import ServicesCard from "./ServicesCard";
 
+// icons import
 import certificate from "../svg/certificate.svg";
 import truck from "../svg/truck.svg";
 import returns from "../svg/return.svg";
@@ -24,6 +26,7 @@ const Services = () => {
 
 export default Services;
 
+// services data
 const services = {
   art: {
     title: "Authentic",

@@ -1,4 +1,6 @@
 import React from "react";
+
+// import styled components
 import {
   InfoContainer,
   InfoTop,
@@ -7,10 +9,13 @@ import {
   OrderItemContainer,
   StatusContainer,
   StatusText,
+  ItemImage
 } from "../styles/OrdersStyles";
-import { ItemImage } from "../styles/OrdersStyles";
+
 
 const OrderItem = ({ date, items, orderNo, total }) => {
+
+  // get the image of first item to set as preview for the order 
   let image = items[0].image;
 
   return (
@@ -33,7 +38,6 @@ const OrderItem = ({ date, items, orderNo, total }) => {
             <OrderInfo>${total}.00</OrderInfo>
           </OrderInfoRow>
         </InfoTop>
-
         <StatusContainer>
           <StatusText>Processing</StatusText>
         </StatusContainer>

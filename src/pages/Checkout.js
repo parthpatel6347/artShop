@@ -11,8 +11,6 @@ import { syncOrders } from "../redux/orders/ordersActions";
 
 import { getUserOrders } from "../firebase/utils";
 
-// import StripeButton from "../components/StripeButton";
-
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import {
   addItemToUserCart,
@@ -31,6 +29,7 @@ import {
   PaymentButton,
   ItemSubTitle,
   TestCardDetails,
+  EmptyCartText,
 } from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
 import { ButtonStyled } from "../styles/SigninStyles";
@@ -125,11 +124,12 @@ const Checkout = ({
         <TitleContainer>
           <Title>Cart</Title>
           <ItemCount>
-            {cartItems.length > 1
+            {cartItems.length !== 1
               ? `${cartItems.length} Items`
               : `${cartItems.length} Item`}
           </ItemCount>
         </TitleContainer>
+        {cartItems.length < 1 && <EmptyCartText>Your cart is empty</EmptyCartText>}
         {cartItems.map((item) => (
           <CheckoutCartItem
             item={item}
@@ -138,16 +138,16 @@ const Checkout = ({
             }}
           />
         ))}
-        <TotalText>Total : ${total}.00</TotalText>
+        {cartItems.length > 0 && <TotalText>Total : ${total}.00</TotalText>}
       </CheckoutCartContainer>
-      <PaymentContainer>
+      <PaymentContainer empty={cartItems.length < 1}>
         <TitleContainer>
           <Title>Payment</Title>
         </TitleContainer>
         <CardDetailsContainer>
           <CardElement options={cardElementOptions} />
         </CardDetailsContainer>
-        <PaymentButton onClick={handleSubmit}>
+        <PaymentButton onClick={handleSubmit} disabled={cartItems.length < 1}>
           {loading ? "Processing" : `Pay $${total}.00`}
           <div style={{ marginLeft: "5px" }}>
             <PulseLoader loading={loading} size={6} color="white" />
@@ -157,7 +157,7 @@ const Checkout = ({
         <TestCardDetails>Date: Any future date</TestCardDetails>
         <TestCardDetails>CVC: Any 3 digits</TestCardDetails>
       </PaymentContainer>
-    </CheckoutMain >
+    </CheckoutMain>
   );
 };
 

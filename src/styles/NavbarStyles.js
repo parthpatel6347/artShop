@@ -190,9 +190,10 @@ export const CartMenuItemsContainer = styled.div`
   }
 `;
 
-export const CheckoutButton = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
+export const CheckoutButton = styled.button`
+  background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
+  border:none;
   color: white;
   height: 30px;
   text-decoration: none;
@@ -203,8 +204,10 @@ export const CheckoutButton = styled.div`
   box-sizing: border-box;
   margin-top: 18px;
   padding: 5px;
+  transition: all 0.1s ease-out;
   &:hover {
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "" : "pointer"};
+    background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.primaryHover};
   }
 `;
 

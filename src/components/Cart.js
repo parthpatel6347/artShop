@@ -38,7 +38,7 @@ const Cart = ({ cartItems, history, hideCart, currentUser }) => {
           <p>Your cart is empty</p>
         )}
       </CartMenuItemsContainer>
-      <CheckoutButton onClick={handleCheckoutClick}>Checkout</CheckoutButton>
+      <CheckoutButton onClick={handleCheckoutClick} disabled={cartItems.length < 1}>Checkout</CheckoutButton>
     </CartMenuMain>
   );
 };

@@ -168,7 +168,7 @@ export const Title = styled.span`
 
 export const ItemCount = styled.span`
   font-size: 20px;
-  color: ${(props) => props.theme.colors.gold};
+  color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sansSerif};
   font-weight: 500;
   letter-spacing: 0.2px;
@@ -176,7 +176,7 @@ export const ItemCount = styled.span`
 
 export const PaymentContainer = styled.div`
   width: 850px;
-  display: flex;
+  display: ${props => props.empty ? "none" : "flex"};
   flex-direction: column;
   margin-bottom: 100px;
   align-items: center;
@@ -185,9 +185,16 @@ export const PaymentContainer = styled.div`
   }
 `;
 
+export const EmptyCartText = styled.div`
+  font-family: ${(props) => props.theme.fonts.sans};
+  font-size:16px;
+  font-weight:500;
+  text-align:center;
+`
+
 export const CardDetailsContainer = styled.div`
   width: 500px;
-  border: 1px solid ${(props) => props.theme.colors.gold};
+  border: 1px solid ${(props) => props.theme.colors.primary};
   background-color: ${(props) => props.theme.colors.bgLight};
   padding-left: 10px;
   @media ${maxWidth.S} {
@@ -195,10 +202,11 @@ export const CardDetailsContainer = styled.div`
   }
 `;
 
-export const PaymentButton = styled(Link)`
-  background-color: ${(props) => props.theme.colors.primary};
+export const PaymentButton = styled.button`
+  background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.sans};
   color: ${(props) => props.theme.colors.bgLight};
+  border:none;
   margin-right: auto;
   height: 40px;
   text-decoration: none;
@@ -217,7 +225,7 @@ export const PaymentButton = styled(Link)`
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
       rgba(0, 0, 0, 0.15) 0px 4px 6px -2px;
     transform: translateY(-3px);
-    background-color: ${(props) => props.theme.colors.primaryHover};
+    background-color: ${(props) => props.disabled ? "gray" : props.theme.colors.primaryHover};
     
   }
   @media ${maxWidth.S} {
