@@ -2,7 +2,7 @@
 
 #### An E-commerce website for art.
 
-[Go to website]((https://art-shop-three.vercel.app/))
+[Go to website](https://art-shop-three.vercel.app/)
 
 The application is a FrontEnd project created with Reactjs.
 Redux is used for state management and Styled Components are used to style the elements.
