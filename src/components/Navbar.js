@@ -83,6 +83,7 @@ const Navbar = ({
               <NavLink
                 onClick={handleDropdown}
                 style={{ backgroundColor: !open ? "" : "#EDE5D9" }}
+                to=""
               >
                 <UserIconContiner>
                   <img src={userIcon} alt="user" />
@@ -112,6 +113,7 @@ const Navbar = ({
             <NavLink
               onClick={toggleCartVisibility}
               style={{ backgroundColor: hidden ? "" : "#EDE5D9" }}
+              to=""
             >
               <CartIcon />
             </NavLink>

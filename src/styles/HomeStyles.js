@@ -155,7 +155,7 @@ export const ImageStyled = styled.div`
   z-index: 2;
   width: 346px;
   height: 486px;
-  background-image: url(https://images.unsplash.com/photo-1617503752587-97d2103a96ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1919&q=80);
+  background-image: url(https://images.unsplash.com/photo-1589753345288-f86191e89ad7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2095&q=80);
   background-size: cover;
   background-position: center;
   /* box-shadow: rgba(0, 0, 0, 0.13) 5px 5px 5px; */

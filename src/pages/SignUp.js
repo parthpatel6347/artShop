@@ -18,9 +18,6 @@ import {
   FormContainerBottom,
 } from "../styles/SigninStyles";
 
-
-import { Link } from "react-router-dom";
-
 const SignUp = ({ cartItems }) => {
   const [formData, setFormData] = useState({
     name: "",

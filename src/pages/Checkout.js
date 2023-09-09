@@ -15,7 +15,6 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import {
   addItemToUserCart,
   addOrdertoUser,
-  syncCartWithUser,
 } from "../firebase/utils";
 import {
   CheckoutMain,
@@ -27,12 +26,10 @@ import {
   PaymentContainer,
   CardDetailsContainer,
   PaymentButton,
-  ItemSubTitle,
   TestCardDetails,
   EmptyCartText,
 } from "../styles/CheckoutStyles";
 import CheckoutCartItem from "../components/CheckoutCartItem";
-import { ButtonStyled } from "../styles/SigninStyles";
 
 import PulseLoader from "react-spinners/PulseLoader";
 

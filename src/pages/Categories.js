@@ -8,6 +8,7 @@ const Categories = () => {
     <CategoryContainer>
       {Object.keys(categoryData).map((key) => (
         <CategoryCard
+          key = {key}
           title={categoryData[key].title}
           image={categoryData[key].image}
           link={categoryData[key].link}

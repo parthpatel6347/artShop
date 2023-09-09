@@ -15,6 +15,7 @@ const Services = () => {
     <ServicesContainer>
       {Object.keys(services).map((key) => (
         <ServicesCard
+          key={key}
           title={services[key].title}
           description={services[key].description}
           logo={services[key].logo}

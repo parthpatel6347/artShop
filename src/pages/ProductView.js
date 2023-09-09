@@ -88,7 +88,7 @@ const ProductView = ({
             </ArtistNameContainer>
             <ProductPrice>${price}</ProductPrice>
             <Description>{description}</Description>
-            <AddtoCartButton onClick={handleAdd} disabled={isInCart}>
+            <AddtoCartButton onClick={handleAdd} disabled={isInCart} to="">
               {isInCart ? "Item in cart" : "Add to cart"}
             </AddtoCartButton>
           </InfoContainer>

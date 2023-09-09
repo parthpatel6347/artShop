@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { signInWithGoogle, auth, getUserOrders } from "../firebase/utils";
-import { Link } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import { syncCartWithUser } from "../firebase/utils";
 import { selectCartItems } from "../redux/cart/cartSelectors";
@@ -18,13 +17,11 @@ import {
   Divider,
   DividerLine,
   ErrorText,
-  FormContainer,
   FormContainerBottom,
   Header,
   LoginFormContainer,
 } from "../styles/SigninStyles";
 
-import { ReactComponent as GoogleLogo } from "../svg/googleIcon.svg";
 
 const SignIn = ({ cartItems, cloneCart, syncOrders }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
